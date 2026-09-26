@@ -1,0 +1,1663 @@
+{
+  "2012-Q01": {
+    "id": "2012-Q01",
+    "type": "choice",
+    "answer": {
+      "correct": "C"
+    },
+    "difficulty": "medium",
+    "recall": "道尔顿分压定律：pB V = nB RT（分压×总体积）；阿马格分体积：p VB = nB RT（总压×分体积）。pB·VB 无意义。",
+    "solution": "理想气体混合物：$pV=nRT$ ✓；分压定义 $p_{\\mathrm B}V=n_{\\mathrm B}RT$ ✓（D 对）；分体积定义 $pV_{\\mathrm B}=n_{\\mathrm B}RT$ ✓（B 对）；$p_{\\mathrm B}V_{\\mathrm B}=y_{\\mathrm B}^{2}nRT\\ne n_{\\mathrm B}RT$，C 不正确。",
+    "method": "记两套定义：分压配总体积，分体积配总压；交叉相乘（pB·VB）是经典错误项。",
+    "pitfalls": [
+      "D 选项看着\"不对称\"但正是分压定义式",
+      "与 2006-Q11 同考点"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "分压与分体积各配总V或总p，交叉相乘pBVB错误，选C。",
+      "round_B_evidence": "用分数 $p_B=y_Bp$、$V_B=y_BV$ 得交叉式多一因子yB。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q02": {
+    "id": "2012-Q02",
+    "type": "choice",
+    "answer": {
+      "correct": "A"
+    },
+    "difficulty": "medium",
+    "recall": "赫斯定律：ΔfH(H2O,l)=ΔcH(H2)=-285.83；ΔvapH=ΔfH(g)-ΔfH(l)。",
+    "solution": "$\\Delta_{\\mathrm{vap}}H_{\\mathrm m}=\\Delta_{\\mathrm f}H_{\\mathrm m}^{\\theta}(\\ce{H2O,g})-\\Delta_{\\mathrm f}H_{\\mathrm m}^{\\theta}(\\ce{H2O,l})=-241.82-(-285.83)=44.01$ kJ/mol。",
+    "method": "H2 的燃烧焓=液态水的生成焓，这是隐含条件。",
+    "pitfalls": [
+      "注意是 H2O(g) 生成焓，二者相减即蒸发焓",
+      "44.01 kJ/mol 可作常识记"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "氢燃烧到液水焓−285.83，气水生成焓−241.82，差44.01，选A。",
+      "round_B_evidence": "Hess循环液水→气水=气水生成−液水生成复核。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q03": {
+    "id": "2012-Q03",
+    "type": "choice",
+    "answer": {
+      "correct": "B"
+    },
+    "difficulty": "medium",
+    "recall": "恒压且非体积功为零时 Qp=ΔH；电池中进行时有电功输出，Q2≠ΔH2。焓是状态函数 ΔH1=ΔH2。",
+    "solution": "直接进行（恒压、$W^{\\prime}=0$）：$Q_1=\\Delta H_1$ ✓。电池中进行（作电功）：$Q_2=T\\Delta S$（可逆）或更一般 $Q_2=\\Delta H_2+W^{\\prime}$，$Q_2\\ne\\Delta H_2$；$\\Delta H_1=\\Delta H_2$（状态函数）。只有 B 正确。",
+    "method": "判断每个等式成立的条件：Qp=ΔH 要求恒压且非体积功为零。",
+    "pitfalls": [
+      "ΔH1=ΔH2 恒成立但 Q1=Q2 不成立",
+      "与 2006 判断 Q04、2011-Q32（Qr≠ΔH）互证"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "无电功直接恒压反应Q1=ΔH1，选B。",
+      "round_B_evidence": "电池有电功时第一定律显示Q2不一般等于ΔH2，排除C/A。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q04": {
+    "id": "2012-Q04",
+    "type": "choice",
+    "answer": {
+      "final": "原卷四项均不正确：同一终体积下 $T_3<T_2=T_1$，且可逆恒温膨胀的功绝对值大于可逆绝热膨胀，即 $|W_I|>|W_{II}|$。原选项 A 温度号错，B/D 功号错，C 温度号错；不可只判 A。"
+    },
+    "difficulty": "medium",
+    "recall": "绝热可逆膨胀降温：T3<T2=T1；同末体积下恒温线始终高于绝热线，恒温过程做功更多。",
+    "solution": "可逆恒温膨胀 $T_2=T_1$；可逆绝热膨胀耗内能作功，$T_3<T_1$。两途径从同态走到同体积，绝热线 $p_{ad}(V)<p_{iso}(V)$（膨胀段），所以 $|W_I|=\\int p_{iso}dV>\\int p_{ad}dV=|W_{II}|$。正确组合为 $T_3<T_2$ 且 $|W_I|>|W_{II}|$，原卷第66–67页四个选项无此组合，B与D甚至重复相同错误功号。",
+    "method": "先比较两过程终温，再在同一V区间比较两条可逆p-V曲线下的面积；逐项检查原卷选项。",
+    "pitfalls": [
+      "C、D 选项在原文中重复，答案为 A",
+      "绝热膨胀必降温是关键"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "可逆绝热终温低于恒温终温，恒温p-V曲线面积较大，原四项无正确。",
+      "round_B_evidence": "用 $p_{ad}/p_{iso}=(V_1/V)^{γ-1}<1$ 在膨胀段逐点比较功。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q05": {
+    "id": "2012-Q05",
+    "type": "choice",
+    "answer": {
+      "correct": "B"
+    },
+    "difficulty": "medium",
+    "recall": "过冷水结冰：体系放热 ΔS体<0；环境吸热 ΔS环>0（自发过程总熵>0）。",
+    "solution": "水凝结成冰，分子有序度增加且放出凝固热：$\\Delta S_{\\text{体}}<0$；环境吸收热量：$\\Delta S_{\\text{环}}>0$。（263 K 下过冷水结冰自发，$\\Delta S_{\\text{总}}>0$。）",
+    "method": "相变方向定体系熵号；环境热量反号。与 2011-Q04（过热蒸气凝结）同一模型。",
+    "pitfalls": [
+      "不要只问体系熵而忘环境熵",
+      "\"总熵>0\"在 2011-Q04 考过，本题只问体系和环境"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "过冷水结冰系统有序度升、熵负，环境吸潜热熵正，选B。",
+      "round_B_evidence": "该温度冰稳定、自发凝固整体熵正，与两部分符号兼容。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D12/S2-M1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q06": {
+    "id": "2012-Q06",
+    "type": "choice",
+    "answer": {
+      "correct": "D"
+    },
+    "difficulty": "medium",
+    "recall": "恒温可逆过程 ΔA=Wr；理想气体恒温 ΔU=0，ΔA=-TΔS=-nRTln(V2/V1)。",
+    "solution": "$\\Delta A=-T\\Delta S=-nRT\\ln\\dfrac{V_2}{V_1}=-1\\times8.314\\times300\\times\\ln2=-1.729$ kJ。",
+    "method": "恒温理想气体：ΔA=ΔG=-nRTln(V2/V1)=nRTln(p2/p1)。",
+    "pitfalls": [
+      "\"双原子\"是干扰信息——理想气体温过程 A、G 与热容无关",
+      "与 2005-Q06（ΔG=ΔA）同考点"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "等温理想气体U不变、熵增Rln2，ΔA=−1.729kJ，选D。",
+      "round_B_evidence": "直接用等温可逆膨胀最大功−nRTln2复核Helmholtz差。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q07": {
+    "id": "2012-Q07",
+    "type": "choice",
+    "answer": {
+      "correct": "B"
+    },
+    "difficulty": "medium",
+    "recall": "(∂G/∂T)p=-S<0：熵恒为正，升温 G 必减小。",
+    "solution": "由热力学基本方程 $\\mathrm dG=-S\\mathrm dT+V\\mathrm dp$，$(\\partial G/\\partial T)_p=-S<0$，故恒压升温 G 减小。",
+    "method": "同理恒容升温 A 减小（(∂A/∂T)V=-S）。",
+    "pitfalls": [
+      "与 2009-Q04（G 随 T、p 变化）同考点"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "定压G温导为−S，升温G下降，选B。",
+      "round_B_evidence": "热力学基本式 $dG=-SdT+Vdp$ 定p复核。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q08": {
+    "id": "2012-Q08",
+    "type": "choice",
+    "answer": {
+      "correct": "B"
+    },
+    "difficulty": "medium",
+    "recall": "0 ℃、101.325 kPa 是水的正常凝固点：冰-水两相平衡，化学势相等。",
+    "solution": "$\\mu_1=\\mu_2$（两相平衡判据）。正常冰点定义为 101.325 kPa 下冰水平衡的温度 273.15 K。",
+    "method": "找\"正常熔点/沸点\"字样=两相平衡=化学势相等。",
+    "pitfalls": [
+      "选项 A、C 重复（原卷如此），答案 B",
+      "与 2004-Q06（μ1=μ2）同考点"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "常压冰点液水与冰共存，μ相等，选B。",
+      "round_B_evidence": "相平衡物质微量转移ΔG=(μ冰−μ水)dn=0。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D12/S2-M1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q09": {
+    "id": "2012-Q09",
+    "type": "choice",
+    "answer": {
+      "correct": "B"
+    },
+    "difficulty": "medium",
+    "recall": "Kθ<1 → ΔrGθ>0；又 ΔrSθ>0 → ΔrHθ=ΔGθ+TΔSθ>0，吸热反应升温 Kθ 增大。",
+    "solution": "$K^{\\theta}<1\\Rightarrow\\Delta_{\\mathrm r}G_{\\mathrm m}^{\\theta}=-RT\\ln K^{\\theta}>0$；$\\Delta_{\\mathrm r}H_{\\mathrm m}^{\\theta}=\\Delta_{\\mathrm r}G_{\\mathrm m}^{\\theta}+T\\Delta_{\\mathrm r}S_{\\mathrm m}^{\\theta}>0$（两正数之和）。由范特霍夫方程，$\\Delta H>0$ 时升温 $K^{\\theta}$ 增加；$\\Delta C_p=0$ 保证 $\\Delta H$ 不随温度变号。",
+    "method": "本题链条：Kθ<1 → ΔGθ>0 →（加 TΔSθ>0）→ ΔHθ>0 → 升温 Kθ 增。",
+    "pitfalls": [
+      "ΔCp=0 是关键保证，否则 ΔH 可能变号",
+      "范特霍夫方程 dlnK/dT=ΔH/(RT²)"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "K<1给G°正，S°正又给H°正，升温K增，选B。",
+      "round_B_evidence": "van't Hoff斜率 $d\\ln K/dT=H°/(RT²)>0$。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D12/S2-M1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q10": {
+    "id": "2012-Q10",
+    "type": "choice",
+    "answer": {
+      "correct": "D"
+    },
+    "difficulty": "medium",
+    "recall": "反应 (3)=(1)/2-(2)：K₃θ=(K₁θ)^{1/2}/K₂θ。",
+    "solution": "目标反应(3) = 反应(1)的 $1/2$ 减反应(2)。$K_3^\\theta=(K_1^\\theta)^{1/2}/K_2^\\theta$，**原卷 D 项**。原答案栏误记为 C，C 为 $(K_1^\\theta/K_2^\\theta)^{1/2}$，错误地将 $K_2$ 也开平方。",
+    "method": "平衡常数组合规则：反应相加 K 相乘；减半次方 K 开根；相减 K 相除。",
+    "pitfalls": [
+      "K 是无量纲量，绝不能直接相减（A 错）",
+      "与 2004-Q10（活化能组合）规则对照记"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "反应3=半反应1−反应2，K3=sqrt(K1)/K2，原卷D。",
+      "round_B_evidence": "由标准G乘半并相减独立推出同一K，旧C错误。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q11": {
+    "id": "2012-Q11",
+    "type": "choice",
+    "answer": {
+      "correct": "A"
+    },
+    "difficulty": "medium",
+    "recall": "杠杆规则：m(L1)/m总 = (w2-w总)/(w2-w1)。",
+    "solution": "$m(L_1)=1.0\\times\\dfrac{0.70-0.40}{0.70-0.08}=\\dfrac{0.30}{0.62}=0.4839$ kg。",
+    "method": "液-液两相杠杆规则与气-液相同，注意用质量分数。",
+    "pitfalls": [
+      "总组成 w=0.4 在两共轭组成之间才能分层",
+      "与 2007 计算 Q21（杠杆规则）同法"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "总苯酚质量分数.4，在.08与.70两端用杠杆律得L1=.4839kg。",
+      "round_B_evidence": "回代两相苯酚质量 .4839*.08+.5161*.70=.400kg。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q12": {
+    "id": "2012-Q12",
+    "type": "choice",
+    "answer": {
+      "correct": "D"
+    },
+    "difficulty": "medium",
+    "recall": "S=4，R=1，R′=2（三种气体摩尔比 1:1:1，两条浓度限制），C=1；P=2，F=C-P+2=1。",
+    "solution": "$C=4-1-2=1$，$P=2$，$F=1-2+2=1$。虽然产物有三种气体，但全部由 NH₄HCO₃ 分解而来且摩尔比固定，R′=2。",
+    "method": "R′（浓度限制）只数同一相内且由反应本身保证的比例关系；本题三种气体两条独立比例。",
+    "pitfalls": [
+      "与 NH4Cl（R′=1，C=1）对比：产物每多一种等量气体 R′ 多 1",
+      "与 2004-Q08（NH4Cl）同模型"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "真空仅NH4HCO3分解，三气等摩尔使组分数1、相数2、自由度1，选D。",
+      "round_B_evidence": "定温后只余平衡总压一个固定值，完整相律F1。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D12/S2-M1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q13": {
+    "id": "2012-Q13",
+    "type": "choice",
+    "answer": {
+      "correct": "C"
+    },
+    "difficulty": "medium",
+    "recall": "理想液态混合物 ΔmixS=-RΣnB ln xB。",
+    "solution": "$\\Delta_{\\mathrm{mix}}S=-R(0.5\\ln0.5+0.5\\ln0.5)=R\\ln2=5.76$ J/K。",
+    "method": "等量混合 ΔmixS=n总R ln2=1×R×ln2。",
+    "pitfalls": [
+      "别把 0.5 mol 各代入漏乘——或用 n 为物质的量逐项算",
+      "与 2008 填空 Q26、2010-Q01 同公式"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "各.5mol理想液态混合熵Rln2=5.763J/K，选C。",
+      "round_B_evidence": "由 $\\Delta G=RT\\sum n_i\\ln x_i=-RT\\ln2$ 反得熵。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D12/S2-M1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q14": {
+    "id": "2012-Q14",
+    "type": "choice",
+    "answer": {
+      "correct": "B"
+    },
+    "difficulty": "medium",
+    "recall": "溶质的标准态随浓度标度不同而不同（x、c、b 三种标度各有标准态）。",
+    "solution": "B 不正确：溶质标准态与浓度表示方式有关（$x_{\\mathrm B}=1$ 的假想态、$c^{\\theta}$、$b^{\\theta}$ 各不相同）。A 对（标准态只定压力不定温度）；C 对（液态混合物任一组分标准态都是该温度压力下的纯液体）；D 对。",
+    "method": "区分：纯物质/液态混合物组分标准态与标度无关；溶质标准态与标度有关。",
+    "pitfalls": [
+      "\"标准态不规定温度\"（A）也是常考点",
+      "与 2006-Q17 同考点"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "溶质Henry标准态随浓度标度变，选B。",
+      "round_B_evidence": "对液态溶剂纯态Raoult标准与溶质假想无限稀标准分别核选项。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q15": {
+    "id": "2012-Q15",
+    "type": "choice",
+    "answer": {
+      "correct": "C"
+    },
+    "difficulty": "medium",
+    "recall": "电导率 κ：浓度增大离子数增多（κ 增），但离子间作用增强淌度下降（增幅放缓），高浓度后转为下降——先增后减。",
+    "solution": "强电解质 $\\kappa$ 随 $c$ 先增大，浓度较大时离子缔合与淌度下降占优，$\\kappa$ 转而减小，存在极大值。注意与摩尔电导率 $\\Lambda_{\\mathrm m}$（单调减小）区分。\n\n此为某些典型强电解质水溶液在足够宽浓度范围的经验趋势，不能推广为所有盐、所有可达浓度范围必出现内部极大。",
+    "method": "κ 先增后减；Λm 单调减小。两个趋势对比记。",
+    "pitfalls": [
+      "与 2011-Q12（Λm 单调减小）恰好互补",
+      "弱电解质 κ 变化平缓且低"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "典型强电解质由稀至高浓κ可能先升后降，常规选C。",
+      "round_B_evidence": "κ=Σ离子浓度×迁移率两因素相争，非所有体系必有内部极大。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q16": {
+    "id": "2012-Q16",
+    "type": "choice",
+    "answer": {
+      "final": "原题超电势未约定符号且有多项可判错。若定义阳极/阴极超电势为正的幅值，A 错（阳极电势上升）、C 也错（阴极超电势非负）；若定义有符号电位偏差，A 与 B 错，C 可成立。不能仅凭题面单选 A。"
+    },
+    "difficulty": "medium",
+    "recall": "阳极极化使电极电势变大（更正），阴极极化使之变小——A 说\"均变小\"不正确。",
+    "solution": "原卷第68页四选项如题。极化使阳极实际电极电势上移、阴极下移，故 A“均变得更小”必错。若 $\\eta_a=E_{a,ir}-E_{a,eq}>0$、$\\eta_c=E_{c,eq}-E_{c,ir}>0$ 定义为各自**正幅值**，则 C“阴极超电势为负”也错；若定义有符号偏移 $E_{ir}-E_{eq}$，则阴极为负，B“阴阳超电势均正”错。题面未定义超电势符号，单选无唯一判分。D 指电极反应需要更大驱动力，一般成立。",
+    "method": "先固定超电势采用正幅值还是有符号电位偏差，再逐项判阳极/阴极极化方向。",
+    "pitfalls": [
+      "若教材把 η阴 定义为负值则 C 也说得过去——考场上以 A 为最明显错误",
+      "与 2010-Q19、2015 同类极化题对照"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "阳极极化电势升而阴极降，A必错；超电势符号定义缺失又使B或C错。",
+      "round_B_evidence": "分别用正幅值与有符号偏差两定义代入选项，证原题不能单选。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D12/S2-M1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q17": {
+    "id": "2012-Q17",
+    "type": "choice",
+    "answer": {
+      "final": "按原卷 $\\gamma=42.5\\times10^{-5}$ N/m、半径 $r=1$ mm、双表面肥皂泡，$\\Delta p=4\\gamma/r=1.70$ Pa，四个选项均无此值。若另外将原卷指数 $10^{-5}$ 勘误为 $10^{-3}$，才得170 Pa（C）；不可静默改题。"
+    },
+    "difficulty": "medium",
+    "recall": "气泡（双液膜界面）附加压力 Δp=4γ/r；题面 γ=42.5×10⁻⁵ 应为 10⁻³ 量级（表面活性剂使水 γ 从 72.8 降到 42.5 mN/m）。",
+    "solution": "球形液膜泡有两表面，$\\Delta p=4\\gamma/r$。按原卷第68页印刷的 $42.5\\times10^{-5}$ N/m与半径 $10^{-3}$ m，$\\Delta p=4(42.5\\times10^{-5})/10^{-3}=1.70$ Pa。A85、B145.6、C170、D291.2 Pa均不等于1.70 Pa，原题无正确选项。只有明示把原卷指数视为排印错误，取 $42.5\\times10^{-3}$ N/m时，才得170 Pa并选C。同时原卷数值比纯水表面张力小约171倍，对稀表面活性剂溶液也值得核对，但不能由经验值擅改原数。",
+    "method": "先照原卷指数统一SI计算双表面Laplace压力，再把勘误假设结果单独列出。",
+    "pitfalls": [
+      "若按 2γ/r 会错选 85 Pa（A）",
+      "72.8→42.5 说明是表面活性剂溶液，γ 只能是 10⁻³ 量级"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "按原卷γ=42.5e-5，双表面泡压1.70Pa，无选项。",
+      "round_B_evidence": "若明示勘误γ为42.5e-3才得170Pa选C，两种路径严格分开。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q18": {
+    "id": "2012-Q18",
+    "type": "choice",
+    "answer": {
+      "correct": "A"
+    },
+    "difficulty": "medium",
+    "recall": "气体吸附是自发（ΔG<0）、放热（ΔH<0）、熵减（ΔS<0，气体被束缚到表面）的过程。",
+    "solution": "气体分子被吸附到固体表面：平动自由度丧失 $\\Delta S<0$；吸附自发进行 $\\Delta G<0$；由 $\\Delta G=\\Delta H-T\\Delta S$，$\\Delta S<0$ 而 $\\Delta G<0$ 要求 $\\Delta H<0$（放热）。",
+    "method": "用 ΔG=ΔH-TΔS 三量互推：自发+熵减→必放热。",
+    "pitfalls": [
+      "\"物理吸附放热、化学吸附也放热\"——吸附恒放热（极少数解离吸附例外不作考点）",
+      "与 2005-Q11（表面热力学）同考点"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "通常自发气体吸附G负、S负，H=G+TS亦负，选A。",
+      "round_B_evidence": "Gibbs式重排核焓负并注明平衡时净G零。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q19": {
+    "id": "2012-Q19",
+    "type": "choice",
+    "answer": {
+      "correct": "A"
+    },
+    "difficulty": "medium",
+    "recall": "加热使表面张力下降；不润湿液体形成凸液面，附加压力指向液体内部，液体向 γ 大（冷端）的反方向... 合力使液体向右移动。",
+    "solution": "不润湿时接触角 $\\theta>90^\\circ$，$\\cos\\theta<0$。相对两端相同气压，液柱端压 $p_l=p_g-2\\gamma\\cos\\theta/r=p_g+2\\gamma|\\cos\\theta|/r$。左端加热使 $\\gamma_L<\\gamma_R$，故 $p_{l,R}>p_{l,L}$，液柱被推向**左侧热端**，选 A。旧答案 B 套用了润湿液体‘向表面张力大的一端’的方向，忽略了不润湿接触角使毛细压号反转。该判断默认两端接触角相同且温度对接触角的变化可略。",
+    "method": "用含接触角的毛细压式分别求左右液体端压，再按高压向低压判断液柱方向。",
+    "pitfalls": [
+      "与 2011-Q17（润湿液体冷却左端→向左）对照：结论一致——朝冷端移动",
+      "2012 与 2011 连续两年考毛细管热迁移"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "不润湿cosθ负，右冷侧γ更大使右液压高，液柱左移选A。",
+      "round_B_evidence": "含接触角Laplace式算 $p_{l,R}-p_{l,L}=2|cosθ|(γ_R-γ_L)/r>0$。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D12/S2-M1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q20": {
+    "id": "2012-Q20",
+    "type": "choice",
+    "answer": {
+      "correct": "C"
+    },
+    "difficulty": "medium",
+    "recall": "半衰期与初始压力关系 t½∝p₀^(1-n)：两组数据解 n。",
+    "solution": "$\\dfrac{t_{1/2}}{t_{1/2}^{\\prime}}=\\left(\\dfrac{p_0}{p_0^{\\prime}}\\right)^{1-n}$，$\\dfrac{5}{15}=\\left(\\dfrac{120}{40}\\right)^{1-n}$，$\\frac13=3^{1-n}$，$1-n=-1$，$n=2$。",
+    "method": "半衰期法求级数：lg(t½/t½′)/lg(p₀/p₀′)=1-n。",
+    "pitfalls": [
+      "一级反应 t½ 与 p₀ 无关——本题排除一级",
+      "与 2007-Q18、2009-Q27 同法"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "选择正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "半衰期与初浓度由压力比3及时间比1/3确定n=2，选C。",
+      "round_B_evidence": "二级 $t_{1/2}=1/(kc_0)$，初压降三倍半衰期升三倍。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D13/S2-M2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q21": {
+    "id": "2012-Q21",
+    "type": "judge",
+    "answer": {
+      "correct": true
+    },
+    "difficulty": "easy",
+    "recall": "理想气体模型：分子间无作用力、分子本身无体积，故不存在使气体液化的内聚力，永远不可能液化。",
+    "solution": "液化靠分子间引力；理想气体分子间无相互作用，任何温度压力下都不能液化。√",
+    "method": "理想气体是高温低压极限，液化行为不在模型内。",
+    "pitfalls": [
+      "不要从\"临界温度\"角度想——理想气体连临界点都不存在"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "判断正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "理想气体模型无分子间引力，不能发生气液相变，判对。",
+      "round_B_evidence": "取范德华模型a→0，失去引力驱动的液化区。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D11/S2-E2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q22": {
+    "id": "2012-Q22",
+    "type": "judge",
+    "answer": {
+      "correct": false
+    },
+    "difficulty": "easy",
+    "recall": "克劳修斯表述：热不可能自发地（不引起其他变化）从低温传向高温。有外界做功时（制冷机）可以实现。",
+    "solution": "缺少\"自发/不引起其他变化\"限定即错误：冰箱、热泵都让热从低温传向高温，代价是消耗电功。×",
+    "method": "热二律两种表述的限定词是判题眼：开尔文版\"不产生其他效果\"，克劳修斯版\"自发\"。",
+    "pitfalls": [
+      "2006 判断 Q03 考过同一表述"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "判断正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "低温向高温热传可由冰箱外功实现，原句缺自发条件，判错。",
+      "round_B_evidence": "热泵能量与熵平衡可满足第二定律，构成反例。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D10/S2-E1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q23": {
+    "id": "2012-Q23",
+    "type": "judge",
+    "answer": {
+      "correct": false
+    },
+    "difficulty": "easy",
+    "recall": "μJ-T<0 时节流后温度升高（致热效应）；μJ-T>0 才致冷。",
+    "solution": "$\\mu_{\\mathrm{J-T}}=(\\partial T/\\partial p)_H$，节流 $\\mathrm dp<0$：$\\mu>0\\Rightarrow\\mathrm dT<0$（致冷）；$\\mu<0\\Rightarrow\\mathrm dT>0$（致热）。×",
+    "method": "符号链：dp 恒负，ΔT 与 μ 同号。",
+    "pitfalls": [
+      "与 2006 判断、2011-Q03 同考点"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "判断正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "JT系数负、降压dp负，dT正，为致热非致冷，判错。",
+      "round_B_evidence": "微分 $dT=μ_{JT}dp$ 双负号给正。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D10/S2-E1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q24": {
+    "id": "2012-Q24",
+    "type": "judge",
+    "answer": {
+      "correct": false
+    },
+    "difficulty": "easy",
+    "recall": "三相点 F=0 对；但水的三相点压力是 0.611 kPa（611 Pa），101.325 kPa 是正常冰点的压力。",
+    "solution": "水的三相点：$T=273.16$ K、$p=0.611$ kPa，单组分三相共存 F=C-P+2=1-3+2=0 ✓；但 101.325 kPa 是冰点（273.15 K，被空气饱和的水-冰平衡）的压力。×",
+    "method": "区分三相点（273.16 K, 611 Pa）与冰点（273.15 K, 101.325 kPa）。",
+    "pitfalls": [
+      "两个温度差 0.01 K、压力差两个数量级，命题人专挖这个坑",
+      "与 2010 计算 Q34（三相点计算）呼应"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "判断正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "水三相点温273.16K但压约.611kPa，原101.325kPa错。",
+      "round_B_evidence": "相律一组分三相F0；正常压冰点与三相点区别。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D10/S2-E1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q25": {
+    "id": "2012-Q25",
+    "type": "judge",
+    "answer": {
+      "correct": false
+    },
+    "difficulty": "easy",
+    "recall": "热力学第三定律：0 K（不是 0 ℃）时完美晶体熵为零。",
+    "solution": "普朗克表述：$S^{*}(0\\ \\mathrm K,\\text{完美晶体})=0$。0 ℃=273.15 K 时熵显然不为零。×",
+    "method": "盯住\"0 K\"和\"完美晶体\"两个关键词。",
+    "pitfalls": [
+      "玻璃态、固溶体在 0 K 也不是完美晶体，熵不为零"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "判断正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "第三定律完美晶体熵零在0K，不在0℃，判错。",
+      "round_B_evidence": "0℃=273.15K，与0K差273.15K。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D11/S2-E2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q26": {
+    "id": "2012-Q26",
+    "type": "judge",
+    "answer": {
+      "correct": false
+    },
+    "difficulty": "easy",
+    "recall": "依数性的适用前提：难挥发、非电解质的稀溶液。电解质溶液依数性偏离（范特霍夫因子），挥发性溶质体系沸点不一定升高。",
+    "solution": "\"一切稀溶液\"扩大化：电解质稀溶液因解离/离子作用使依数性偏离简单公式；溶质若挥发则沸点升高不适用。×",
+    "method": "记依数性四性质的适用条件：难挥发+非电解质+稀溶液。",
+    "pitfalls": [
+      "若题目说\"难挥发非电解质稀溶液\"则√"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "判断正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "一切稀溶液均服从简单非挥发非解离依数性过宽，判错。",
+      "round_B_evidence": "举挥发溶质或电解质为反例。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D10/S2-E1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q27": {
+    "id": "2012-Q27",
+    "type": "judge",
+    "answer": {
+      "correct": true
+    },
+    "difficulty": "easy",
+    "recall": "恒沸物（共沸物）的定义：气-液两相组成相同的点，此时 y=x，相图上出现极值。",
+    "solution": "最低恒沸点处 $y_{\\mathrm B}=x_{\\mathrm B}$，沸腾时气液组成不变、温度恒定（故名恒沸），F=0（定压下）。√",
+    "method": "恒沸点=气液线相切点=两相组成相同。",
+    "pitfalls": [
+      "恒沸物不是化合物，改变压力组成会变",
+      "与 2006-Q16、2009-Q09 同考点"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "判断正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "恒沸组成液气相同，判对。",
+      "round_B_evidence": "在恒沸点Raoult/活度方程给 $y_i=x_i$，蒸馏不改组成。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D11/S2-E2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q28": {
+    "id": "2012-Q28",
+    "type": "judge",
+    "answer": {
+      "correct": true
+    },
+    "difficulty": "easy",
+    "recall": "凝聚系统相图两种实验制法：热分析法（步冷曲线，适用于合金等熔融体系）和溶解度法（适用于水-盐体系）。",
+    "solution": "热分析法：测步冷曲线的拐点/平台定相变温度；溶解度法：测不同温度下的溶解度（饱和溶液组成）。√",
+    "method": "方法-体系对应：热分析↔熔融金属/有机物；溶解度法↔水盐体系。",
+    "pitfalls": [
+      "与 2005-Q12（步冷曲线）呼应"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "判断正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "凝聚相图可用热分析与溶解度法，判对。",
+      "round_B_evidence": "步冷平台与溶解度曲线分别给相变边界。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D10/S2-E1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q29": {
+    "id": "2012-Q29",
+    "type": "judge",
+    "answer": {
+      "correct": false
+    },
+    "difficulty": "easy",
+    "recall": "压缩因子 Z=pVm/(RT)：比理想气体易压缩 → Z<1，而不是 Z<0（Z 恒为正）。",
+    "solution": "真实气体\"易压缩\"指 $Z<1$（引力占优）；Z 是体积之比，不可能为负。×",
+    "method": "Z<1 引力占优；Z>1 斥力（体积）占优；Z 值域 (0,∞)。",
+    "pitfalls": [
+      "\"小于零\"是低级陷阱，命题考你 Z 的定义"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "判断正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "易压缩对应Z小于1而非小于0，判错。",
+      "round_B_evidence": "由Z=pV/(nRT)>0直接反证负值不可能。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D11/S2-E2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q30": {
+    "id": "2012-Q30",
+    "type": "judge",
+    "answer": {
+      "correct": false
+    },
+    "difficulty": "easy",
+    "recall": "对大多数反应 k 随 T 升高而增大（阿伦尼乌斯），但有例外：表观活化能为负（如 2NO+O2、某些酶催化/爆炸极限反应）时 k 随 T 升高反而下降。",
+    "solution": "\"一定\"过于绝对。基元反应一般满足阿伦尼乌斯（Ea>0）；复杂反应的表观活化能可为负（如 $k=k_2(k_1/k_3)^{1/2}$ 型若 $E_1<E_3$ 项占优）。×",
+    "method": "凡含\"一定/任何/所有\"的全称判断，先想反例。",
+    "pitfalls": [
+      "与 2004-Q10（Ea 组合可为负）互证"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "判断正确",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "表观Ea可负，升温k不必一定增，判错。",
+      "round_B_evidence": "由 $d\\ln k/dT=Ea/(RT²)$，Ea负时导数负。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D11/S2-E2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q31": {
+    "id": "2012-Q31",
+    "type": "short",
+    "answer": {
+      "final": "亚稳态产生于新相难以生成；例：过饱和蒸气、过热液体、过冷液体（或过饱和溶液）"
+    },
+    "difficulty": "medium",
+    "recall": "亚稳态：热力学上非最稳定但因动力学障碍而暂时存在的状态。根源：新相生成要先形成微小晶种，微小颗粒有巨大的比表面和附加压力（开尔文公式），使新相的化学势偏高，形核需要克服能垒。",
+    "solution": "亚稳状态的产生原因：新相初生时颗粒极小，由开尔文公式其饱和蒸气压大（或由拉普拉斯方程其附加压力大），化学势高于大块新相，因此新相难以自发形成，旧相得以\"滞留\"在平衡相变点之外——即亚稳态。\n三种亚稳现象（任举三）：\n① 过饱和蒸气：蒸气分压超过平液面饱和蒸气压仍不凝结（对微小液滴过饱和度不够）；\n② 过热液体：温度高于沸点仍不沸腾（气泡内压须克服 2γ/r，小气泡难生成）；\n③ 过冷液体：温度低于凝固点仍不凝固（微小晶核蒸气压/熔点效应）；\n④ 过饱和溶液：浓度超过溶解度仍不析晶。\n消除方法：加入晶种、投入沸石/毛细管、搅拌、骤冷等（提供现成的新相核心）。",
+    "method": "答这类简答题按\"定义→机理（开尔文/拉普拉斯）→举例→消除法\"四层组织。",
+    "pitfalls": [
+      "四个亚稳现象本质同源：新相种子太小",
+      "与 2005-Q05、2010-Q30（毛细凝聚）同根源"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "新相初生的界面自由能与成核障碍",
+        "score": 3
+      },
+      {
+        "point": "亚稳态可越过平衡点仍暂存",
+        "score": 2
+      },
+      {
+        "point": "举出三种正确亚稳现象",
+        "score": 3
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "新相成核需克服界面自由能，小核附加压及化学势高，故旧相可越过平衡点存在。",
+      "round_B_evidence": "过饱和蒸气、过热液体、过冷液体/过饱和溶液均对应成核障碍，举任三即可。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D14/S2-H1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q32": {
+    "id": "2012-Q32",
+    "type": "calc",
+    "answer": {
+      "final": "W=+0.748 kJ；Q=-4.49 kJ；ΔU=-3.74 kJ；ΔH=-5.24 kJ；ΔS=-11.13 J/K"
+    },
+    "difficulty": "medium",
+    "recall": "p/V=常数途径：状态量沿过程方程推出（p2=p1V2/V1，T2=T1(V2/V1)²），W=-∫p dV 对抛物线积分。",
+    "solution": "始态 $p_1=nRT_1/V_1=8.314\\times500/0.010=415.7$ kPa。$p/V=c$（常数）：$p_2=p_1V_2/V_1=415.7\\times0.8=332.6$ kPa，$T_2=p_2V_2/nR=T_1(V_2/V_1)^2=500\\times0.64=320$ K（压缩降温）。\n$W=-\\int p\\,\\mathrm dV=-\\dfrac{c}{2}(V_2^2-V_1^2)=-\\dfrac{41.57}{2}(64-100)\\ \\mathrm{kPa\\,dm^3}=+0.748$ kJ；\n$\\Delta U=2.5R(T_2-T_1)=2.5\\times8.314\\times(-180)=-3.74$ kJ；\n$\\Delta H=3.5R\\times(-180)=-5.24$ kJ；\n$Q=\\Delta U-W=-3.74-0.75=-4.49$ kJ；\n$\\Delta S=C_V\\ln\\dfrac{T_2}{T_1}+R\\ln\\dfrac{V_2}{V_1}=2.5R\\ln0.64+R\\ln0.8=-11.13$ J/K。",
+    "method": "过程方程题通法：先把 p、V、T 全部沿途径求出，再逐个函数计算；W 只对具体途径积分，其余走可逆途径。",
+    "pitfalls": [
+      "p/V=常数与 pV=常数（恒温）完全不同，T∝V²",
+      "压缩过程 W>0、ΔU<0、Q<0 三个符号要自洽",
+      "与 2009-Q34（pT=常数）、2011-Q28 同族"
+    ],
+    "checkpoints": [
+      {
+        "label": "T2",
+        "value": 320,
+        "unit": "K",
+        "tol": 0.01
+      },
+      {
+        "label": "W",
+        "value": 0.748,
+        "unit": "kJ",
+        "tol": 0.01
+      },
+      {
+        "label": "ΔU",
+        "value": -3.74,
+        "unit": "kJ",
+        "tol": 0.01
+      },
+      {
+        "label": "ΔH",
+        "value": -5.24,
+        "unit": "kJ",
+        "tol": 0.01
+      },
+      {
+        "label": "Q",
+        "value": -4.49,
+        "unit": "kJ",
+        "tol": 0.01
+      },
+      {
+        "label": "ΔS",
+        "value": -11.13,
+        "unit": "J/K",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "过程方程求 T2",
+        "score": 4
+      },
+      {
+        "point": "W 积分",
+        "score": 4
+      },
+      {
+        "point": "ΔU、ΔH",
+        "score": 4
+      },
+      {
+        "point": "Q",
+        "score": 2
+      },
+      {
+        "point": "ΔS",
+        "score": 4
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "T∝V²，T₂=320K，p₁≈415.7kPa；积分p=cV得W≈+0.748kJ。",
+      "round_B_evidence": "ΔU=2.5R(−180)≈−3.741kJ、ΔH=3.5R(−180)≈−5.238kJ；Q=ΔU−W≈−4.489kJ，熵积分≈−11.13J/K。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D14/S2-H1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q33": {
+    "id": "2012-Q33",
+    "type": "calc",
+    "answer": {
+      "final": "pA*(77 ℃)=49.75 kPa；γA=0.804；aA=0.362"
+    },
+    "difficulty": "medium",
+    "recall": "先用克-克方程由正常沸点外推 77 ℃ 的 pA*，再用修正拉乌尔定律 pA=pA*·aA、γA=aA/xA。",
+    "solution": "A 的正常沸点 95 ℃（368.15 K）时 $p_{\\mathrm A}^{*}=100$ kPa（外压 100 kPa）。克-克方程外推 77 ℃（350.15 K）：\n$\\ln\\dfrac{p_{\\mathrm A}^{*}(350.15)}{100}=-\\dfrac{41570}{8.314}\\left(\\dfrac{1}{350.15}-\\dfrac{1}{368.15}\\right)=-0.6978$，$p_{\\mathrm A}^{*}(77\\ ^{\\circ}\\mathrm C)=49.75$ kPa。\n平衡气相：$p_{\\mathrm A}=(1-y_{\\mathrm B})\\,p_{\\text{总}}=0.60\\times30=18$ kPa。\n修正拉乌尔定律：$p_{\\mathrm A}=p_{\\mathrm A}^{*}a_{\\mathrm A}=p_{\\mathrm A}^{*}\\gamma_{\\mathrm A}x_{\\mathrm A}$，$\\gamma_{\\mathrm A}=\\dfrac{18}{49.75\\times0.45}=0.804$，$a_{\\mathrm A}=\\gamma_{\\mathrm A}x_{\\mathrm A}=0.804\\times0.45=0.362$。",
+    "method": "活度因子题三步：求纯组分蒸气压（可能要外推）→ 分压定律取 pA → γ=p/(p*x)。",
+    "pitfalls": [
+      "外推 pA* 用克-克方程，温度一律 K",
+      "γA<1 说明对拉乌尔定律负偏差",
+      "注意题目要的是 A（xA=0.45），不是 B"
+    ],
+    "checkpoints": [
+      {
+        "label": "pA*(77℃)",
+        "value": 49.75,
+        "unit": "kPa",
+        "tol": 0.01
+      },
+      {
+        "label": "pA",
+        "value": 18,
+        "unit": "kPa",
+        "tol": 0.01
+      },
+      {
+        "label": "γA",
+        "value": 0.804,
+        "unit": "",
+        "tol": 0.01
+      },
+      {
+        "label": "aA",
+        "value": 0.362,
+        "unit": "",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "克-克外推 pA*",
+        "score": 5
+      },
+      {
+        "point": "分压 pA",
+        "score": 3
+      },
+      {
+        "point": "γA 与 aA",
+        "score": 6
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "Clausius外推纯A在77℃ p*A≈49.75kPa；气相A分压0.60×30=18kPa。",
+      "round_B_evidence": "修正Raoult得aA=18/49.75≈0.362，γA=aA/xA≈0.804，回代pA=aAp*A。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D14/S2-H1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q34": {
+    "id": "2012-Q34",
+    "type": "calc",
+    "answer": {
+      "final": "(1) K1θ=0.147，α=0.134；(2) K2θ=15.2"
+    },
+    "difficulty": "medium",
+    "recall": "由 ΔfHθ、Smθ 求 ΔrGθ→Kθ；解离度用物料衡算式 Kθ=4α²(p/pθ)/(1-α²)；温度变化用范特霍夫方程（ΔCp=0）。",
+    "solution": "(1) $\\Delta_{\\mathrm r}H_{\\mathrm m}^{\\theta}=2\\times33.2-9.2=57.2$ kJ/mol；$\\Delta_{\\mathrm r}S_{\\mathrm m}^{\\theta}=2\\times240.1-304.3=175.9$ J/(mol·K)；$\\Delta_{\\mathrm r}G_{\\mathrm m}^{\\theta}=57.2-298.15\\times0.1759=4.76$ kJ/mol；$K_1^{\\theta}=\\exp\\left(-\\dfrac{4755}{8.314\\times298.15}\\right)=0.147$。\n设解离度 $\\alpha$：$n(\\ce{N2O4})=1-\\alpha$，$n(\\ce{NO2})=2\\alpha$，$n_{\\text{总}}=1+\\alpha$。$K^{\\theta}=\\dfrac{4\\alpha^2}{1-\\alpha^2}\\cdot\\dfrac{p}{p^{\\theta}}$，代入 $p=200$ kPa（$p/p^{\\theta}=2$）：$0.147=\\dfrac{8\\alpha^2}{1-\\alpha^2}$，$\\alpha=0.134$。\n(2) $\\Delta C_p=0$，$\\Delta_{\\mathrm r}H^{\\theta}$ 不随温度变：$\\ln\\dfrac{K_2^{\\theta}}{K_1^{\\theta}}=-\\dfrac{57200}{8.314}\\left(\\dfrac{1}{373.15}-\\dfrac{1}{298.15}\\right)=4.637$，$K_2^{\\theta}=0.147\\times103.1=15.2$。",
+    "method": "解离度题模板：设 α 列三段式→分压→Kθ 表达式→解方程；升温用范特霍夫。",
+    "pitfalls": [
+      "Kθ 表达式里 p/pθ 因子不能丢（本题=2）",
+      "ΔCp=0 时 ΔH、ΔS 都不随温度变",
+      "吸热反应升温 K 增大 100 倍，方向自洽"
+    ],
+    "checkpoints": [
+      {
+        "label": "ΔrGθ",
+        "value": 4.76,
+        "unit": "kJ/mol",
+        "tol": 0.01
+      },
+      {
+        "label": "K1θ",
+        "value": 0.147,
+        "unit": "",
+        "tol": 0.01
+      },
+      {
+        "label": "α",
+        "value": 0.134,
+        "unit": "",
+        "tol": 0.01
+      },
+      {
+        "label": "K2θ",
+        "value": 15.2,
+        "unit": "",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "ΔHθ、ΔSθ、ΔGθ",
+        "score": 4
+      },
+      {
+        "point": "K1θ",
+        "score": 3
+      },
+      {
+        "point": "解离度 α",
+        "score": 5
+      },
+      {
+        "point": "范特霍夫求 K2θ",
+        "score": 6
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "ΔH=57.2kJ、ΔS=175.9J/K，298K K≈0.147；K=4α²/(1−α²)×2求α≈0.134。",
+      "round_B_evidence": "van’t Hoff常焓外推到373.15K，ln(K₂/K₁)≈4.637，K₂≈15.2。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D14/S2-H1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q35": {
+    "id": "2012-Q35",
+    "type": "calc",
+    "answer": {
+      "final": "Eθ(Ag+/Ag)=0.7994 V；Eθ(I-/AgI/Ag)=-0.152 V"
+    },
+    "difficulty": "medium",
+    "recall": "电池电动势直接给 Eθ(Ag+/Ag)；难溶盐电极标准电势=Eθ(Ag+/Ag)+(RT/F)lnKsp。",
+    "solution": "(1) 电池反应：$\\ce{1/2H2(g) + Ag+ -> Ag(s) + H+}$。两极均在标准态（$a_{\\ce{H+}}=a_{\\ce{Ag+}}=1$，$p_{\\ce{H2}}=p^{\\theta}$），$E=E^{\\theta}=E^{\\theta}(\\ce{Ag+}/\\ce{Ag})-0=0.7994$ V。\n(2) 银-碘化银电极 $\\ce{AgI(s) + e- -> Ag(s) + I-}$ 可视为 Ag⁺/Ag 电极与 AgI 溶解平衡的组合：$E^{\\theta}(\\ce{I-}/\\ce{AgI}/\\ce{Ag})=E^{\\theta}(\\ce{Ag+}/\\ce{Ag})+\\dfrac{RT}{F}\\ln K_{\\mathrm{sp}}=0.7994+0.05916\\lg(8.3\\times10^{-17})=0.7994-0.951=-0.152$ V。",
+    "method": "难溶盐电极电势公式：Eθ(MX/M)=Eθ(M+/M)+0.05916 lgKsp（z=1）。",
+    "pitfalls": [
+      "lg(8.3e-17)=-16.08，别算错数量级",
+      "Ksp 越小该电极电势越负",
+      "与 2003-Q25（AgCl/Ag）同一模型"
+    ],
+    "checkpoints": [
+      {
+        "label": "Eθ(Ag+/Ag)",
+        "value": 0.7994,
+        "unit": "V",
+        "tol": 0.001
+      },
+      {
+        "label": "lgKsp",
+        "value": -16.08,
+        "unit": "",
+        "tol": 0.01
+      },
+      {
+        "label": "Eθ(AgI/Ag)",
+        "value": -0.152,
+        "unit": "V",
+        "tol": 0.005
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "电池反应与 Eθ(Ag+/Ag)",
+        "score": 5
+      },
+      {
+        "point": "Ksp 与电极电势关系推导",
+        "score": 5
+      },
+      {
+        "point": "数值结果",
+        "score": 5
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "标准氢电极0V，故E°(Ag⁺/Ag)=0.7994V，电池反应½H₂+Ag⁺→Ag(s)+H⁺。",
+      "round_B_evidence": "AgI/Ag半反应与Ag+电极通过Ksp相连，E°=0.7994+(RT/F)lnKsp≈−0.152V。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D15/S2-H2",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2012-Q36": {
+    "id": "2012-Q36",
+    "type": "calc",
+    "answer": {
+      "final": "n=1；k=2.75×10⁻² min⁻¹；t(90%)=83.8 min"
+    },
+    "difficulty": "hard",
+    "recall": "恒容气相反应用总压数据：先由化学计量关系把总压换算成 p(PH3)，再试一级积分式看 k 是否恒定。",
+    "solution": "$\\ce{4PH3 -> P4 + 6H2}$：每消耗 4 mol PH₃ 净增 3 mol 气体。设 t 时刻已分解的 PH₃ 分压为 $x$，则 $p=p_0+\\frac34x$，$p_{\\ce{PH3}}=p_0-x=\\dfrac{7p_0-4p}{3}$。\n$t=40$ min：$p_{\\ce{PH3}}=\\dfrac{7\\times13.33-4\\times20.00}{3}=4.437$ kPa；$t=80$ min：$\\dfrac{93.31-88.88}{3}=1.477$ kPa。\n试一级：$k=\\dfrac{1}{t}\\ln\\dfrac{p_0}{p_{\\ce{PH3}}}$：$k_{40}=\\dfrac{\\ln(13.33/4.437)}{40}=2.750\\times10^{-2}$ min⁻¹；$k_{80}=\\dfrac{\\ln(13.33/1.477)}{80}=2.750\\times10^{-2}$ min⁻¹。两值相等 → $n=1$，$k=2.75\\times10^{-2}$ min⁻¹。\n(2) $t(90\\%)=\\dfrac{\\ln(1/0.1)}{k}=\\dfrac{2.303}{2.750\\times10^{-2}}=83.8$ min。",
+    "method": "恒容气相动力学：总压↔反应物分压换算（三段式），再代入各积分式试算；一级是最常见答案，先算它。",
+    "pitfalls": [
+      "换算系数来自 Δn=3/4（每摩尔 PH3），这是本题最容易错的一步",
+      "p∞=7p0/4=23.33 kPa 可作 t=80 数据的合理性检查",
+      "与 2010 计算 Q36（N2O5 分解）同一模型"
+    ],
+    "checkpoints": [
+      {
+        "label": "pPH3(40min)",
+        "value": 4.437,
+        "unit": "kPa",
+        "tol": 0.01
+      },
+      {
+        "label": "k",
+        "value": 0.0275,
+        "unit": "min⁻¹",
+        "tol": 0.01
+      },
+      {
+        "label": "t(90%)",
+        "value": 83.8,
+        "unit": "min",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "总压→pPH3 换算",
+        "score": 5
+      },
+      {
+        "point": "定级数（试算）",
+        "score": 5
+      },
+      {
+        "point": "k 求值",
+        "score": 3
+      },
+      {
+        "point": "90% 转化时间",
+        "score": 4
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "pPH₃=(7p₀−4p总)/3，40/80min分别约4.437/1.477kPa；两段−ln剩余分数/t均≈0.0275min⁻¹。",
+      "round_B_evidence": "故一级，t90%=ln10/k≈83.8min；回代40/80min总压均相合。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D14/S2-H1",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  }
+}

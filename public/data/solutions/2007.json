@@ -1,0 +1,1169 @@
+{
+  "2007-Q01": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "13.30"
+      ],
+      "unit": "kPa"
+    },
+    "difficulty": 1,
+    "recall": "道尔顿分压定律：$p_{\\mathrm B}=n_{\\mathrm B}RT/V$。",
+    "solution": "填 **13.30 kPa**。\n\n$p_{\\mathrm B}=\\dfrac{n_{\\mathrm B}RT}{V}=\\dfrac{8\\times8.314\\times400}{2}=1.330\\times10^{4}\\ \\mathrm{Pa}=13.30\\ \\mathrm{kPa}$。",
+    "method": "分压=该组分独占全容器时的压力；总体积 2 m³ 别当成 2 dm³。",
+    "pitfalls": [
+      "单位：Pa→kPa 差 10³；n 取 B 的 8 mol 而不是总量 10 mol。"
+    ],
+    "checkpoints": [
+      {
+        "label": "$p_B$",
+        "value": 13.3,
+        "unit": "kPa",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "由分压 $p_B=n_BRT/V$ 算13.3024 kPa。",
+      "round_B_evidence": "用摩尔分数0.8乘总压16.628 kPa复核。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D04/理想混合物",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q02": {
+    "type": "fill",
+    "answer": {
+      "final": "$Q=0$；仅在容器刚性且无非体积功时 $W=0,\\Delta U=0$。原题只写“绝热密闭”，密闭不严格等于刚性，故后两项缺条件。"
+    },
+    "difficulty": 2,
+    "recall": "绝热 ⇒ Q=0；密闭刚性 ⇒ W=0；热一律 ⇒ ΔU=0。",
+    "solution": "绝热确保 $Q=0$。若“密闭容器”按常见刚性容器理解且无非体积功，$W=0$，第一定律给 $\\Delta U=0$，混合放热转为系统内部热运动能。若密闭但边界可动，例如有绝热活塞，仍 $Q=0$，但可有$W=-\\int p_{ext}dV\\ne0$，$\\Delta U=W$。因此原题不能只凭“密闭”无条件得后两空均零。",
+    "method": "明确绝热只定Q；密闭定物质不穿边界，需另外给刚性或体积变化才能定功及总内能。",
+    "pitfalls": [
+      "看到「浓硫酸与水混合放热」就写 Q<0——Q 是系统与环境间的热交换，绝热壁挡住了。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "绝热只保证Q=0；密闭不等于刚性，W和ΔU须加条件。",
+      "round_B_evidence": "取绝热可动活塞作为反例，可有非零体积功和总内能变化。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D04/理想混合物",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q03": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "-1.70",
+        "-2.84"
+      ],
+      "unit": "kJ"
+    },
+    "difficulty": 3,
+    "recall": "$pT=$ 常数 ⇔ $p^{2}V=$ 常数的多方过程；理想气体 ΔU、ΔH 只由 ΔT 决定。",
+    "solution": "填：$\\Delta U=-1.70\\ \\mathrm{kJ}$；$\\Delta H=-2.84\\ \\mathrm{kJ}$。\n\n$pT=\\text{常数}$：$p_1T_1=p_2T_2$，故 $T_2=T_1\\cdot\\dfrac{p_1}{p_2}=273\\times\\dfrac{1}{2}=136.5\\ \\mathrm K$。\n\n单原子理想气体 $C_{V,\\mathrm m}=\\tfrac32R$、$C_{p,\\mathrm m}=\\tfrac52R$：\n$$\\Delta U=nC_{V,\\mathrm m}\\Delta T=\\tfrac32\\times8.314\\times(136.5-273)=-1.70\\ \\mathrm{kJ}$$\n$$\\Delta H=nC_{p,\\mathrm m}\\Delta T=\\tfrac52\\times8.314\\times(-136.5)=-2.84\\ \\mathrm{kJ}$$",
+    "method": "非常见过程先找状态方程约束求终态：本题 pT=常数直接给出 T₂=T₁p₁/p₂，之后 ΔU、ΔH 照例只算 ΔT。",
+    "pitfalls": [
+      "把 pT=常数当 pV=常数（等温）处理；单原子 Cv=1.5R 记成双原子 2.5R。"
+    ],
+    "checkpoints": [
+      {
+        "label": "$\\Delta U$",
+        "value": -1.7,
+        "unit": "kJ",
+        "tol": 0.01
+      },
+      {
+        "label": "$\\Delta H$",
+        "value": -2.84,
+        "unit": "kJ",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "由 $pT=const$ 得终温136.5 K，单原子热容给ΔU−1.702、ΔH−2.837 kJ。",
+      "round_B_evidence": "回代Mayer关系 $\\Delta H-\\Delta U=nR\\Delta T=-1.135$ kJ。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D02/理想气体过程",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q04": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        ">0"
+      ],
+      "unit": ""
+    },
+    "difficulty": 3,
+    "recall": "节流膨胀是恒焓过程；恒焓下 $(\\partial S/\\partial p)_H=-V/T<0$。",
+    "solution": "填 **$>0$**（$\\Delta S=-\\displaystyle\\int_{p_1}^{p_2}\\frac{V}{T}\\,\\mathrm dp>0$）。\n\n节流过程 $\\Delta H=0$。由基本方程 $\\mathrm dH=T\\mathrm dS+V\\mathrm dp=0$ 得 $\\mathrm dS=-\\dfrac{V}{T}\\mathrm dp$，故\n$$\\Delta S=-\\int_{p_1}^{p_2}\\frac{V}{T}\\mathrm dp$$\n节流降压 $p_2<p_1$，$V/T>0$，所以 $\\Delta S>0$——节流是不可逆绝热过程，熵必增。",
+    "method": "由 dH=TdS+Vdp=0 直接得 dS=−(V/T)dp；恒焓下压力降低 ⇒ 熵增，与气体种类无关。",
+    "pitfalls": [
+      "以为理想气体节流 ΔT=0 就 ΔS=0——ΔS 由压力降贡献 $nR\\ln(p_1/p_2)>0$。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "恒焓节流 $TdS=-Vdp$；降压给熵增。",
+      "round_B_evidence": "不可逆绝热稳流设备总体熵产生非负，方向一致。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D02/节流膨胀",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q05": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "2",
+        "3"
+      ],
+      "unit": ""
+    },
+    "difficulty": 2,
+    "recall": "$C=S-R-R'$；恒压相律 $F=C-P+1$，最多相数令 $F=0$。",
+    "solution": "填：$C=2$；$\\varphi=3$。\n\n物种：$\\ce{FeCl3}$、$\\ce{H2O}$ 加四种水合物共 $S=6$；四种水合物各对应一个生成反应（如 $\\ce{FeCl3+6H2O=FeCl3.6H2O}$），$R=4$，无浓度限制 $R'=0$：\n$$C=6-4-0=2$$\n恒压下 $F=C-\\varphi+1=3-\\varphi$，令 $F=0$ 得最多 $\\varphi=3$ 相平衡共存。",
+    "method": "水盐系统经典结论：无论生成几种水合物，C=2；恒压下最多三相（与相律 $F=C-P+1$ 一致）。",
+    "pitfalls": [
+      "水合物数目会迷惑人去数物种——每多一种水合物同时多一个独立反应，C 不变。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "四种水合物由FeCl3/H2O两组分组成，恒压最多3相。",
+      "round_B_evidence": "由固定压相律 $F^*=C-P+1$，P=3时零自由度。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D06/相律",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q06": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "负"
+      ],
+      "unit": ""
+    },
+    "difficulty": 2,
+    "recall": "$T$–$x$ 图最高点 ⇔ $p$–$x$ 图最低点 ⇔ 对拉乌尔定律负偏差（最高恒沸物）。",
+    "solution": "填 **负偏差**。\n\n对拉乌尔定律负偏差时，各组分蒸气压低于理想值，总蒸气压出现**极小值**，对应沸点–组成图上出现**最高点**（最高恒沸混合物，如 $\\ce{HCl}$–$\\ce{H2O}$）。反之正偏差 ⇒ 最低点 ⇒ 最低恒沸物。",
+    "method": "口诀：正偏差—蒸气压极大—沸点极小（最低恒沸）；负偏差—蒸气压极小—沸点极大（最高恒沸）。",
+    "pitfalls": [
+      "T-x 图与 p-x 图趋势相反；「最高点」问的是沸点图，答案落在偏差符号上。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "T-x最高沸点与p-x最低蒸气压对应，填负偏差。",
+      "round_B_evidence": "分子间异类吸引强使挥发性下降、沸点升高，复核符号。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D04/理想混合物",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q07": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "3",
+        "5",
+        "1"
+      ],
+      "unit": ""
+    },
+    "difficulty": 3,
+    "recall": "$C=S-R-R'$；最大相数令 $F=0$；给定相数时直接代相律。",
+    "solution": "填：$C=3$；$\\varphi_{\\max}=5$；$F=1$。\n\n物种 $S=4$（$\\ce{CaCO3(s)}$、$\\ce{BaCO3(s)}$、$\\ce{BaO(s)}$、$\\ce{CO2(g)}$）。题给条件下只有 $\\ce{BaCO3(s)=BaO(s)+CO2(g)}$ 一个独立反应（$\\ce{CaCO3}$ 未分解），$R=1$，$R'=0$，故 $C=4-1=3$。\n\n相律 $F=C-\\varphi+2$：现有 4 相（3 固 + 1 气），$F=3-4+2=1$；令 $F=0$ 得最多 $\\varphi=5$ 相共存。",
+    "method": "固体每有一种就算一相（固相不互溶）；CaCO₃ 未参与反应仍是物种，计入 S。",
+    "pitfalls": [
+      "漏掉 CaCO₃ 不计入 S，或把 CaCO₃ 分解也算作独立反应（题面未给则不计）。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "四物种一独立分解反应给C3，现四相给F1，相律理论Pmax5。",
+      "round_B_evidence": "回代 $F=C-P+2$：P4得1、P5得0。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D06/相律",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q08": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "-5.46"
+      ],
+      "unit": "J/(mol·K)"
+    },
+    "difficulty": 2,
+    "recall": "$\\Delta_{\\mathrm r}G_{\\mathrm m}^{\\theta}=-RT\\ln K^{\\theta}$；$\\Delta G=\\Delta H-T\\Delta S$ 联立。",
+    "solution": "填 **$-5.46\\ \\mathrm{J\\,mol^{-1}\\,K^{-1}}$**。\n\n$\\Delta_{\\mathrm r}G_{\\mathrm m}^{\\theta}=-RT\\ln K^{\\theta}=-8.314\\times298\\times\\ln(4.17\\times10^{7})=-43.47\\ \\mathrm{kJ\\,mol^{-1}}$\n\n$\\Delta_{\\mathrm r}S_{\\mathrm m}^{\\theta}=\\dfrac{\\Delta_{\\mathrm r}H_{\\mathrm m}^{\\theta}-\\Delta_{\\mathrm r}G_{\\mathrm m}^{\\theta}}{T}=\\dfrac{-45.1-(-43.47)}{298}\\times10^{3}=-5.46\\ \\mathrm{J\\,mol^{-1}\\,K^{-1}}$",
+    "method": "三量互求固定式：ΔGθ=−RTlnKθ（能量单位 kJ），ΔSθ=(ΔHθ−ΔGθ)/T。",
+    "pitfalls": [
+      "kJ 与 J 单位混用是此类题第一杀手；ln(4.17×10⁷)=17.55 要算准。"
+    ],
+    "checkpoints": [
+      {
+        "label": "$\\Delta_{\\mathrm r}G_{\\mathrm m}^{\\theta}$",
+        "value": -43.47,
+        "unit": "kJ/mol",
+        "tol": 0.01
+      },
+      {
+        "label": "$\\Delta_{\\mathrm r}S_{\\mathrm m}^{\\theta}$",
+        "value": -5.46,
+        "unit": "J/(mol·K)",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "$G=-RT\\ln K=-43.4715$ kJ/mol，$S=(H-G)/T=-5.465$ J/(mol K)。",
+      "round_B_evidence": "用 $H=G+TS$ 回代得−45.1 kJ/mol。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D05/化学平衡常数与平衡计算",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q09": {
+    "type": "fill",
+    "answer": {
+      "final": "若原卷该符号表示气相摩尔分数 $y_B$，则 $y_B<x_B$。若按字面作活度系数 $\\gamma_B$，理想液态混合物 $\\gamma_B=1$，在 $0<x_B<1$ 时 $\\gamma_B>x_B$。须先确认符号，不能只判“<”。"
+    },
+    "difficulty": 2,
+    "recall": "理想液态混合物气液平衡：$y_{\\mathrm B}=\\dfrac{p_{\\mathrm B}^{*}x_{\\mathrm B}}{p_{\\mathrm A}^{*}x_{\\mathrm A}+p_{\\mathrm B}^{*}x_{\\mathrm B}}$，难挥发组分在气相中变少。",
+    "solution": "原卷第95页该符号外形近似 $\\gamma_B$，而上下文显然在比较气液组成。若按气相摩尔分数 $y_B$ 理解，拉乌尔与道尔顿定律给$y_B=p_B^*x_B/(p_A^*x_A+p_B^*x_B)<x_B$（非纯端点），因 $p_A^*>p_B^*$。若真是活度系数 $\\gamma_B$，理想液态混合物按拉乌尔标准态 $\\gamma_B=1$，在内点则 $1>x_B$。因此原符号歧义直接改变不等号，需按符号解释给分。",
+    "method": "先判该字母是气相组成y还是活度系数γ；用 $y_B=p_B^*x_B/p$ 或理想溶液γ=1分别核。",
+    "pitfalls": [
+      "把结论记反；推导时可取极端：纯 B 蒸气压→0 时气相几乎全是 A。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "若符号是气相yB，难挥发B在气相贫化，yB<xB。",
+      "round_B_evidence": "若字面γB，则理想混合物γB=1>xB；原卷字形歧义使不等号反转。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D04/理想混合物",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q10": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        ">0",
+        "<0",
+        "<1"
+      ],
+      "unit": ""
+    },
+    "difficulty": 2,
+    "recall": "化学亲和势 $A=-\\Delta_{\\mathrm r}G_{\\mathrm m}=RT\\ln(K^{\\theta}/J_p)$。",
+    "solution": "填：$A>0$；$\\Delta_{\\mathrm r}G_{\\mathrm m}<0$；$J_p/K^{\\theta}<1$。\n\n反应自动（自发正向）进行 ⇔ $\\Delta_{\\mathrm r}G_{\\mathrm m}<0$ ⇔ $A=-\\Delta_{\\mathrm r}G_{\\mathrm m}>0$ ⇔ $J_p<K^{\\theta}$（即 $J_p/K^{\\theta}<1$）。三者是同一判据的三种写法。",
+    "method": "等温式 $\\Delta_{\\mathrm r}G_{\\mathrm m}=RT\\ln(J_p/K^{\\theta})=-A$ 一串三：符号全相反于 $J_p/K^{\\theta}-1$。",
+    "pitfalls": [
+      "亲和势 A 与 ΔG 差一个负号——A>0 才自发，别写成 A<0。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "化学亲和势 $A=-\\Delta_rG$，正向自发给A正、G负、J/K小于1。",
+      "round_B_evidence": "由 $\\Delta_rG=RT\\ln(J/K)$ 回代三个符号。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D05/化学平衡常数与平衡计算",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q11": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        ">"
+      ],
+      "unit": ""
+    },
+    "difficulty": 2,
+    "recall": "德拜–休克尔极限公式：$\\lg\\gamma_{\\pm}\\propto-|z_+z_-|\\sqrt{I}$，离子强度越大 $\\gamma_{\\pm}$ 越小。",
+    "solution": "填 **$>$**。\n\n同浓度 $b=0.001\\ \\mathrm{mol\\,kg^{-1}}$：$I(\\ce{ZnCl2})=\\tfrac12(0.001\\times4+0.002\\times1)=0.003$；$I(\\ce{ZnSO4})=\\tfrac12(0.001\\times4+0.001\\times4)=0.004$。$\\ce{ZnSO4}$ 离子强度更大、且 $|z_+z_-|=4$ 更大，离子间静电作用更强，$\\gamma_{\\pm}$ 更小，故 $\\gamma_{\\pm}(\\ce{ZnCl2})>\\gamma_{\\pm}(\\ce{ZnSO4})$。",
+    "method": "比 γ± 先算 I，再看 |z₊z₋|；2-2 型盐偏离理想最远。",
+    "pitfalls": [
+      "ZnCl₂ 的 I 容易错算成 0.002（漏乘 Cl⁻ 的 2）。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "Debye-Huckel近似下ZnSO4电荷积4且I=.004，γ比ZnCl2更小。",
+      "round_B_evidence": "ZnCl2离子强度.003、电荷积2，比较 $|z_+z_-|\\sqrt I$。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D07/离子强度与活度因子",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q12": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "$\\ce{Ag(s)|Ag+(a1)||Cl-(a2)|AgCl(s)|Ag(s)}$"
+      ],
+      "unit": ""
+    },
+    "difficulty": 3,
+    "recall": "电池设计：把目标反应 $\\ce{AgCl(s)=Ag+ + Cl-}$ 拆成两个电极反应之和。",
+    "solution": "填：**$\\ce{Ag(s)|Ag+(a_1)||Cl-(a_2)|AgCl(s)|Ag(s)}$**。\n\n负极（氧化）：$\\ce{Ag -> Ag+ + e-}$；正极（还原）：$\\ce{AgCl(s) + e- -> Ag + Cl-}$。相加即 $\\ce{AgCl(s) = Ag+ + Cl-}$，故\n$$E^{\\theta}=E^{\\theta}(\\ce{AgCl/Ag})-E^{\\theta}(\\ce{Ag+/Ag})=\\frac{RT}{F}\\ln K_{\\mathrm{sp}}$$\n测 $E^{\\theta}$ 即可求 $K_{\\mathrm{sp}}$。",
+    "method": "电池设计三步：写出目标反应→找氧化半反应（负极）和还原半反应（正极）→验算两式相加=目标反应。难溶盐溶度积、水的 Kw、配合物稳定常数都可用此法。",
+    "pitfalls": [
+      "正负极写反会导致 lnKsp 差负号；检查：Eθ>0 对应 K>1 的方向。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "银/银离子与银/氯化银半反应相加得到AgCl溶解，电池可测Ksp。",
+      "round_B_evidence": "由 $\\Delta G^\\theta=-FE^\\theta=-RT\\ln Ksp$ 核电势符号。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D07/电池设计测溶度积",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q13": {
+    "type": "fill",
+    "answer": {
+      "final": "按凹液面开尔文平衡式，气泡内水蒸气平衡分压 $p_r<p_0$；按拉普拉斯机械平衡，泡内总压应为 $p_0+2\\gamma/r$。100℃纯水小泡若只有水蒸气，这两条件不能同时满足，故不能稳定存在；原题应区分假想曲面蒸气压与泡内实际总压。"
+    },
+    "difficulty": 3,
+    "recall": "弯曲液面：凹面（液体侧看）蒸气压降低；拉普拉斯方程 $\\Delta p=2\\gamma/r$。",
+    "solution": "原题把两种不同平衡条件并列。按凹液面的 Kelvin 公式，$\\ln(p_{r,eq}/p_0)=-2\\gamma M/(RT\\rho r)<0$，故假想的曲面饱和蒸气分压低于平面值。按泡壁机械平衡，泡内**总压**须 $p_{in}=p_0+2\\gamma/r>p_0$。若泡中仅有水蒸气，实际蒸气压就等于总压，不能同时小于与大于 $p_0$；这说明100℃纯水中的小蒸气泡不稳定，需要过热、溶解气体或其他条件。原题两空可分别报上述关系，但必须说明它们不是同一稳定气泡的两个同时条件。",
+    "method": "分开写曲面饱和蒸气压的Kelvin式和泡内总压的Laplace式，检查纯蒸气稳定性。",
+    "pitfalls": [
+      "开尔文公式符号：凹面取负；「气泡承受的压力」=外压+附加压力，不是蒸气压。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "Kelvin凹面平衡蒸气压低于平面；Laplace泡内机械总压高于外压。",
+      "round_B_evidence": "纯蒸气泡将两压视为同一值会自相矛盾，说明在100℃不稳定。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D09/弯曲液面与开尔文公式",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q14": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "B"
+      ],
+      "unit": ""
+    },
+    "difficulty": 2,
+    "recall": "表面张力是强度性质，只取决于物质本性与温度；表面能、附加压力、蒸气压都与分散度（半径）有关。",
+    "solution": "选 **B 表面张力**。\n\n分散成小水滴后：总表面积剧增 ⇒ 表面能 $G^{\\text{表}}=\\gamma A_{\\mathrm s}$ 增大；附加压力 $\\Delta p=2\\gamma/r$ 随 $r$ 减小而增大；由开尔文公式饱和蒸气压 $p_{\\mathrm r}$ 也随 $r$ 减小而升高。只有表面张力 $\\gamma$ 是强度性质，$T$、$p$ 一定时不随分散度改变。",
+    "method": "区分强度性质（γ，与量无关）与依径性质（Δp、pr、表面能总量）。",
+    "pitfalls": [
+      "表面能=γ×面积，面积变了它就变；别把「比表面能」与「表面能总量」混淆。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "纯水同T/p分散后γ强度性质近似不变，选B。",
+      "round_B_evidence": "由表面积、$2γ/r$与Kelvin公式核A/C/D均随半径变。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D09/表面张力与润湿",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q15": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "<0",
+        "<0",
+        "<0"
+      ],
+      "unit": ""
+    },
+    "difficulty": 2,
+    "recall": "吸附自发 ⇒ ΔG<0；气体被束缚 ⇒ ΔS<0；由 ΔG=ΔH−TΔS 得 ΔH<0。",
+    "solution": "填：$\\Delta G<0$；$\\Delta S<0$；$\\Delta H<0$。\n\n定温定压下吸附自发进行：$\\Delta G<0$；气体分子从自由运动变为限制在固体表面，混乱度减小：$\\Delta S<0$；由 $\\Delta H=\\Delta G+T\\Delta S$，两项皆为负：$\\Delta H<0$，**吸附必然放热**。",
+    "method": "与 2006-Q34 同一考点连续两年出现——三符号：G 负、S 负、H 负。",
+    "pitfalls": [
+      "只记「吸附放热」结论而推不出 ΔS 符号；物理吸附与化学吸附都放热。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "通常自发吸附在恒温恒压下G负，气体束缚S负，由H=G+TS得H负。",
+      "round_B_evidence": "反代吸附平衡时净G=0，说明原符号需限过程未达平衡。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D09/吸附理论与吸附等温式",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q16": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "零级"
+      ],
+      "unit": ""
+    },
+    "difficulty": 2,
+    "recall": "零级反应：浓度匀速下降，可降到零，且 $t_{1/2}=c_{\\mathrm A,0}/(2k)$ 与全耗时间 $t_{\\text{全}}=c_{\\mathrm A,0}/k$ 恰为一半关系。",
+    "solution": "填 **零级**。\n\n验证：零级反应 $c_{\\mathrm A}=c_{\\mathrm A,0}-kt$，全转化需 $t=c_{\\mathrm A,0}/k$，半转化需 $t_{1/2}=c_{\\mathrm A,0}/(2k)=0.5t$，与题意吻合。一级、二级反应浓度只能渐近为零，不存在「完全转化」的有限时间，直接排除。",
+    "method": "特征识别：能在有限时间反应完 ⇒ 零级；且 $t_{1/2}/t_{\\text{全}}=1/2$ 是零级独有。",
+    "pitfalls": [
+      "一级反应 $t_{1/2}=\\ln2/k$ 与 $c_0$ 无关、永不耗尽——两个条件都排除一级。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "完全转化有限时间且半转化用其一半，零级线性耗尽。",
+      "round_B_evidence": "一级及更高正级趋零需无限时间；零级 $t_{1/2}=t/2$。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D08/零级反应",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q17": {
+    "type": "fill",
+    "answer": {
+      "final": "原卷第96页确写 $-dc_B/dt=k_Bc_A^2c_B^{-1}$，但B是产物，故若照字面 $k_A/k_B=-2/3$（$k_B$为负）。若将原题第二式勘误为 $+dc_B/dt=k_Bc_A^2c_B^{-1}$，则正速率常数之比为 $2/3$。不能无提示只收 $2/3$。"
+    },
+    "difficulty": 2,
+    "recall": "同一反应进度：$-\\dfrac{1}{2}\\dfrac{\\mathrm dc_{\\mathrm A}}{\\mathrm dt}=\\dfrac{1}{3}\\dfrac{\\mathrm dc_{\\mathrm B}}{\\mathrm dt}$（速率/计量数相等）。",
+    "solution": "计量关系是 $-dc_A/dt:dc_B/dt=2:3$。原卷第96页第二式确写 **$-dc_B/dt$**。B为产物，$dc_B/dt>0$，故按字面定义的 $k_B$ 必为负且 $k_A/k_B=-2/3$。若将第二式负号视为原卷排印错误，改成 $+dc_B/dt$，两个正速率常数满足$k_A/k_B=2/3$。本站原单一答案 $2/3$ 只对应明示勘误后的式子。",
+    "method": "先写 $r=-\\tfrac12dc_A/dt=\\tfrac13dc_B/dt$，再按原卷第二式字面或勘误正号分别比较常数。",
+    "pitfalls": [
+      "写成 3/2 是把计量数比例弄反；先写 v 的统一表达式再展开到各组分。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "原卷确写产物B负导数，与 $dc_B/dt>0$ 冲突，单一正比值不合法。",
+      "round_B_evidence": "按原符号比值−2/3；改为正导数后为+2/3，两条路径说明原题勘误。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D08/反应速率与计量关系",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q18": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "300"
+      ],
+      "unit": "s"
+    },
+    "difficulty": 3,
+    "recall": "由 k 的量纲 $\\mathrm{dm^3\\,mol^{-1}\\,s^{-1}}$ 判定为二级反应：$\\dfrac{1}{c_{\\mathrm A}}-\\dfrac{1}{c_{\\mathrm A,0}}=kt$。",
+    "solution": "填 **300 s**。\n\n二级反应：$t_{1/2}=\\dfrac{1}{kc_{\\mathrm A,0}}$；反应掉 3/4 时 $c_{\\mathrm A}=c_{\\mathrm A,0}/4$：\n$$t_{3/4}=\\frac{1}{k}\\left(\\frac{1}{c_{\\mathrm A,0}/4}-\\frac{1}{c_{\\mathrm A,0}}\\right)=\\frac{3}{kc_{\\mathrm A,0}}=3t_{1/2}$$\n故 $t_{3/4}-t_{1/2}=2t_{1/2}=600\\ \\mathrm s$，得 $t_{1/2}=300\\ \\mathrm s$。",
+    "method": "二级反应时间比：$t_{1/2}:t_{3/4}:t_{7/8}=1:3:7$（每再反应一半耗时翻倍）。",
+    "pitfalls": [
+      "误用一级（一级 $t_{3/4}=2t_{1/2}$ 会得 600 s）；量纲定级数是第一步。"
+    ],
+    "checkpoints": [
+      {
+        "label": "$t_{1/2}$",
+        "value": 300,
+        "unit": "s",
+        "tol": 0.005
+      }
+    ],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "二级积分式给 $t_{3/4}=3t_{1/2}$，差600故半衰期300 s。",
+      "round_B_evidence": "设半衰期300，回代两时刻浓度分别c0/2与c0/4，差600。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D08/二级反应",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q19": {
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "3.33"
+      ],
+      "unit": "dm³·mol⁻¹·s⁻¹"
+    },
+    "difficulty": 3,
+    "recall": "浓度与压力表示的速率系数换算：$k_c=k_p(RT)^{n-1}$（n 为反应级数）。",
+    "solution": "填 **3.33 $\\mathrm{dm^3\\,mol^{-1}\\,s^{-1}}$**。\n\n$k_p$ 的单位 $(\\mathrm{kPa})^{-1}\\mathrm{s^{-1}}$ 表明反应为**二级**。由 $p_{\\mathrm A}=c_{\\mathrm A}RT$：\n$$k_c=k_p(RT)^{n-1}=k_pRT$$\n代入（$R=8.314\\ \\mathrm{kPa\\,dm^3\\,mol^{-1}\\,K^{-1}}$，因 $1\\ \\mathrm J=1\\ \\mathrm{kPa\\,dm^3}$）：\n$$k_c=10^{-3}\\times8.314\\times400=3.33\\ \\mathrm{dm^3\\,mol^{-1}\\,s^{-1}}$$",
+    "method": "换算通式 $k_c=k_p(RT)^{n-1}$；先由 k_p 单位判断 n。R 取 8.314 kPa·dm³·mol⁻¹·K⁻¹ 可直通答案。",
+    "pitfalls": [
+      "一级反应 $k_c=k_p$ 无需换算；本题 n=2，漏乘 RT 会错成 $10^{-3}$。"
+    ],
+    "checkpoints": [
+      {
+        "label": "$k_c$",
+        "value": 3.326,
+        "unit": "dm³·mol⁻¹·s⁻¹",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "二级压强速率系数转浓度系数 $k_c=k_pRT=3.3256$ dm3/(mol s)。",
+      "round_B_evidence": "检查 $RT=3325.6$ kPa dm3/mol，代回单位由kPa^-1转dm3/mol。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D08/速率常数单位与数据判级",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q20": {
+    "type": "calc",
+    "answer": {
+      "final": "$\\Delta_{\\mathrm f}H_{\\mathrm m}^{\\theta}(\\ce{C3H6})=+53.5\\ \\mathrm{kJ\\,mol^{-1}}$"
+    },
+    "difficulty": 2,
+    "recall": "盖斯定律：$\\Delta_{\\mathrm c}H_{\\mathrm m}^{\\theta}=\\sum\\nu_{\\mathrm B}\\Delta_{\\mathrm f}H_{\\mathrm m}^{\\theta}(\\text{产物})-\\Delta_{\\mathrm f}H_{\\mathrm m}^{\\theta}(\\text{燃料})$。",
+    "solution": "环丙烷完全燃烧：$\\ce{C3H6(g) + 9/2 O2(g) -> 3CO2(g) + 3H2O(l)}$\n\n$\\Delta_{\\mathrm c}H_{\\mathrm m}^{\\theta}=3\\Delta_{\\mathrm f}H_{\\mathrm m}^{\\theta}(\\ce{CO2})+3\\Delta_{\\mathrm f}H_{\\mathrm m}^{\\theta}(\\ce{H2O,l})-\\Delta_{\\mathrm f}H_{\\mathrm m}^{\\theta}(\\ce{C3H6})$\n\n解得：\n$$\\Delta_{\\mathrm f}H_{\\mathrm m}^{\\theta}(\\ce{C3H6})=3\\times(-393.509)+3\\times(-285.830)-(-2091.5)$$\n$$=-1180.53-857.49+2091.5=+53.5\\ \\mathrm{kJ\\,mol^{-1}}$$\n\n正值合理：环丙烷环张力大，能量高于稳定单质组合，生成焓为正。",
+    "method": "燃烧焓反解生成焓：先写配平的燃烧反应（产物 CO₂(g)、H₂O(l)），再移项。ΔfH(燃料)=Σ产物生成焓−ΔcH。",
+    "pitfalls": [
+      "H₂O 必须是液态（燃烧焓定义）；移项后 −(−2091.5)=+2091.5，负号最容易丢。"
+    ],
+    "checkpoints": [
+      {
+        "label": "$\\Delta_{\\mathrm f}H_{\\mathrm m}^{\\theta}(\\ce{C3H6})$",
+        "value": 53.5,
+        "unit": "kJ/mol",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "正确写出并配平燃烧反应",
+        "score": 3
+      },
+      {
+        "point": "盖斯定律列式",
+        "score": 6
+      },
+      {
+        "point": "ΔfH=+53.5 kJ/mol",
+        "score": 6
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "Hess式3Hf(CO₂)+3Hf(H₂O)−Hf(C₃H₆)=−2091.5，解Hf=+53.483kJ/mol。",
+      "round_B_evidence": "反代燃烧式得−2091.5kJ/mol；三碳三水化学计量与原卷一致。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D02/热化学",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q21": {
+    "type": "calc",
+    "answer": {
+      "final": "按原卷字面1 mol、85 dm³：第二步其实升温，$Q=+13.02$ kJ、$W=-4.01$ kJ、$\\Delta U=+9.01$ kJ、$\\Delta H=+15.01$ kJ、$\\Delta S=+19.72$ J/K。若题面“1 mol”为误印而取5 mol，才是冷却：$Q=-19.89$ kJ、$W=+13.93$ kJ、$\\Delta U=-5.96$ kJ、$\\Delta H=-9.93$ kJ、$\\Delta S=-68.66$ J/K。须标明所采用的勘误假设。"
+    },
+    "difficulty": 4,
+    "recall": "分段过程逐段算再求和：绝热可逆用 $T_2=T_1(p_2/p_1)^{R/C_p}$（ΔS₁=0）；恒压过程 Q=ΔH、W=−pΔV。",
+    "solution": "原卷PDF第97页明确印1 mol，不能静默改成5 mol。第一段绝热可逆压缩：$T_2=300(100/50)^{2/5}=395.852$K、$V_2=nRT_2/p_2=32.911$dm³，$Q_1=0$、$W_1=n(3R/2)(T_2-300)=+1.195$kJ、$\\Delta S_1=0$。第二段恒压到原卷$V_3=85$dm³：$T_3=p_3V_3/(nR)=1022.372$K，$T_3>T_2$，实际是加热、非题面所称冷却。$Q_2=n(5R/2)(T_3-T_2)=+13.022$kJ，$W_2=-p_3(V_3-V_2)=-5.209$kJ。总量：$Q=+13.022$kJ，$W=-4.014$kJ，$\\Delta U=n(3R/2)(T_3-300)=+9.009$kJ，$\\Delta H=n(5R/2)(T_3-300)=+15.015$kJ，$\\Delta S=n(5R/2)\\ln(T_3/T_2)=+19.722$J/K。\n\n若把原题1 mol视作排印错误并明确改为5 mol，则$T_3=204.47$K，原解析的冷却路径及−19.89/+13.93/−5.96/−9.93/−68.66各值才成立。也可能将85 dm³更正为17 dm³而保留1 mol，说明原题信息不足以确定唯一勘误。",
+    "method": "先按原卷1mol代入状态方程检验“冷却”是否可行，再列字面结果及有条件勘误结果。",
+    "pitfalls": [
+      "原卷1mol、85dm³在100kPa给1022K，不能说冷却。",
+      "5mol数值仅是假设原卷mol数误印；不得无说明地作为唯一标准答案。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "绝热段T₂≈395.85K与V₂≈32.91dm³",
+        "score": 3
+      },
+      {
+        "point": "检出原卷T₃≈1022.37K与“冷却”矛盾",
+        "score": 3
+      },
+      {
+        "point": "明确字面或勘误假设并据此计算Q、W",
+        "score": 4
+      },
+      {
+        "point": "同一假设下计算ΔU、ΔH、ΔS并检验第一定律",
+        "score": 5
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "严格按原卷1mol、85dm³得T₂=395.852K、T₃=1022.372K、Q=+13.022kJ、W=−4.014kJ。",
+      "round_B_evidence": "由末初态函数得ΔU=+9.0087kJ、ΔH=+15.0145kJ，ΔS=+19.722J/K；T₃>T₂证实“冷却”冲突。",
+      "checkpoint_review": "核原印 1 mol 与假设 5 mol 两分支；先由状态方程检查‘冷却’一词。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D02/理想气体过程",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q22": {
+    "type": "calc",
+    "answer": {
+      "final": "1000 kg 海水最多取淡水（冰）约 892.7 kg"
+    },
+    "difficulty": 4,
+    "recall": "生成不稳定水合物的二组分固液相图：低共熔点 + 水合物分解（转熔）温度两条三相线；杠杆规则求最大析出量。",
+    "solution": "**(1) 相图要点（T–w 图，纵轴 T，横轴 w(NaCl)）：**\n\n- 低共熔点 E：−21.1 ℃，w=23.3%，三相线：冰 + $\\ce{NaCl.2H2O(s)}$ + 溶液(E)；\n- 转熔点（分解温度）：−9 ℃，$\\ce{NaCl.2H2O(s)}$ 分解为 $\\ce{NaCl(s)}$ + w=27% 溶液，三相线：$\\ce{NaCl(s)}$ + $\\ce{NaCl.2H2O(s)}$ + 溶液(27%)；\n- 水合物竖线位于 $w=\\dfrac{58.5}{58.5+2\\times18}=61.9\\%$ 处；\n- 各区标注：左上方 冰+溶液；低共熔线以下 冰+$\\ce{NaCl.2H2O}$；两三相线之间 溶液+$\\ce{NaCl.2H2O}$；转熔线以下、水合物线以右 $\\ce{NaCl.2H2O}$+NaCl；最右上 溶液+NaCl。\n\n**(2) 冰析法取淡水：**\n\n海水 w=2.5%<23.3%，冷却时先析出**纯冰**（固相完全不互溶），剩余溶液中 NaCl 浓度沿液相线升高。要不断冰且不析出盐，温度最低只能接近低共熔点 −21.1 ℃，此时溶液达 23.3%。\n\nNaCl 物料守恒：1000 kg 海水含 NaCl 25 kg；极限时残液质量 $m_{\\text{液}}=\\dfrac{25}{0.233}=107.3\\ \\mathrm{kg}$\n\n$$m_{\\text{冰}}=1000-107.3=892.7\\ \\mathrm{kg}$$\n\n即 1000 kg 海水最多取出约 **892.7 kg** 淡水（冰），此时残液为低共熔组成。",
+    "method": "不稳定化合物相图三板斧：定水合物竖线位置（摩尔比→质量分数）→画两条三相线（共熔、转熔）→杠杆规则。冰析取水=杠杆规则极限应用：残液不能越过共熔组成。",
+    "pitfalls": [
+      "杠杆规则用质量分数直接比即可，无需换算摩尔分数；",
+      "淡水最大值对应残液到达低共熔点 23.3%，不是转熔点 27%。"
+    ],
+    "checkpoints": [
+      {
+        "label": "$w(\\ce{NaCl.2H2O})$",
+        "value": 61.9,
+        "unit": "%",
+        "tol": 0.01
+      },
+      {
+        "label": "$m_{\\text{冰}}$",
+        "value": 892.7,
+        "unit": "kg",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "相图：两条三相线、水合物竖线 61.9%、各区相态正确",
+        "score": 10
+      },
+      {
+        "point": "说明冰析原理（先析出纯冰、残液趋近共熔组成）",
+        "score": 4
+      },
+      {
+        "point": "物料守恒/杠杆规则算出 892.7 kg",
+        "score": 6
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "原卷海水含NaCl25kg；冰析到23.3%共熔残液得25/0.233=107.30kg。",
+      "round_B_evidence": "质量守恒1000−107.30=892.70kg纯冰；相图左侧先析冰，最大量为共熔前极限。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D06/固液相图",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q23": {
+    "type": "calc",
+    "answer": {
+      "final": "$r=1.23\\ \\mathrm{nm}$；每滴约 63 个分子"
+    },
+    "difficulty": 3,
+    "recall": "开尔文公式 $\\ln\\dfrac{p_{\\mathrm r}}{p_0}=\\dfrac{2\\gamma M}{RT\\rho r}$；液滴分子数 $N=\\dfrac{(4/3)\\pi r^3\\rho}{M}N_{\\mathrm A}$。",
+    "solution": "**(1) 液滴半径：**\n\n由开尔文公式解出 $r$：\n$$r=\\frac{2\\gamma M}{RT\\rho\\,\\ln(p/p_0)}=\\frac{2\\times0.0261\\times74\\times10^{-3}}{8.314\\times273\\times1000\\times\\ln4}$$\n$$=\\frac{3.863\\times10^{-3}}{3.147\\times10^{6}}=1.23\\times10^{-9}\\ \\mathrm m=1.23\\ \\mathrm{nm}$$\n\n**(2) 液滴所含分子数：**\n$$N=\\frac{m}{M}N_{\\mathrm A}=\\frac{\\tfrac43\\pi r^{3}\\rho}{M}N_{\\mathrm A}=\\frac{\\tfrac43\\pi(1.228\\times10^{-9})^{3}\\times1000}{0.074}\\times6.022\\times10^{23}\\approx63$$\n\n即开始凝结的液滴半径约 1.23 nm，仅含约 63 个分子——说明自发凝结需要相当高过饱和度，均相成核困难。",
+    "method": "开尔文公式反解 r：注意 M 用 kg/mol、ρ 用 kg/m³；第二问本质是几何+物质的量换算。",
+    "pitfalls": [
+      "M=74 g/mol 要换成 0.074 kg/mol，差 10³ 全盘皆输；",
+      "ln(p/p₀)=ln4=1.386 在分母，别乘到分子上。"
+    ],
+    "checkpoints": [
+      {
+        "label": "$r$",
+        "value": 1.228,
+        "unit": "nm",
+        "tol": 0.01
+      },
+      {
+        "label": "$N$",
+        "value": 63.1,
+        "unit": "",
+        "tol": 0.05
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "开尔文公式正确列式",
+        "score": 4
+      },
+      {
+        "point": "r=1.23 nm（单位换算正确）",
+        "score": 6
+      },
+      {
+        "point": "液滴质量/物质的量计算",
+        "score": 5
+      },
+      {
+        "point": "N≈63",
+        "score": 5
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "Kelvin式以ln4、γ0.0261N/m和M0.074kg/mol解半径1.23nm。",
+      "round_B_evidence": "用球体积、ρ1000kg/m³和N_A复算单滴约63分子，数量级与原解一致。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D09/表面张力与润湿",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q24": {
+    "type": "calc",
+    "answer": {
+      "final": "$v=-\\dfrac{\\mathrm d[\\ce{H2O2}]}{\\mathrm dt}=2k_1[\\ce{H2O2}][\\ce{I^-}]=k[\\ce{H2O2}][\\ce{I^-}]$"
+    },
+    "difficulty": 3,
+    "recall": "稳态近似：活性中间体 IO⁻ 浓度低且近似不变，d[IO⁻]/dt≈0。",
+    "solution": "**第一步：写 $\\ce{H2O2}$ 消耗速率。**\n\n两步都消耗 $\\ce{H2O2}$：\n$$v=-\\frac{\\mathrm d[\\ce{H2O2}]}{\\mathrm dt}=k_1[\\ce{H2O2}][\\ce{I^-}]+k_2[\\ce{H2O2}][\\ce{IO^-}]$$\n\n**第二步：对活性中间体 $\\ce{IO^-}$ 作稳态近似。**\n\n$\\ce{IO^-}$ 在第一步生成、第二步消耗：\n$$\\frac{\\mathrm d[\\ce{IO^-}]}{\\mathrm dt}=k_1[\\ce{H2O2}][\\ce{I^-}]-k_2[\\ce{H2O2}][\\ce{IO^-}]=0$$\n$$\n\\Rightarrow k_2[\\ce{H2O2}][\\ce{IO^-}]=k_1[\\ce{H2O2}][\\ce{I^-}]\n$$\n\n**第三步：回代。**\n$$v=k_1[\\ce{H2O2}][\\ce{I^-}]+k_1[\\ce{H2O2}][\\ce{I^-}]=2k_1[\\ce{H2O2}][\\ce{I^-}]$$\n\n令 $k=2k_1$，即\n$$\\boxed{v=k[\\ce{H2O2}][\\ce{I^-}]}$$\n\n反应对 $\\ce{H2O2}$、$\\ce{I^-}$ 各为一级；催化剂 $\\ce{I^-}$ 在第二步再生，浓度不变地进入速率方程。",
+    "method": "催化机理标准证法：消耗速率写全（两步）→中间体稳态→回代合并。稳态等式常使两项相等，速率=2×首步速率。",
+    "pitfalls": [
+      "只写第一步的消耗而漏掉第二步——这正是命题点（系数 2）；",
+      "I⁻ 是催化剂不是中间体：稳态近似对象是 IO⁻。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "v 写全两项",
+        "score": 3
+      },
+      {
+        "point": "对 IO⁻ 稳态近似",
+        "score": 4
+      },
+      {
+        "point": "回代得 v=2k₁[H₂O₂][I⁻] 并令 k=2k₁",
+        "score": 3
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "methods": [
+        "独立重解",
+        "Python 数值复算",
+        "与教材公式交叉比对"
+      ]
+    },
+    "audit": {
+      "source_verified": true,
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "status": "PASS",
+      "round_A_evidence": "两步都消耗H₂O₂，v=k₁[H₂O₂][I⁻]+k₂[H₂O₂][IO⁻]。",
+      "round_B_evidence": "稳态令IO⁻生成=消耗，第二项等于第一项，故v=2k₁[H₂O₂][I⁻]。",
+      "checkpoint_review": "核两步消耗速率相加后等于首步速率两倍。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D08/催化",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2007-Q25": {
+    "type": "short",
+    "answer": {
+      "final": "不正确。压力是强度性质；分压可相加不意味着对系统大小具有广延性。"
+    },
+    "difficulty": 2,
+    "recall": "广度量看复制整个系统是否加倍；压力看状态强度，复制等态系统压力不变。",
+    "solution": "道尔顿定律$p=\\sum_Bp_B$表示同一容器、同温同体积下各组分对总压的贡献相加。判定广度/强度性质要改变系统的规模：把相同温度、压力、组成的气体系统复制一份并合并，物质的量和体积都加倍，$p=nRT/V$仍不变。因此压力是强度性质。“按组分贡献加和”与“按系统大小加和”是不同含义。",
+    "method": "先用p=nRT/V进行系统倍增检验，再解释道尔顿分压加和的适用范围。",
+    "pitfalls": [
+      "不能把各组分分压相加误当作两个独立系统压力相加。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "明确指出结论错误、压力是强度性质",
+        "score": 3
+      },
+      {
+        "point": "说明道尔顿分压加和只在同一混合气体内",
+        "score": 3
+      },
+      {
+        "point": "以复制系统时n与V同比增加而p不变论证",
+        "score": 4
+      }
+    ],
+    "audit": {
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "用p=nRT/V倍增系统规模，压力不随n和V同比增大。",
+      "round_B_evidence": "强度性质定义与道尔顿分压加和的对象不同；热力学判据相互核对。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D04/理想混合物",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  }
+}

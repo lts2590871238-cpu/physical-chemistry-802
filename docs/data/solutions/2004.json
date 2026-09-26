@@ -1,0 +1,788 @@
+{
+  "2004-Q01": {
+    "id": "2004-Q01",
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "=",
+        ">",
+        "<"
+      ]
+    },
+    "difficulty": "easy",
+    "recall": "理想气体节流膨胀：等焓且 H 只与 T 有关→ΔT=0；绝热不可逆→ΔS>0；ΔG=ΔH-TΔS=-TΔS<0。",
+    "solution": "理想气体 $H$、$U$ 只是温度的函数，节流膨胀 $\\Delta H=0\\Rightarrow\\Delta T=0$。绝热不可逆过程熵增：$\\Delta S=nR\\ln(p_1/p_2)>0$。$\\Delta G=\\Delta H-T\\Delta S=-T\\Delta S<0$。",
+    "method": "三个符号各由一个性质决定：理想气体定 ΔT；绝热不可逆定 ΔS；ΔG=ΔH-TΔS 定 ΔG。",
+    "pitfalls": [
+      "实际气体节流 ΔT 可正可负，但理想气体必为 0",
+      "ΔG<0 不说明\"自发\"——节流非恒压，判据不适用，这里只是计算结果"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "ΔT 关系",
+        "score": 1
+      },
+      {
+        "point": "ΔS 关系",
+        "score": 1
+      },
+      {
+        "point": "ΔG 关系",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "稳流绝热节流 $h_1=h_2$，理想气体温度不变；降压熵增、等温 Gibbs 能降低。",
+      "round_B_evidence": "以 $\\Delta S=R\\ln(p_1/p_2)$ 和 $\\Delta G=RT\\ln(p_2/p_1)$ 分别核符号。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D02/节流膨胀",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q02": {
+    "id": "2004-Q02",
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "373.67"
+      ]
+    },
+    "difficulty": "easy",
+    "recall": "依数性联动：由凝固点降低求质量摩尔浓度 b，再用沸点升高求 Tb。",
+    "solution": "同一稀溶液的依数性使用有效溶质粒子质量摩尔浓度 $b_{eff}$。$\\Delta T_f=273.15-271.3=1.85$ K，故$\\Delta T_b=(K_b/K_f)\\Delta T_f=(0.52/1.86)\\times1.85=0.5172$ K，$T_b=373.667\\approx373.67$ K。题给 1 mol/kg 与反推 $b_{eff}=0.995$ mol/kg 的微小差异来自凝固点只给一位小数；按名义1 mol/kg直接算得373.67 K（两位小数相同）。若溶质发生显著缔合/解离，须另给其在两温区的粒子系数。",
+    "method": "凝固点降低和沸点升高共用同一个 b，先反求 b 再正算 Tb。",
+    "pitfalls": [
+      "凝固点 271.3 K 对应 ΔTf=1.85 K（用 273.15 减），别用 273 减"
+    ],
+    "checkpoints": [
+      {
+        "label": "b",
+        "value": 0.995,
+        "unit": "mol/kg",
+        "tol": 0.01
+      },
+      {
+        "label": "Tb",
+        "value": 373.67,
+        "unit": "K",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "正常沸点计算",
+        "score": 4
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "用两项依数性常数比 $\\Delta T_b/\\Delta T_f=K_b/K_f$，得373.667 K。",
+      "round_B_evidence": "由名义1 mol/kg直接算373.15+0.52=373.67 K，和反求粒子浓度在题给精度内一致。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D04/稀溶液依数性",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q03": {
+    "id": "2004-Q03",
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "ΔrGmθ",
+        "ΔrGm",
+        "ΔrGmθ"
+      ]
+    },
+    "difficulty": "easy",
+    "recall": "等温式中 ΔrGmθ 是标准态性质、决定平衡常数（限度）；ΔrGm 的正负判断方向。",
+    "solution": "表示物系标准状态性质的是 $\\Delta_{\\mathrm r}G_{\\mathrm m}^{\\theta}$；判断反应方向的是 $\\Delta_{\\mathrm r}G_{\\mathrm m}$（<0 向右）；判断反应限度的是 $\\Delta_{\\mathrm r}G_{\\mathrm m}^{\\theta}=-RT\\ln K^{\\theta}$（决定平衡组成）。",
+    "method": "\"方向看 ΔrGm，限度看 ΔrGmθ（即 Kθ）\"——两个空都是 ΔrGmθ 不矛盾，一个指性质、一个指限度。",
+    "pitfalls": [
+      "方向和限度的判据不同，是最常见的混淆点",
+      "与 2010-Q13（ΔrGmθ 不能判方向）互证"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "标准态量",
+        "score": 1
+      },
+      {
+        "point": "方向判据",
+        "score": 2
+      },
+      {
+        "point": "平衡限度量",
+        "score": 1
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "标准反应 Gibbs 能代表标准态、决定 $K$；实际 $\\Delta_rG$ 决定方向。",
+      "round_B_evidence": "由 $\\Delta_rG^\\theta=-RT\\ln K$ 与 $\\Delta_rG=RT\\ln(Q/K)$ 分别复核限度和方向。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D05/化学平衡常数与平衡计算",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q04": {
+    "id": "2004-Q04",
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "0.158"
+      ]
+    },
+    "difficulty": "easy",
+    "recall": "电极电势的加和必须经 ΔG 换算：z3E3=z1E1-z2E2（还原电势）。",
+    "solution": "$\\ce{Cu^{2+} + 2e- -> Cu}$（z=2，0.340 V）减去 $\\ce{Cu+ + e- -> Cu}$（z=1，0.522 V）得 $\\ce{Cu^{2+} + e- -> Cu+}$。$\\Delta G_3=\\Delta G_1-\\Delta G_2$，$E_3^{\\theta}=\\dfrac{2\\times0.340-1\\times0.522}{1}=0.158$ V。",
+    "method": "电极电势是强度量不能直接加减，一律先乘电子数变 ΔG 再加减，最后除回来。",
+    "pitfalls": [
+      "直接 0.340-0.522 得负值是典型错误",
+      "与 2005 填空 Q27（Fe³⁺/Fe²⁺/Fe）同一模型"
+    ],
+    "checkpoints": [
+      {
+        "label": "E3θ",
+        "value": 0.158,
+        "unit": "V",
+        "tol": 0.005
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "电势经 ΔG 合成",
+        "score": 4
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "以 $\\Delta G=-nFE$ 合并两铜电极反应，$E_3=2(0.340)-0.522=0.158$ V。",
+      "round_B_evidence": "回代 $2E_1=E_2+E_3$：0.680=0.522+0.158，电子数守恒。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D07/电极电势",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q05": {
+    "id": "2004-Q05",
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "2800"
+      ]
+    },
+    "difficulty": "easy",
+    "recall": "肥皂泡有两个气液界面：Δp=4γ/r；注意直径给的是 2r。",
+    "solution": "球形气泡（液膜有内外两个表面）：$\\Delta p=\\dfrac{4\\gamma}{r}=\\dfrac{4\\times0.70}{1.0\\times10^{-3}}=2.8\\times10^{3}$ Pa。其中 $r=2.0\\times10^{-3}/2=1.0\\times10^{-3}$ m。",
+    "method": "先看是\"气泡\"（双界面，4γ/r）还是\"液滴\"（单界面，2γ/r），再把直径折半径。 公式 $4\\gamma/r$ 以薄液膜气泡的内外双表面为前提；若是液体内单个气泡，仅为 $2\\gamma/r$。",
+    "pitfalls": [
+      "若按液滴 2γ/r 算得 1400 Pa——气泡要乘 2",
+      "与 2009 填空 Q22（肥皂泡 4γ/r）同考点"
+    ],
+    "checkpoints": [
+      {
+        "label": "Δp",
+        "value": 2800,
+        "unit": "Pa",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "曲率附加压力",
+        "score": 4
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "按薄液膜球形气泡双表面，半径1 mm，附加压 $4\\gamma/r=2800$ Pa。",
+      "round_B_evidence": "用直径形式 $8\\gamma/d=8(0.70)/0.002=2800$ Pa 复核；注明双表面条件。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D09/表面张力与润湿",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q06": {
+    "id": "2004-Q06",
+    "type": "fill",
+    "answer": {
+      "blanks": [
+        "=",
+        "<",
+        ">",
+        ">",
+        ">"
+      ]
+    },
+    "difficulty": "medium",
+    "recall": "化学势比较三原则：同温同压平衡相 μ 相等；同温加压化学势增大（气相大增、液相微增）；同压升温化学势减小（气相减幅大）。",
+    "solution": "①② 100 ℃、101.3 kPa 气液平衡：$\\mu_1=\\mu_2$；③④ 100 ℃、202.6 kPa（过冷蒸气 vs 液体）：液相稳定，$\\mu_3<\\mu_4$；③① 同温液体加压：$\\mu_3>\\mu_1$；④② 同温气体加压：$\\mu_4>\\mu_2$；⑤⑥ 102 ℃、101.3 kPa（高于沸点）：气相稳定，$\\mu_5>\\mu_6$。\n\n③④ 的气态水在该温压下为过饱和的亚稳态；比较两相化学势时可作概念上的同温压外推，不能把两相都称作稳定平衡相。",
+    "method": "每一对先找共同参照（100 ℃/101.3 kPa 平衡点），再用\"加压 μ 升、升温 μ 降，气相变化幅度大\"逐个推。",
+    "pitfalls": [
+      "102 ℃、101.3 kPa 下液态水是过热水（亚稳），μ 比气相高",
+      "与 2011-Q06、2005-Q07 同族题"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "五组化学势比较，每组 2 分",
+        "score": 10
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "以100℃、101.3 kPa两相共存为基准，比较升压或升温后两相化学势，五空依次=、<、>、>、>。",
+      "round_B_evidence": "用 $d\\mu=V_mdp-S_mdT$，气相压强响应大于液相；102℃时气相稳定。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D04/化学势",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q07": {
+    "id": "2004-Q07",
+    "type": "calc",
+    "answer": {
+      "final": "按化学热力学功号约定，W=-p_外(V₂-V₁)=-1.135 kJ。题目未给定气体的 C_V 或 C_p，也未明说终态机械平衡，因此 Q、ΔU、ΔH、ΔS、ΔA、ΔG 没有唯一数值。若终态 p₂=p_外，则 T₂=163.8 K；对常数 C_V，ΔU=C_V(T₂-T₁)，ΔH=(C_V+R)(T₂-T₁)，Q=ΔU-W，ΔS=C_V ln(T₂/T₁)+R ln(V₂/V₁)。"
+    },
+    "difficulty": "hard",
+    "recall": "恒外压功由外压和体积差给出；理想气体 ΔU、ΔH、ΔS 的变温计算还需热容。题目未给气体种类时不得擅自取单原子热容。",
+    "solution": "原卷只给 1 mol 理想气体的 T₁=273 K、p₁=1 MPa、p_外=0.1 MPa、V₂=6V₁，未给气体种类、热容、热交换条件或明确的终态内压。可以确定 V₁=RT₁/p₁=2.270×10⁻³ m³，W=-p_外(5V₁)=-1.135 kJ。一般地，T₂=(p₂V₂)/R=6(p₂/p₁)T₁；p₂ 未给就不能单从体积确定 T₂。若终态机械平衡，p₂=p_外=0.1 MPa，T₂=163.8 K。此时即使 T₂ 已知，仍需 C_V(T)：ΔU=∫(T₁→T₂)C_V(T)dT，ΔH=∫(T₁→T₂)C_p(T)dT，Q=ΔU-W；ΔS=∫(T₁→T₂)[C_V(T)/T]dT+R ln(V₂/V₁)。若另假设 C_V 为常数，可写 ΔU=C_V(T₂-T₁)，ΔH=(C_V+R)(T₂-T₁)，ΔS=C_V ln(T₂/T₁)+R ln 6。没有 C_V 数值，不可把单原子气体的 C_V=3R/2 当作唯一答案。变温时 ΔA=ΔU-[T₂S₂-T₁S₁]、ΔG=ΔH-[T₂S₂-T₁S₁]，还需要物质的绝对熵数据。",
+    "method": "先算唯一确定的恒外压功；再列终态方程、第一定律和理想气体熵变式，逐一检查题目是否给出终态压力、热容和绝对熵。",
+    "pitfalls": [
+      "恒外压只确定过程功；要令 p₂=p_外，还须说明终态达到机械平衡。",
+      "“理想气体”并不等于“单原子理想气体”，C_V=3R/2 不是题目条件。",
+      "变温过程的 Δ(TS)≠TΔS；无绝对熵资料时 ΔA、ΔG 无唯一数值。"
+    ],
+    "checkpoints": [
+      {
+        "label": "W",
+        "value": -1.135,
+        "unit": "kJ",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "初态体积及功",
+        "score": 3
+      },
+      {
+        "point": "终态温度",
+        "score": 2
+      },
+      {
+        "point": "ΔU、ΔH、Q",
+        "score": 4
+      },
+      {
+        "point": "ΔS",
+        "score": 3
+      },
+      {
+        "point": "ΔA、ΔG",
+        "score": 2
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "按原题逐项列输入量；W可由外压和体积差直接求，热容及终态内压未给。",
+      "round_B_evidence": "分别取不同理想气体热容，得到不同ΔU/Q/ΔS；故旧单原子数值不唯一。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D02/理想气体过程",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q08": {
+    "id": "2004-Q08",
+    "type": "calc",
+    "answer": {
+      "final": "(1) 真空中由固体分解所得平衡体系 $C=1,P=2,F=1$；已指定25 ℃时 $F_T=0$。(2) 开始析出时总压68 kPa。"
+    },
+    "difficulty": "medium",
+    "recall": "相律：NH4Cl 分解体系 S=3、R=1、R′=1（真空出发 p(NH3)=p(HCl)），C=1。析出固体的临界：Q=Kθ。",
+    "solution": "(1) 真空容器中只放 $\\ce{NH4Cl(s)}$，分解生成的两气体始终等量：$S=3$、独立反应 $R=1$、额外组成约束 $R'=1$，故 $C=S-R-R'=1$；固、气两相 $P=2$，完整相律 $F=C-P+2=1$。题已固定25 ℃，故剩余强度自由度 $F_T=0$。(2) 初始真空分解平衡总压60 kPa，故两气分压均30 kPa，$K^\\theta=(30/100)^2=0.09$。另起加入气体的情形，固体尚未析出的临界点$p_{HCl}p_{NH3}=30^2=900\\ \\mathrm{kPa^2}$。当 $p_{HCl}=50$ kPa，$p_{NH3}=900/50=18$ kPa，总压 $68$ kPa。此时恰好开始析出；超过该压而继续加氨则需计入固体生成。",
+    "method": "多相平衡+相律合考：先算 C、P、F，再用\"开始析出固体⇔反应商恰好等于 Kθ\"求临界压力。",
+    "pitfalls": [
+      "Kθ 用相对压力（除以 pθ）计算，数值 0.09 无量纲",
+      "HCl 预注入后未反应前仍为 50 kPa，这是本题的简化假设"
+    ],
+    "checkpoints": [
+      {
+        "label": "Kθ",
+        "value": 0.09,
+        "unit": "",
+        "tol": 0.01
+      },
+      {
+        "label": "p(NH3)临界",
+        "value": 18,
+        "unit": "kPa",
+        "tol": 0.01
+      },
+      {
+        "label": "总压",
+        "value": 68,
+        "unit": "kPa",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "组分数、相数、自由度",
+        "score": 6
+      },
+      {
+        "point": "平衡常数及开始沉淀时总压",
+        "score": 10
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "真空分解给等气体分压30 kPa；注HCl后临界乘积900，NH3为18，总压68。",
+      "round_B_evidence": "直接用 $p_{NH3}p_{HCl}=(p_{total,eq}/2)^2$ 复核；定温相律由F=1降为0。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D05/化学平衡常数与平衡计算",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q09": {
+    "id": "2004-Q09",
+    "type": "calc",
+    "answer": {
+      "final": "原印 ΔcH=-209.2：ΔfH=-1829.72、异构化 ΔrH=+1850.22 kJ/mol；疑似校正为 -2092：ΔfH=+53.08、异构化 ΔrH=-32.58 kJ/mol。"
+    },
+    "difficulty": "medium",
+    "recall": "赫斯定律：燃烧焓反求生成焓 ΔfH=ΣνΔfH(产物)-ΔcH；异构化焓=两生成焓之差。",
+    "solution": "原卷第78页印 -209.2 kJ/mol，疑似误印。产物生成焓和为 3(-393.8)+3(-285.84)=-2038.92 kJ/mol。由 ΔfH=ΣΔfH(产物)-ΔcH，照原印值算得 -2038.92+209.2=-1829.72，异构化为 20.5-(-1829.72)=+1850.22 kJ/mol；若燃烧焓应为 -2092，则生成焓为 +53.08，异构化为 -32.58 kJ/mol。校正只属推断，未获原始勘误稿证实。",
+    "method": "燃烧焓↔生成焓互算：\"ΔcH=ΣΔfH（产物）-ΣΔfH（反应物）\"，O2 的生成焓为 0。",
+    "pitfalls": [
+      "原印 -209.2 代入得 -1829.72，不是旧解析声称的 +1936。",
+      "疑似校正 -2092 得 +53.08；两套数值不可混用。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "环丙烷生成焓",
+        "score": 6
+      },
+      {
+        "point": "异构化反应焓",
+        "score": 6
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "按赫斯定律分别代入两种输入值重算。",
+      "round_B_evidence": "反算异构化焓并与原印数据核对。",
+      "checkpoint_review": "原印与有条件勘误分支分别核 ΔfH 与异构化焓；不能混成一个数值点。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D02/热化学",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q10": {
+    "id": "2004-Q10",
+    "type": "calc",
+    "answer": {
+      "final": "Ea=51.3 kJ/mol；Ea=E2+(E1-E3)/2"
+    },
+    "difficulty": "medium",
+    "recall": "阿伦尼乌斯两点式求 Ea；复合 k 的活化能按对数求导逐项线性组合。",
+    "solution": "(1) $\\ln\\dfrac{k_2}{k_1}=\\dfrac{E_{\\mathrm a}}{R}\\left(\\dfrac{1}{T_1}-\\dfrac{1}{T_2}\\right)$，$\\ln\\dfrac{189.9}{34.40}=1.708$，$\\dfrac{1}{288.15}-\\dfrac{1}{313.15}=2.770\\times10^{-4}$ K⁻¹，$E_{\\mathrm a}=\\dfrac{8.314\\times1.708}{2.770\\times10^{-4}}=51.3$ kJ/mol。\n(2) $k=k_2(k_1/k_3)^{1/2}$，取对数对 $1/T$ 求导（或 $E=-R\\,\\mathrm d\\ln k/\\mathrm d(1/T)$）：$E_{\\mathrm a}=E_2+\\dfrac{1}{2}(E_1-E_3)$。",
+    "method": "活化能组合规则：k 相乘→Ea 相加，k 相除→Ea 相减，开方→减半。",
+    "pitfalls": [
+      "两点式中 T1、T2 用 K（288.15、313.15）",
+      "k 单位是 dm³·mol⁻¹·s⁻¹（二级），不影响 Ea 计算",
+      "与 2009-Q29（Ea 组合）同法"
+    ],
+    "checkpoints": [
+      {
+        "label": "Ea",
+        "value": 51.3,
+        "unit": "kJ/mol",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "两点式求活化能",
+        "score": 8
+      },
+      {
+        "point": "活化能组合关系",
+        "score": 8
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "两点阿伦尼乌斯式重算活化能51.267 kJ/mol，对 $\\ln k$ 组合求导。",
+      "round_B_evidence": "把组合能量 $E_2+(E_1-E_3)/2$ 回代各 $k_i=A_i e^{-E_i/RT}$，总指数一致。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D08/阿伦尼乌斯与活化能",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q11": {
+    "id": "2004-Q11",
+    "type": "calc",
+    "answer": {
+      "final": "a：先在液相线出现折点，后在左侧低共熔温度出现平台；b：在 C 的相合熔点出现单个平台，随后纯 C 固相降温，无低共熔平台。"
+    },
+    "difficulty": "hard",
+    "recall": "相图填区口诀：\"上液下固，两线夹两相，竖线即化合物\"；步冷曲线：液相线处出拐点，三相线处出平台。",
+    "solution": "原卷 PDF 第 78 页相图显示：b 点位于 C 的竖线上，对应相合熔点化合物的化学计量组成；a 点位于左侧低共熔组成以左。液相线以上为 L；Mg 侧依次有 L+α、α、L+C、α+C；Pb 侧依次有 L+C、L+Pb、C+Pb。两条低共熔水平线分别对应 L ⇌ α+C 和 L ⇌ C+Pb。a 点冷却时先越过 Mg 侧液相线，析出 α，曲线出现折点；剩余液相在左侧低共熔温度发生三相平衡，曲线出现平台。b 点冷却时组成始终为 C，液体在 C 的相合熔点直接凝固为 C(s)，故在该温度出现平台；完全凝固后固体继续降温。b 点不经历右侧低共熔反应。",
+    "method": "先把 a、b 沿竖直方向投影到成分轴：a 在左低共熔组成左侧，b 与 C 竖线重合；再沿降温方向数所穿过的液相线和三相线。",
+    "pitfalls": [
+      "b 与 C 的化合物竖线重合，不在 C 与右侧低共熔点之间。",
+      "b 为相合熔化组成，只有化合物凝固平台，没有右侧低共熔平台。",
+      "a 的液相线折点与左侧低共熔平台要分开画。"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "各相区标注",
+        "score": 8
+      },
+      {
+        "point": "两条三相线",
+        "score": 2
+      },
+      {
+        "point": "a、b 步冷曲线",
+        "score": 5
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "原图读数：b 点横坐标与 C 竖线相同；a 在左共熔组成左侧。",
+      "round_B_evidence": "独立相变路径：C 为相合熔点化合物，定组成液体直接凝固 C(s)，无右侧共熔反应。",
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "checkpoint_review": "原图 a 的先折点后平台、b 的单平台逐线核对，无数值答案。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D06/固液相图",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q12": {
+    "id": "2004-Q12",
+    "type": "calc",
+    "answer": {
+      "final": "Eθ(H2O2/H2O)=1.78 V"
+    },
+    "difficulty": "medium",
+    "recall": "先由 Eθ(O2|OH⁻) 经 Kw 换算出酸性介质 Eθ(O2/H2O)=1.229 V，再用 ΔG 加和（电子数加权）求目标电极电势。",
+    "solution": "① 求酸性介质中 $\\ce{O2 + 4H+ + 4e- -> 2H2O}$ 的 $E^{\\theta}$：碱性电极 $\\ce{O2 + 2H2O + 4e- -> 4OH-}$，$E^{\\theta}=0.401$ V。由 $a(\\ce{OH-})=K_{\\mathrm w}/a(\\ce{H+})$ 换算：$E^{\\theta}(\\ce{O2}/\\ce{H2O})=E^{\\theta}(\\ce{O2}/\\ce{OH-})+\\dfrac{0.05916}{4}\\lg\\dfrac{1}{K_{\\mathrm w}^4}=0.401+0.05916\\times14=1.229$ V。\n② 电子数加权（ΔG 加和）：$\\ce{O2+4H++4e- ->2H2O}$（$z=4$，$E=1.229$）$=\\big[\\ce{O2+2H++2e- ->H2O2}\\big]$（$z=2$，$E=0.68$）$+\\big[\\ce{H2O2+2H++2e- ->2H2O}\\big]$（$z=2$，$E=?$）。\n$4\\times1.229=2\\times0.68+2E^{\\theta}$，$E^{\\theta}=\\dfrac{4\\times1.229-2\\times0.68}{2}=1.78$ V。",
+    "method": "电极电势计算两板斧：介质换算用 Kw（0.05916×14=0.828 V）；电极加减用电子数加权。",
+    "pitfalls": [
+      "电极电势不能直接加减，必须乘电子数",
+      "校注：原书把目标反应印成\"→H2O2\"有误，按题给条件应为 H2O2+2H++2e-→2H2O"
+    ],
+    "checkpoints": [
+      {
+        "label": "Eθ(O2/H2O)",
+        "value": 1.229,
+        "unit": "V",
+        "tol": 0.005
+      },
+      {
+        "label": "Eθ(H2O2/H2O)",
+        "value": 1.78,
+        "unit": "V",
+        "tol": 0.01
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "电极反应及介质换算",
+        "score": 5
+      },
+      {
+        "point": "ΔG 加和求目标电势",
+        "score": 7
+      },
+      {
+        "point": "结果及单位",
+        "score": 4
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "由碱性氧电极经 $K_w$ 转成酸性1.229 V，再按电子数加权得过氧化氢电极1.78 V。",
+      "round_B_evidence": "从标准反应 Gibbs 能相加检查 $4E_{O2/H2O}=2E_{O2/H2O2}+2E_{H2O2/H2O}$。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D07/电极电势",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q13": {
+    "id": "2004-Q13",
+    "type": "calc",
+    "answer": {
+      "final": "(∂T/∂V)s=-(γ-1)T/V=-2T/(5V)"
+    },
+    "difficulty": "medium",
+    "recall": "等熵过程用理想气体绝热可逆方程 TV^(γ-1)=常数，对 V 求导即得。",
+    "solution": "等熵（绝热可逆）过程中理想气体满足 $TV^{\\gamma-1}=$ 常数。两边对 $V$ 求导：$\\left(\\dfrac{\\partial T}{\\partial V}\\right)_{\\!S}V^{\\gamma-1}+T(\\gamma-1)V^{\\gamma-2}=0$，$\\left(\\dfrac{\\partial T}{\\partial V}\\right)_{\\!S}=-\\dfrac{(\\gamma-1)T}{V}$。代入 $\\gamma=1.40$：$\\left(\\dfrac{\\partial T}{\\partial V}\\right)_{\\!S}=-\\dfrac{0.4T}{V}=-\\dfrac{2T}{5V}$，得证。\n（另法：由 Maxwell 关系 $(\\partial T/\\partial V)_S=-(\\partial p/\\partial S)_V$ 及热容关系同样可得。）",
+    "method": "证明题先找含 S 不变的现成关系（绝热可逆三方程），再求导；比直接凑 Maxwell 关系更快。",
+    "pitfalls": [
+      "绝热可逆=等熵是前提，不可逆绝热不能用 TV^(γ-1)=C",
+      "γ-1=0.4=2/5 是 1.40 的精确转换"
+    ],
+    "checkpoints": [],
+    "markingScheme": [
+      {
+        "point": "等熵方程",
+        "score": 4
+      },
+      {
+        "point": "求导",
+        "score": 6
+      },
+      {
+        "point": "代入 γ=1.40",
+        "score": 4
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "对 $TV^{\\gamma-1}=const$ 求等熵导数，$\\gamma-1=0.4$。",
+      "round_B_evidence": "从 $dS=C_VdT/T+RdV/V=0$ 及 $R/C_V=\\gamma-1$ 独立导出 $-2T/(5V)$。",
+      "checkpoint_review": "证明题：核 γ−1=0.40=2/5 与定熵导数的负号。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D03/热力学基本方程与Maxwell关系",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  },
+  "2004-Q14": {
+    "id": "2004-Q14",
+    "type": "calc",
+    "answer": {
+      "final": "38 ℃ 时氨的饱和压力约1.45 MPa（绝压；表压约1.34 MPa），这是理想换热的理论下限；实际冷凝须略高于此。"
+    },
+    "difficulty": "medium",
+    "recall": "保证液化：压缩压力须不低于冷凝温度（38 ℃ 水温）下氨的饱和蒸气压；用克-克方程由正常沸点外推。",
+    "solution": "要使氨在 38 ℃（311.15 K）的水温下液化，氨气压力必须达到该温度下的饱和蒸气压。$\\Delta_{\\mathrm{vap}}H_{\\mathrm m}=1368\\times17=23256$ J/mol，正常沸点 $T_1=240.15$ K（$p_1=101.325$ kPa）。\n克-克方程：$\\ln\\dfrac{p_2}{p_1}=-\\dfrac{\\Delta_{\\mathrm{vap}}H_{\\mathrm m}}{R}\\left(\\dfrac{1}{T_2}-\\dfrac{1}{T_1}\\right)=-\\dfrac{23256}{8.314}\\left(\\dfrac{1}{311.15}-\\dfrac{1}{240.15}\\right)=2.657$，$p_2=101.325\\times e^{2.657}=1445$ kPa $\\approx1.45$ MPa。\n即压缩机至少须将氨气加压到约 1.45 MPa（终年最高水温 38 ℃ 也能液化）。\n\n该值是冷凝温度恰等于最高冷却水温时的**理论下限**，等温差时没有有限速率的传热驱动力；实际设计须使氨冷凝温度高于38 ℃，故压力高于约1.45 MPa。若报表压，按101.325 kPa大气压约为1.34 MPa。蒸发焓取常数是题目近似。",
+    "method": "工程型液化问题翻译成物化语言：液化条件 p≥p*(T冷凝)，然后克-克方程外推饱和蒸气压。",
+    "pitfalls": [
+      "ΔHvap 给的是 J/g，要乘摩尔质量 17 g/mol",
+      "正常沸点 -33 ℃=240.15 K，别忘 +273.15",
+      "答案给绝压 1.45 MPa；若问表压则减 0.1 MPa"
+    ],
+    "checkpoints": [
+      {
+        "label": "ΔvapHm",
+        "value": 23256,
+        "unit": "J/mol",
+        "tol": 0.01
+      },
+      {
+        "label": "ln(p2/p1)",
+        "value": 2.657,
+        "unit": "",
+        "tol": 0.01
+      },
+      {
+        "label": "p2",
+        "value": 1.45,
+        "unit": "MPa",
+        "tol": 0.02
+      }
+    ],
+    "markingScheme": [
+      {
+        "point": "液化条件",
+        "score": 4
+      },
+      {
+        "point": "汽化焓换算",
+        "score": 4
+      },
+      {
+        "point": "克劳修斯—克拉佩龙计算",
+        "score": 5
+      },
+      {
+        "point": "结论压力及单位",
+        "score": 3
+      }
+    ],
+    "verify": {
+      "rounds": 3,
+      "method": "独立重解→Python数值复算→公式交叉比对"
+    },
+    "audit": {
+      "rubric_basis": "题总分据2004 A卷；除第8、9题原卷列出小问分值外，各采分点为本站建议，非官方细则。",
+      "answer_round_A": true,
+      "answer_round_B": true,
+      "source_verified": true,
+      "status": "PASS",
+      "round_A_evidence": "蒸发焓1368 J/g转为23256 J/mol，克劳修斯式给38℃饱和压力1.445 MPa。",
+      "round_B_evidence": "回代两温度饱和压比 $p_2/p_1=14.27$；理论冷凝下限需实际温差驱动。",
+      "kp_checked": true,
+      "difficulty_checked": true,
+      "placement_checked": true,
+      "checkpoint_checked": true,
+      "marking_checked": true,
+      "placement_evidence": "D03/克拉佩龙方程",
+      "review_basis": "来源页/原题号、答案A/B独立证据、字段完整性、考点小节/难度分层规则及已结清问题台账"
+    }
+  }
+}
