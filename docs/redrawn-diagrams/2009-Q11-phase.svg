@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1310 630" role="img" aria-labelledby="title">
+  <title id="title">2009-Q11 相图重绘</title>
+  <style>
+    .ink,.dash{fill:none;stroke:#252525;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+    .dash{stroke-dasharray:7 6}
+    text{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;font-size:25px;fill:#202020}
+  </style>
+  <rect width="100%" height="100%" fill="white"/>
+  <rect x="90" y="25" width="555" height="463" class="ink"/>
+  <path d="M90 68 C165 81 181 121 187 178 C194 236 285 324 435 397" class="ink"/>
+  <path d="M90 199 L188 199" class="ink"/>
+  <path d="M90 308 L275 308" class="ink"/>
+  <path d="M220 398 L645 398" class="ink"/>
+  <path d="M220 398 L220 488" class="ink"/>
+  <path d="M220 152 L220 398" class="dash"/>
+  <text x="232" y="158" text-anchor="middle" font-weight="normal" font-size="28">P</text>
+  <text x="7" y="147" text-anchor="start" font-weight="normal" font-size="25">240</text>
+  <text x="7" y="367" text-anchor="start" font-weight="normal" font-size="25">200</text>
+  <text x="15" y="246" text-anchor="middle" font-weight="normal" font-size="27">T/K</text>
+  <text x="90" y="523" text-anchor="middle" font-weight="normal" font-size="25">0</text>
+  <text x="170" y="523" text-anchor="middle" font-weight="normal" font-size="25">0.2</text>
+  <text x="280" y="523" text-anchor="middle" font-weight="normal" font-size="25">0.4</text>
+  <text x="435" y="523" text-anchor="middle" font-weight="normal" font-size="25">0.6</text>
+  <text x="557" y="523" text-anchor="middle" font-weight="normal" font-size="25">0.8</text>
+  <text x="645" y="523" text-anchor="middle" font-weight="normal" font-size="25">1</text>
+  <text x="90" y="561" text-anchor="middle" font-weight="normal" font-size="27">CCl₄</text>
+  <text x="648" y="561" text-anchor="middle" font-weight="normal" font-size="26">C₄H₁₀O₂</text>
+  <path d="M178 548 L530 548" class="ink"/><path d="M520 543 L530 548 L520 553" class="ink"/>
+  <text x="352" y="601" text-anchor="middle" font-weight="normal" font-size="28">X_C₄H₁₀O₂</text>
+  <text x="774" y="34" text-anchor="middle" font-weight="normal" font-size="30">(A)</text>
+  <text x="1108" y="34" text-anchor="middle" font-weight="normal" font-size="30">(B)</text>
+  <text x="774" y="336" text-anchor="middle" font-weight="normal" font-size="30">(C)</text>
+  <text x="1108" y="336" text-anchor="middle" font-weight="normal" font-size="30">(D)</text>
+  <path d="M750 80 C766 81 785 94 786 118 L814 118 C831 130 832 147 833 166 L866 166 C895 174 910 209 910 241" class="ink"/>
+  <path d="M1083 66 C1131 69 1165 145 1172 269" class="ink"/>
+  <path d="M766 370 C789 374 791 398 791 405 L814 405 C823 415 826 432 826 454 L853 454 C871 459 876 481 876 503 L905 503 L938 579" class="ink"/>
+  <path d="M1085 371 C1100 375 1108 398 1109 417 C1137 418 1153 439 1158 469 L1208 469 L1252 545" class="ink"/>
+</svg>

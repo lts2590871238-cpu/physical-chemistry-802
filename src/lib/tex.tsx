@@ -134,21 +134,23 @@ function stripEnvArgs(s: string): string {
   return t
 }
 
-/** 文本段：处理 choices / subquestions / center / tabular 环境与行内残留宏 */
-function renderText(rawBody: string, keyPrefix: string): React.ReactNode[] {
-  // 文本段的 \SI 在此展开为行内公式，然后再次切分 math/text 以渲染它
-  const body = preProcessText(rawBody)
-  const envRe = /\\begin\{(choices|subquestions|center|tabularx?)\}[\s\S]*?\\end\{\1\}/g
+/** 先识别外层排版环境，再拆分其中的行内公式；否则 $...$ 会截断 tabular。 */
+function renderRich(body: string, keyPrefix: string): React.ReactNode[] {
+  const envRe = /\\begin\{(choices|subquestions|center|tabularx?)\}/g
   const nodes: React.ReactNode[] = []
   let last = 0
   let m: RegExpExecArray | null
   let k = 0
   while ((m = envRe.exec(body))) {
-    if (m.index > last) nodes.push(...renderInlineBlock(body.slice(last, m.index), `${keyPrefix}-t${k++}`))
     const env = m[1]
-    const inner = m[0].replace(new RegExp(`^\\\\begin\\{${env}\\}`), '').replace(new RegExp(`\\\\end\\{${env}\\}$`), '')
-    nodes.push(renderEnv(env, stripEnvArgs(inner), `${keyPrefix}-e${k++}`))
-    last = m.index + m[0].length
+    const close = `\\end{${env}}`
+    const end = body.indexOf(close, envRe.lastIndex)
+    if (end < 0) continue
+    if (m.index > last) nodes.push(...renderInlineBlock(body.slice(last, m.index), `${keyPrefix}-t${k++}`))
+    const inner = body.slice(envRe.lastIndex, end)
+    nodes.push(renderEnv(env, env.startsWith('tabular') ? stripEnvArgs(inner) : inner, `${keyPrefix}-e${k++}`))
+    last = end + close.length
+    envRe.lastIndex = last
   }
   if (last < body.length) nodes.push(...renderInlineBlock(body.slice(last), `${keyPrefix}-t${k++}`))
   return nodes
@@ -186,28 +188,30 @@ function renderEnv(env: string, inner: string, key: string): React.ReactNode {
       </div>
     )
   }
-  if (env === 'center') return <div className="tex-center" key={key}><Tex text={inner} /></div>
-  // tabular：简易 HTML 表
+  if (env === 'center') return <div className="tex-center" key={key}><Tex text={inner} block /></div>
+  // tabular/tabularx：保留空格单元格与原有顺序，单元格内继续走公式渲染。
   const rows = inner
-    .replace(/\\toprule|\\midrule|\\bottomrule|\\hline/g, '')
+    .replace(/\\toprule|\\midrule|\\bottomrule|\\hline|\\cline\{[^}]*\}/g, '')
     .split(/\\\\(?:\s*\[[^\]]*\])?/)
-    .map((r) => r.split('&').map((c) => c.trim()).filter((c) => c !== ''))
-    .filter((r) => r.length)
+    .map((r) => r.split(/(?<!\\)&/).map((c) => c.trim()))
+    .filter((r) => r.some((c) => c !== ''))
   return (
-    <table className="tex-table" key={key}>
-      <tbody>
-        {rows.map((r, i) => (
-          <tr key={i}>{r.map((c, j) => <td key={j}><Tex text={c} /></td>)}</tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="tex-table-scroll" key={key}>
+      <table className="tex-table">
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i}>{r.map((c, j) => <td key={j}><Tex text={c} /></td>)}</tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
 /** 普通文本块：残留宏 → HTML，空行分段；其中由 \SI 展开产生的行内公式再渲染 */
 function renderInlineBlock(text: string, key: string): React.ReactNode[] {
-  // 二次切分：preProcessText 产生的 $...$ 需要走 KaTeX
-  const segs = splitMath(text)
+  // 先保护原有数学段；文本中的 \SI 展开后再二次切分。
+  const segs = splitMath(text).flatMap((seg) => seg.math ? [seg] : splitMath(preProcessText(seg.body)))
   const out: React.ReactNode[] = []
   let k = 0
   for (const seg of segs) {
@@ -237,6 +241,7 @@ function renderPlainText(text: string, key: string): React.ReactNode[] {
   s = s.replace(/\\[;,]/g, ' ')
   s = s.replace(/~/g, ' ')
   s = s.replace(/\\noindent|\\centering|\\hline|\\toprule|\\midrule|\\bottomrule/g, '')
+  s = s.replace(/\\(?:small|scriptsize|tiny|normalsize)\b/g, '')
   const paras = s.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean)
   const out: React.ReactNode[] = []
   paras.forEach((p, i) => {
@@ -258,18 +263,8 @@ function renderPlainText(text: string, key: string): React.ReactNode[] {
 
 /* ---------- 对外组件 ---------- */
 export function Tex({ text, block }: { text: string; block?: boolean }) {
-  const segs = splitMath(text || '')
-  return (
-    <span className={block ? 'tex block' : 'tex'}>
-      {segs.map((seg, i) =>
-        seg.math ? (
-          <span key={i} dangerouslySetInnerHTML={{ __html: renderMath(seg.body, seg.display) }} />
-        ) : (
-          <React.Fragment key={i}>{renderText(seg.body, `s${i}`)}</React.Fragment>
-        ),
-      )}
-    </span>
-  )
+  const content = renderRich(text || '', 's')
+  return block ? <div className="tex block">{content}</div> : <span className="tex">{content}</span>
 }
 
 /** 从选择题 raw 中抽选项（choices 环境），返回 {stem, options} */

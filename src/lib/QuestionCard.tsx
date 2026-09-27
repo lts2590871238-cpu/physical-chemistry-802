@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { PredQuestion, Question } from './types'
 import { normDifficulty, TYPE_LABEL } from './types'
 import { extractChoices, Tex } from './tex'
@@ -27,6 +27,12 @@ export interface UIQuestion {
   figSrc?: string
 }
 
+const REDRAWN_PHASE_IDS = new Set([
+  '2003-Q26', '2004-Q11', '2005-Q29', '2009-Q11', '2010-Q30',
+  '2011-Q35', '2016-Q27', '2017-Q17', '2021-Q32', '2023-Q10',
+  '2024-Q32', '2026-Q08', '2026-Q36',
+])
+
 export function toUI(q: Question): UIQuestion {
   const s = q.sol
   // pitfalls 在数据里有数组/字符串两种形态，数组按段落合并
@@ -34,7 +40,9 @@ export function toUI(q: Question): UIQuestion {
   return {
     id: q.id, year: q.year, type: q.type, raw: q.raw, module: q.module, kp: q.kp,
     hasFig: q.has_fig,
-    figSrc: q.figs?.find((fig) => /\.(?:png|jpe?g|webp|svg)$/i.test(fig)),
+    figSrc: REDRAWN_PHASE_IDS.has(q.id)
+      ? 'redrawn-diagrams/' + q.id + '-phase.svg'
+      : q.figs?.find((fig) => /\.(?:png|jpe?g|webp|svg)$/i.test(fig)),
     source: q.source?.verified && q.source.kind === 'NJTech_802_past_exam'
       ? `${q.year} 南京工业大学802 · 第${q.source.printed_no ?? q.no}题（原卷 PDF 第${q.source.page}页）`
       : undefined,
@@ -65,6 +73,25 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
   const [picked, setPicked] = useState<string | null>(null)
   const [cpVals, setCpVals] = useState<string[]>(() => q.checkpoints.map(() => ''))
   const [marks, setMarks] = useState<boolean[]>(() => q.markingScheme.map(() => false))
+  const [zoomed, setZoomed] = useState(false)
+  const figureTrigger = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!zoomed) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setZoomed(false)
+        requestAnimationFrame(() => figureTrigger.current?.focus({ preventScroll: true }))
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    return () => document.removeEventListener('keydown', onKeyDown)
+  }, [zoomed])
+
+  function closeFigure() {
+    setZoomed(false)
+    requestAnimationFrame(() => figureTrigger.current?.focus({ preventScroll: true }))
+  }
 
   const { stem, options } = useMemo(() => {
     if (q.type === 'choice') {
@@ -117,6 +144,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
   }
 
   const statusCls = rec?.status === 'correct' ? 'q-correct' : rec?.status === 'wrong' ? 'q-wrong' : ''
+  const figureUrl = q.figSrc ? import.meta.env.BASE_URL + q.figSrc.replace(/^\/+/, '') : ''
 
   return (
     <article className={`qcard ${statusCls}`} id={`q-${q.id}`}>
@@ -142,16 +170,27 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
         {q.hasFig && (
           <div className="q-fig">
             {q.figSrc ? (
-              <a href={`${import.meta.env.BASE_URL}${q.figSrc.replace(/^\/+/, '')}`} target="_blank" rel="noreferrer" title="打开原题图查看大图">
-                <img src={`${import.meta.env.BASE_URL}${q.figSrc.replace(/^\/+/, '')}`} alt={`${q.id} 原题图`} loading="lazy" />
-                <span>点击查看原题大图</span>
-              </a>
+              <button ref={figureTrigger} type="button" className="q-fig-trigger" onClick={() => setZoomed(true)} title="点击放大题图">
+                <img src={figureUrl} alt={q.id + ' 题图'} loading="lazy" />
+                <span>点击放大题图</span>
+              </button>
             ) : (
               <span>本题原图待核验接入，请先查看原卷。</span>
             )}
           </div>
         )}
       </div>
+      {zoomed && q.figSrc && (
+        <div className="q-lightbox" onMouseDown={(event) => { if (event.target === event.currentTarget) closeFigure() }}>
+          <div className="q-lightbox-panel" role="dialog" aria-modal="true" aria-label={q.id + ' 题图大图'}>
+            <div className="q-lightbox-bar">
+              <button type="button" onClick={closeFigure}>← 返回题目</button>
+              <span className="mono">{q.id}</span>
+            </div>
+            <div className="q-lightbox-scroll"><img src={figureUrl} alt={q.id + ' 放大题图'} /></div>
+          </div>
+        </div>
+      )}
 
       {q.kp.length > 0 && (
         <div className="q-kp mono">{q.kp.join(' · ')}</div>

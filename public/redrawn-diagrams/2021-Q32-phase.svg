@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 786" role="img" aria-labelledby="title">
+  <title id="title">2021-Q32 相图重绘</title>
+  <style>
+    .ink,.dash{fill:none;stroke:#252525;stroke-width:2.8;stroke-linejoin:round;stroke-linecap:round}
+    .dash{stroke-dasharray:7 6}
+    text{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;font-size:25px;fill:#202020}
+  </style>
+  <rect width="100%" height="100%" fill="white"/>
+  <rect x="53" y="41" width="702" height="611" class="ink"/>
+  <path d="M53 413 C100 427 193 471 224 529 C242 390 270 313 356 277 C415 247 455 243 501 239 C561 229 583 259 596 344 C609 188 645 140 755 112" class="ink"/>
+  <path d="M53 413 C74 467 118 492 156 529" class="ink"/>
+  <path d="M53 652 C77 596 112 553 156 529" class="ink"/>
+  <path d="M656 344 C715 334 746 214 755 112" class="ink"/>
+  <path d="M656 344 C687 444 687 553 687 652" class="ink"/>
+  <path d="M156 529 L342 529" class="ink"/>
+  <path d="M342 430 L501 430" class="ink"/>
+  <path d="M342 430 L342 652" class="ink"/>
+  <path d="M501 239 L501 652" class="ink"/>
+  <path d="M501 344 L656 344" class="ink"/>
+  <path d="M264 178 L264 574" class="dash"/>
+  <text x="289" y="169" text-anchor="middle" font-weight="normal">a</text>
+  <text x="500" y="229" text-anchor="middle" font-weight="normal">R</text>
+  <text x="769" y="124" text-anchor="middle" font-weight="normal">Q</text>
+  <text x="42" y="416" text-anchor="middle" font-weight="normal">P</text>
+  <text x="109" y="531" text-anchor="middle" font-weight="normal">E</text>
+  <text x="348" y="552" text-anchor="middle" font-weight="normal">F</text>
+  <text x="132" y="310" text-anchor="middle" font-weight="normal" font-size="27">1</text>
+  <text x="139" y="482" text-anchor="middle" font-weight="normal" font-size="27">2</text>
+  <text x="66" y="571" text-anchor="middle" font-weight="normal" font-size="27">3</text>
+  <text x="304" y="505" text-anchor="middle" font-weight="normal" font-size="27">4</text>
+  <text x="189" y="608" text-anchor="middle" font-weight="normal" font-size="27">5</text>
+  <text x="417" y="382" text-anchor="middle" font-weight="normal" font-size="27">6</text>
+  <text x="418" y="608" text-anchor="middle" font-weight="normal" font-size="27">7</text>
+  <text x="550" y="300" text-anchor="middle" font-weight="normal" font-size="27">8</text>
+  <text x="693" y="295" text-anchor="middle" font-weight="normal" font-size="27">9</text>
+  <text x="581" y="552" text-anchor="middle" font-weight="normal" font-size="27">10</text>
+  <text x="719" y="416" text-anchor="middle" font-weight="normal" font-size="27">11</text>
+  <text x="20" y="79" text-anchor="middle" font-weight="normal" font-size="30">T</text>
+  <text x="54" y="695" text-anchor="middle" font-weight="normal" font-size="31">A</text>
+  <text x="342" y="695" text-anchor="middle" font-weight="normal" font-size="30">C₁</text>
+  <text x="501" y="695" text-anchor="middle" font-weight="normal" font-size="30">C₂</text>
+  <text x="756" y="695" text-anchor="middle" font-weight="normal" font-size="31">B</text>
+  <path d="M294 723 L510 723" class="ink"/><path d="M500 718 L510 723 L500 728" class="ink"/>
+  <text x="405" y="762" text-anchor="middle" font-weight="normal" font-size="30">w_B</text>
+</svg>

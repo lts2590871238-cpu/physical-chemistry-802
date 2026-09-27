@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 720" role="img" aria-labelledby="title">
+  <title id="title">2003-Q26 相图重绘</title>
+  <style>
+    .ink,.dash{fill:none;stroke:#252525;stroke-width:3;stroke-linejoin:round;stroke-linecap:round}
+    .dash{stroke-dasharray:7 6}
+    text{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;font-size:29px;fill:#202020}
+  </style>
+  <rect width="100%" height="100%" fill="white"/>
+  <path d="M155 40 L155 540" class="ink"/>
+  <path d="M155 540 L835 540" class="ink"/>
+  <path d="M835 40 L835 540" class="ink"/>
+  <path d="M155 238 C222 267 273 333 304 415" class="ink"/>
+  <path d="M304 415 C345 340 393 310 448 300 C496 218 555 130 621 102 C697 72 765 60 835 58" class="ink"/>
+  <path d="M155 415 L596 415" class="ink"/>
+  <path d="M448 300 L835 300" class="ink"/>
+  <path d="M596 300 L596 540" class="ink"/>
+  <text x="40" y="74" text-anchor="middle" font-weight="normal" font-size="34">t/°C</text>
+  <text x="303" y="118" text-anchor="middle" font-weight="normal" font-size="30">P=C</text>
+  <text x="453" y="280" text-anchor="middle" font-weight="normal" font-size="31">G</text>
+  <text x="599" y="415" text-anchor="start" font-weight="normal" font-size="30">F</text>
+  <text x="120" y="426" text-anchor="middle" font-weight="normal" font-size="30">E</text>
+  <text x="860" y="318" text-anchor="middle" font-weight="normal" font-size="31">H</text>
+  <text x="155" y="592" text-anchor="middle" font-weight="normal" font-size="35">A</text>
+  <text x="596" y="592" text-anchor="middle" font-weight="normal" font-size="35">C</text>
+  <text x="837" y="592" text-anchor="middle" font-weight="normal" font-size="35">B</text>
+  <text x="515" y="660" text-anchor="middle" font-weight="normal" font-size="30">质量分数</text>
+  <text x="473" y="121" text-anchor="middle" font-weight="normal" font-size="30">M₁•</text>
+  <text x="545" y="72" text-anchor="middle" font-weight="normal" font-size="30">M₂•</text>
+  <text x="290" y="230" text-anchor="middle" font-weight="normal" font-size="34">①</text>
+  <text x="202" y="381" text-anchor="middle" font-weight="normal" font-size="34">②</text>
+  <text x="480" y="385" text-anchor="middle" font-weight="normal" font-size="34">③</text>
+  <text x="359" y="510" text-anchor="middle" font-weight="normal" font-size="34">④</text>
+  <text x="712" y="218" text-anchor="middle" font-weight="normal" font-size="34">⑤</text>
+  <text x="779" y="472" text-anchor="middle" font-weight="normal" font-size="34">⑥</text>
+</svg>

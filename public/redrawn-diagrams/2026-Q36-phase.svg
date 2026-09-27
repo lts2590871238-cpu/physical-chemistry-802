@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 600" role="img" aria-labelledby="title">
+  <title id="title">2026-Q36 相图重绘</title>
+  <style>
+    .ink,.dash{fill:none;stroke:#252525;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+    .dash{stroke-dasharray:7 6}
+    text{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;font-size:20px;fill:#202020}
+  </style>
+  <rect width="100%" height="100%" fill="white"/>
+  <rect x="80" y="43" width="390" height="456" class="ink"/>
+  <path d="M80 380 C114 380 113 404 118 433 C170 374 230 291 276 260 C296 278 302 327 307 400 C329 283 347 178 364 137 C382 145 398 186 407 294 C420 217 447 105 470 48" class="ink"/>
+  <path d="M80 380 C105 381 111 400 118 433" class="ink"/>
+  <path d="M80 433 L276 433" class="ink"/>
+  <path d="M276 400 L361 400" class="ink"/>
+  <path d="M361 300 L436 300" class="ink"/>
+  <path d="M336 201 L393 201" class="ink"/>
+  <path d="M276 260 L276 499" class="ink"/>
+  <path d="M361 201 L361 499" class="ink"/>
+  <path d="M435 300 C456 322 461 403 470 499" class="ink"/>
+  <path d="M118 433 L118 545" class="dash"/>
+  <path d="M277 78 L277 365" class="dash"/>
+  <path d="M383 80 L383 325" class="dash"/>
+  <path d="M80 91 L110 91" class="ink"/>
+  <path d="M80 138 L110 138" class="ink"/>
+  <path d="M80 177 L110 177" class="ink"/>
+  <path d="M80 223 L110 223" class="ink"/>
+  <path d="M80 264 L110 264" class="ink"/>
+  <path d="M80 304 L110 304" class="ink"/>
+  <path d="M80 342 L110 342" class="ink"/>
+  <text x="62" y="98" text-anchor="end" font-weight="normal" font-size="19">900</text>
+  <text x="62" y="184" text-anchor="end" font-weight="normal" font-size="19">700</text>
+  <text x="62" y="271" text-anchor="end" font-weight="normal" font-size="19">600</text>
+  <text x="62" y="311" text-anchor="end" font-weight="normal" font-size="19">500</text>
+  <text x="62" y="349" text-anchor="end" font-weight="normal" font-size="19">400</text>
+  <text x="62" y="387" text-anchor="end" font-weight="normal" font-size="19">300</text>
+  <text x="62" y="440" text-anchor="end" font-weight="normal" font-size="19">200</text>
+  <text x="167" y="261" text-anchor="middle" font-weight="normal" font-size="23">①</text>
+  <text x="207" y="360" text-anchor="middle" font-weight="normal" font-size="23">②</text>
+  <text x="340" y="285" text-anchor="middle" font-weight="normal" font-size="23">③</text>
+  <text x="407" y="393" text-anchor="middle" font-weight="normal" font-size="23">④</text>
+  <text x="304" y="394" text-anchor="middle" font-weight="normal" font-size="23">⑤</text>
+  <text x="28" y="35" text-anchor="middle" font-weight="normal" font-size="25">t/°C</text>
+  <text x="115" y="66" text-anchor="middle" font-weight="normal" font-size="16">巨人学长</text>
+  <text x="256" y="90" text-anchor="middle" font-weight="normal" font-size="25">a</text>
+  <text x="368" y="90" text-anchor="middle" font-weight="normal" font-size="25">b</text>
+  <text x="62" y="531" text-anchor="middle" font-weight="normal" font-size="22">0.0</text>
+  <text x="117" y="550" text-anchor="middle" font-weight="normal" font-size="21">0.12</text>
+  <text x="158" y="526" text-anchor="middle" font-weight="normal" font-size="21">0.2</text>
+  <text x="236" y="526" text-anchor="middle" font-weight="normal" font-size="21">0.4</text>
+  <text x="277" y="473" text-anchor="middle" font-weight="normal" font-size="21">0.52</text>
+  <text x="320" y="525" text-anchor="middle" font-weight="normal" font-size="21">0.6</text>
+  <text x="383" y="473" text-anchor="middle" font-weight="normal" font-size="21">0.69</text>
+  <text x="405" y="526" text-anchor="middle" font-weight="normal" font-size="21">0.8</text>
+  <text x="470" y="526" text-anchor="middle" font-weight="normal" font-size="21">1.0</text>
+  <text x="78" y="574" text-anchor="middle" font-weight="normal" font-size="23">A</text>
+  <text x="276" y="551" text-anchor="middle" font-weight="normal" font-size="23">C</text>
+  <text x="362" y="551" text-anchor="middle" font-weight="normal" font-size="23">D</text>
+  <text x="470" y="574" text-anchor="middle" font-weight="normal" font-size="23">B</text>
+  <text x="276" y="579" text-anchor="middle" font-weight="normal" font-size="22">W_B</text>
+</svg>

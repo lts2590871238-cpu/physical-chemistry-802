@@ -246,8 +246,15 @@ body {
   font-size: 12px; color: var(--muted); background: rgba(255, 193, 152, 0.12);
 }
 .q-fig .mono { color: var(--accent); margin-right: 8px; font-size: 10px; letter-spacing: 0.15em; }
-.q-fig a { display: inline-flex; max-width: 100%; flex-direction: column; gap: 6px; color: var(--accent); }
+.q-fig-trigger { display: inline-flex; max-width: 100%; flex-direction: column; gap: 6px; align-items: flex-start; padding: 0; border: 0; background: none; color: var(--accent); cursor: zoom-in; font: inherit; }
 .q-fig img { display: block; max-width: 100%; max-height: 70vh; width: auto; height: auto; object-fit: contain; }
+.q-lightbox { position: fixed; inset: 0; z-index: 1000; display: flex; padding: 2vh 1vw; background: rgba(0,0,0,.75); }
+.q-lightbox-panel { width: min(1400px, 98vw); max-height: 96vh; margin: auto; display: flex; flex-direction: column; background: #fff; }
+.q-lightbox-bar { flex: none; display: flex; align-items: center; gap: 18px; padding: 10px 14px; border-bottom: 1px solid #ccc; }
+.q-lightbox-bar button { min-height: 42px; padding: 6px 16px; border: 1px solid #555; border-radius: 4px; background: #fff; color: #222; font: inherit; cursor: pointer; }
+.q-lightbox-scroll { min-height: 0; overflow: auto; padding: 8px; }
+.q-lightbox-scroll img { display: block; width: auto; max-width: 100%; max-height: calc(96vh - 76px); height: auto; margin: auto; }
+@media (max-width: 600px) { .q-lightbox-scroll img { max-width: none; min-width: 600px; max-height: none; } }
 
 .q-options { display: flex; flex-direction: column; gap: 7px; margin: 12px 0 4px; }
 .q-opt {
@@ -362,6 +369,9 @@ body {
 .tex-center { text-align: center; }
 .tex-table { border-collapse: collapse; margin: 8px 0; font-size: 13px; }
 .tex-table td { border: 1px solid var(--hairline); padding: 4px 12px; }
+.tex-table-scroll { max-width: 100%; overflow-x: auto; }
+.tex-table { width: max-content; min-width: min(100%, 360px); margin-left: auto; margin-right: auto; }
+.tex-table td { white-space: nowrap; }
 .tex-score { font-size: 11px; color: var(--accent); font-family: var(--mono); }
 .tex-blank { display: inline-block; width: 110px; border-bottom: 1.5px solid var(--ink); height: 1em; vertical-align: baseline; margin: 0 2px; }
 .tex-fig-ph { color: var(--muted); font-size: 12px; }
