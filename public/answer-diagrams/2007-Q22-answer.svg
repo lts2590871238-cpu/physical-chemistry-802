@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">2007-Q22 氯化钠与水的固液相图示意</title><desc id="desc">低共熔点 E 为百分之二十三点三、负二十一点一摄氏度；转熔点 P 为百分之二十七、负九摄氏度；二水合物质量分数百分之六十一点九。</desc>
+<rect width="900" height="610" rx="20" fill="#fffdf8"/><g font-family="Arial,Microsoft YaHei,sans-serif" fill="#244450" font-size="17"><text x="42" y="38" font-size="22" font-weight="bold">NaCl–H₂O：不稳定水合物相图</text>
+<g stroke="#304b55" stroke-width="2.5" fill="none"><path d="M80 65V495H850"/><path d="M540 320V495"/></g>
+<g stroke="#23818b" stroke-width="4" fill="none"><path d="M80 240 Q180 285 255 420 Q272 355 285 320 Q490 160 850 90"/></g>
+<g stroke="#da7958" stroke-width="2.5"><path d="M80 420H540 M285 320H850"/></g>
+<g stroke="#adc2c5" stroke-dasharray="5 5"><path d="M255 420V495 M285 320V495"/></g>
+<g fill="#ca6349"><circle cx="255" cy="420" r="6"/><circle cx="285" cy="320" r="6"/></g>
+<text x="215" y="410">E</text><text x="292" y="304">P</text><text x="125" y="335">冰 + L</text><text x="400" y="134">L</text><text x="625" y="246">NaCl(s) + L</text><text x="315" y="370">水合物 + L</text><text x="99" y="463">冰 + 水合物</text><text x="572" y="440">水合物 + NaCl(s)</text>
+<text x="38" y="82">T/℃</text><text x="620" y="530">w(NaCl)/% →</text><text x="80" y="522">0</text><text x="225" y="522">23.3</text><text x="280" y="522">27</text><text x="510" y="522">61.9</text><text x="818" y="522">100</text>
+<text x="97" y="414" font-size="14">−21.1 ℃</text><text x="125" y="310" font-size="14">−9 ℃</text><text x="60" y="569" font-size="14">E：冰+水合物+L；P：NaCl(s)+水合物+L。液相线曲率只示意。</text></g></svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">2013-Q27 A、B 生成稳定化合物 A2B 的固液相图</title><desc id="desc">标出 A、A2B 和 B 的熔点、两个低共熔点、两条三相线与稳定相区。</desc>
+<rect width="900" height="610" rx="20" fill="#fffdf8"/><g font-family="Arial,Microsoft YaHei,sans-serif" fill="#244450" font-size="17"><text x="42" y="38" font-size="22" font-weight="bold">A–B：稳定化合物 A₂B 的固液相图</text>
+<g stroke="#304b55" stroke-width="2.5" fill="none"><path d="M80 65V495H850"/><path d="M337 200V495"/></g>
+<path d="M80 150 Q153 245 210 340 Q270 250 337 200 Q379 250 420 282 Q620 200 850 95" stroke="#23818b" stroke-width="4" fill="none"/>
+<g stroke="#da7958" stroke-width="2.5"><path d="M80 340H337 M337 282H850"/></g>
+<g stroke="#adc2c5" stroke-dasharray="5 5"><path d="M210 340V495 M420 282V495"/></g>
+<g fill="#ca6349"><circle cx="210" cy="340" r="6"/><circle cx="337" cy="200" r="6"/><circle cx="420" cy="282" r="6"/></g>
+<text x="178" y="330">e₁</text><text x="329" y="185">C</text><text x="428" y="275">e₂</text>
+<text x="280" y="125">L</text><text x="100" y="250">A(s)+L</text><text x="268" y="311" font-size="14">L+C(s)</text><text x="375" y="268" font-size="13">L+C(s)</text><text x="530" y="267">C(s)+L</text><text x="730" y="160">B(s)+L</text><text x="113" y="435">A(s)+A₂B(s)</text><text x="505" y="430">A₂B(s)+B(s)</text>
+<text x="38" y="82">t/℃</text><text x="700" y="530">x(B) →</text><text x="75" y="520">0</text><text x="180" y="520">0.17</text><text x="308" y="520">1/3</text><text x="395" y="520">0.44</text><text x="825" y="520">1</text>
+<text x="90" y="143" font-size="14">650</text><text x="295" y="218" font-size="14">560</text><text x="175" y="362" font-size="14">360</text><text x="419" y="305" font-size="14">480</text><text x="803" y="83" font-size="14">800</text>
+<text x="58" y="566" font-size="14">C=A₂B(s)；e₁：L ⇌ A+C；e₂：L ⇌ C+B。C 为相合熔点，液相线在此成峰。</text></g></svg>

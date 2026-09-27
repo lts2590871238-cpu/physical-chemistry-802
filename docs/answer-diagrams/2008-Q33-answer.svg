@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+<title id="title">2008-Q33 硫酸铵与水的低共熔相图示意</title><desc id="desc">低共熔点为盐质量分数百分之三十八点四、负十九点一摄氏度；盐质量分数百分之五十一点八处的饱和液在一百零八点九摄氏度沸腾。</desc>
+<rect width="900" height="600" rx="20" fill="#fffdf8"/><g font-family="Arial,Microsoft YaHei,sans-serif" fill="#244450" font-size="17"><text x="42" y="38" font-size="22" font-weight="bold">(NH₄)₂SO₄–H₂O：低共熔型相图</text>
+<path d="M80 65V490H850" stroke="#304b55" stroke-width="2.5" fill="none"/><path d="M80 245 Q230 285 370 430 Q420 345 480 170" stroke="#23818b" stroke-width="4" fill="none"/>
+<path d="M80 430H850" stroke="#da7958" stroke-width="2.5"/><path d="M370 430V490 M480 170V490 M480 170Q620 110 790 90" stroke="#adc2c5" stroke-dasharray="5 5" fill="none"/>
+<g fill="#ca6349"><circle cx="370" cy="430" r="6"/><circle cx="480" cy="170" r="6"/></g>
+<text x="335" y="415">E</text><text x="492" y="168">饱和液沸点</text><text x="245" y="170">L</text><text x="145" y="342">冰 + L</text><text x="530" y="330">盐(s) + L</text><text x="280" y="465">冰 + 盐(s)</text>
+<text x="35" y="80">T/℃</text><text x="605" y="526">w[(NH₄)₂SO₄]/% →</text><text x="76" y="518">0</text><text x="335" y="518">38.4</text><text x="455" y="518">51.8</text><text x="817" y="518">100</text>
+<text x="90" y="424" font-size="14">−19.1 ℃</text><text x="480" y="142" font-size="14">108.9 ℃</text><text x="55" y="565" font-size="14">E：冰+盐+L；右上虚线是未知相界的示意延伸，不能读作定量数据。</text></g></svg>

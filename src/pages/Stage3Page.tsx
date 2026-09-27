@@ -5,6 +5,7 @@ import { loadQuestions, loadSolutions } from '../lib/data'
 import type { Question, Solution } from '../lib/types'
 import { QuestionCard, toUI } from '../lib/QuestionCard'
 import { useStore } from '../lib/store'
+import RetryDayButton from '../components/RetryDayButton'
 
 /** 阶段三：21-23 整卷掐时自测 */
 export default function Stage3Page() {
@@ -12,7 +13,7 @@ export default function Stage3Page() {
   const year = params.get('year') ?? '2021'
   const { data: questions } = useAsync(loadQuestions, [])
   const { data: sols } = useAsync(() => loadSolutions(parseInt(year)), [year])
-  const { progress } = useStore()
+  const { progress, retryStarted } = useStore()
   const [elapsed, setElapsed] = useState(0)
   const [timing, setTiming] = useState(false)
 
@@ -32,8 +33,8 @@ export default function Stage3Page() {
 
   if (!questions || !sols) return <div className="loading">装载 {year} 年试卷…</div>
 
-  const done = qs.filter((q) => progress[q.id]).length
-  const correct = qs.filter((q) => progress[q.id]?.status === 'correct').length
+  const done = qs.filter((q) => progress[q.id] && progress[q.id].ts > (retryStarted[q.id] ?? 0)).length
+  const correct = qs.filter((q) => progress[q.id]?.status === 'correct' && progress[q.id].ts > (retryStarted[q.id] ?? 0)).length
   const hh = String(Math.floor(elapsed / 3600)).padStart(2, '0')
   const mm = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0')
   const ss = String(elapsed % 60).padStart(2, '0')
@@ -64,9 +65,12 @@ export default function Stage3Page() {
         <span className="exam-hint">建议 150 分钟内完成</span>
       </div>
 
+      <RetryDayButton ids={qs.map((q) => q.id)} />
+
       <div className="qlist-body">
         {qs.map((q, i) => <QuestionCard key={q.id} q={toUI(q)} index={i} />)}
       </div>
+      <RetryDayButton ids={qs.map((q) => q.id)} />
     </div>
   )
 }

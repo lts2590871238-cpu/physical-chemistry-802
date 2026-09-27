@@ -4,6 +4,7 @@ import { loadAllSolutions, loadPlan, loadQuestions, pickByIds } from '../lib/dat
 import type { Question, Solution } from '../lib/types'
 import QuestionList from '../components/QuestionList'
 import KpCard, { type KpGuide } from '../components/KpCard'
+import RetryDayButton from '../components/RetryDayButton'
 
 const LEVEL_LABEL: Record<string, string> = { easy: '基础', medium: '中档', hard: '攻坚' }
 
@@ -46,6 +47,7 @@ export default function Stage2Page() {
       </div>
 
       <div className="set-desc">{current.desc}</div>
+      <RetryDayButton ids={current.ids} />
 
       <QuestionList questions={qs} title={current.name} beforeQuestion={(q) =>
         current.bridgeCards?.[q.id]?.map((name) => (
@@ -53,6 +55,7 @@ export default function Stage2Page() {
             count={q.kp.includes(name) ? 1 : 0} />
         ))
       } />
+      <RetryDayButton ids={current.ids} />
     </div>
   )
 }

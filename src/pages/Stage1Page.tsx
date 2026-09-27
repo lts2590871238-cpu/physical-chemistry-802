@@ -7,8 +7,14 @@ import type { Question, Solution } from '../lib/types'
 import { MODULE_ORDER } from '../lib/types'
 import QuestionList from '../components/QuestionList'
 import KpCard, { type KpGuide } from '../components/KpCard'
+import RetryDayButton from '../components/RetryDayButton'
+import { guidedLessons } from '../lib/guidedLessons'
 
 interface KpGuideMap { [kp: string]: KpGuide & { search_terms?: string[] } }
+const WORKED_QUESTION_OVERRIDE: Record<string, string> = {
+  '固液相图': '2007-Q22', '杠杆规则': '2007-Q22', '步冷曲线': '2004-Q11',
+  '相图分析': '2021-Q32', '克拉佩龙方程': '2010-Q34',
+}
 
 /** 阶段一：03-11 年按模块精练，模块内按知识点分节（讲解卡 + 概念→运用题序） */
 export default function Stage1Page() {
@@ -26,6 +32,13 @@ export default function Stage1Page() {
   if (!plan || !questions || !sols || !kpGuide) return <div className="loading">装载模块题库…</div>
 
   const moduleName = plan.modules[mod]?.name ?? mod
+  const questionById = new Map(questions.map((q) => [q.id, q]))
+  const judgeByKp = new Map<string, Question[]>()
+  for (const q of questions) {
+    if (q.type !== 'judge' || q.year > 2023) continue
+    const enriched = { ...q, sol: (sols as Record<string, Solution>)[q.id] }
+    for (const kp of q.kp) judgeByKp.set(kp, [...(judgeByKp.get(kp) ?? []), enriched])
+  }
 
   const needle = search.trim().toLocaleLowerCase()
   const stage1Ids = MODULE_ORDER.flatMap((m) => plan.stage1.byModule[m] ?? [])
@@ -67,7 +80,7 @@ export default function Stage1Page() {
     <div className="page">
       <header className="page-head">
         <h2 className="page-title">阶段一 · 按知识点精练 <span className="mono page-years">2003–2011 · 284 题</span></h2>
-        <p className="page-sub">每个知识点先读讲解卡（讲透概念 → 小例子 → 南工考法），再按「判断 → 选择 → 填空 → 简答 → 计算」的顺序做题，从概念理解一步步走到灵活运用。</p>
+        <p className="page-sub">先学概念和公式的使用条件，再跟做一题，最后练本节真题。先看“为什么”，再看“怎么算”。</p>
       </header>
 
       <div className="mod-tabs">
@@ -86,6 +99,14 @@ export default function Stage1Page() {
 
       <h3 className="sec-title">{mod} {moduleName}</h3>
       {!needle && plan.stage1.moduleGuide?.[mod] && <p className="page-sub">{plan.stage1.moduleGuide[mod]}</p>}
+      {!needle && <RetryDayButton ids={plan.stage1.byModule[mod] ?? []} />}
+
+      {!needle && sections.some((s) => guidedLessons[s.kp]) && <div className="method-index">
+        <strong>🧭 本模块的题型方法卡</strong>
+        <span>从题眼到落笔，边看边算</span>
+        <div>{sections.filter((s) => guidedLessons[s.kp]).map((s) =>
+          <a href={`#kp-${s.kp}`} key={s.kp}>{s.kp} ↗</a>)}</div>
+      </div>}
 
       <input className="kp-search" type="search" value={search} onChange={(e) => setSearch(e.target.value)}
         placeholder="搜索知识卡：第三定律、Arrhenius、Nernst…" aria-label="搜索第一阶段知识卡" />
@@ -94,7 +115,13 @@ export default function Stage1Page() {
       {sections.map((s) => (
         <div key={`${s.module}-${s.kp}`} className="kp-section">
           {needle && <p className="page-sub">{s.module} {plan.modules[s.module]?.name}</p>}
-          <KpCard name={s.kp} guide={kpGuide[s.kp]} count={s.count} />
+          <KpCard name={s.kp} guide={kpGuide[s.kp]} count={s.count} guided={guidedLessons[s.kp]}
+            judgeQuestions={judgeByKp.get(s.kp)}
+            workedQuestion={(() => {
+              const id = WORKED_QUESTION_OVERRIDE[s.kp] || kpGuide[s.kp]?.first_question || kpGuide[s.kp]?.linked_true_questions?.[0]
+              const q = id ? questionById.get(id) : undefined
+              return q ? { ...q, sol: (sols as Record<string, Solution>)[q.id] } : undefined
+            })()} />
           {s.count > 0 && <QuestionList questions={s.qs} />}
         </div>
       ))}
@@ -113,6 +140,7 @@ export default function Stage1Page() {
         </ul>
         <p>高频错误知识点：{topWeak.length ? topWeak.map(([name, n]) => `${name} ${n}题`).join('、') : '暂无记录'}。</p>
       </section>}
+      {!needle && <RetryDayButton ids={plan.stage1.byModule[mod] ?? []} />}
     </div>
   )
 }

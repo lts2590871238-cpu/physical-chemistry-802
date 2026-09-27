@@ -23,6 +23,8 @@ interface Store {
   cardsDone: Record<string, boolean>
   daysDone: Record<string, boolean>
   examNotes: Record<string, string>
+  savedIds: Record<string, boolean>
+  retryStarted: Record<string, number>
 }
 
 const listeners = new Set<() => void>()
@@ -31,7 +33,7 @@ function read(): Store {
   try {
     const raw = localStorage.getItem(KEY)
     if (raw) {
-      const saved = { progress: {}, cardsDone: {}, daysDone: {}, examNotes: {}, ...JSON.parse(raw) } as Store
+      const saved = { progress: {}, cardsDone: {}, daysDone: {}, examNotes: {}, savedIds: {}, retryStarted: {}, ...JSON.parse(raw) } as Store
       if (saved.freezeVersion !== 1) {
         const old = saved.daysDone
         const days: Record<string, boolean> = {}
@@ -51,7 +53,7 @@ function read(): Store {
       return saved
     }
   } catch { /* ignore */ }
-  return { freezeVersion: 1, progress: {}, cardsDone: {}, daysDone: {}, examNotes: {} }
+  return { freezeVersion: 1, progress: {}, cardsDone: {}, daysDone: {}, examNotes: {}, savedIds: {}, retryStarted: {} }
 }
 
 function write(s: Store) {
@@ -76,7 +78,15 @@ export const store = {
   setExamNote(k: string, note: string) {
     const s = read(); s.examNotes[k] = note; write(s)
   },
-  resetAll() { write({ freezeVersion: 1, progress: {}, cardsDone: {}, daysDone: {}, examNotes: {} }) },
+  setSaved(qid: string, saved: boolean) {
+    const s = read(); if (saved) s.savedIds[qid] = true; else delete s.savedIds[qid]; write(s)
+  },
+  startRetry(ids: string[]) {
+    const s = read()
+    for (const id of ids) s.retryStarted[id] = Math.max(Date.now(), s.progress[id]?.ts ?? 0)
+    write(s)
+  },
+  resetAll() { write({ freezeVersion: 1, progress: {}, cardsDone: {}, daysDone: {}, examNotes: {}, savedIds: {}, retryStarted: {} }) },
 }
 
 export function useStore(): Store {

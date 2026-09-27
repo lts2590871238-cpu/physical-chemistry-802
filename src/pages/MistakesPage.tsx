@@ -24,8 +24,9 @@ export default function MistakesPage() {
 }
 
 function MistakesInner({ enriched, genSeed, onRegen }: { enriched: Question[]; genSeed: number; onRegen: () => void }) {
-  const { progress } = useStore()
+  const { progress, savedIds } = useStore()
   const wrongs = enriched.filter((q) => progress[q.id]?.status === 'wrong')
+  const saved = enriched.filter((q) => savedIds[q.id])
 
   const kpStat = useMemo(() => {
     const m = new Map<string, number>()
@@ -55,7 +56,7 @@ function MistakesInner({ enriched, genSeed, onRegen }: { enriched: Question[]; g
     <div className="page">
       <header className="page-head">
         <h2 className="page-title">错题本与弱点合成卷</h2>
-        <p className="page-sub">错题自动按知识点聚类，红色越深漏洞越大。弱点合成卷从你的高频失分知识点里抽"同考点且未掌握"的真题组成加练卷。</p>
+        <p className="page-sub">做错自动进错题本，也可点题目右上角的星标收藏。记录保存在当前浏览器；弱点合成卷会从高频失分知识点中选题。</p>
       </header>
 
       <div className="two-col">
@@ -83,6 +84,7 @@ function MistakesInner({ enriched, genSeed, onRegen }: { enriched: Question[]; g
       {synthetic.length > 0 && <QuestionList questions={synthetic} title="弱点合成卷" />}
 
       {wrongs.length > 0 && <QuestionList questions={wrongs} title="全部错题（重做后点「移出错题本」）" />}
+      {saved.length > 0 && <QuestionList questions={saved} title="⭐ 收藏的试题" />}
     </div>
   )
 }

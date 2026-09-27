@@ -4,6 +4,7 @@ import { useAsync } from '../hooks/useAsync'
 import { loadPrediction } from '../lib/data'
 import { predToUI, QuestionCard } from '../lib/QuestionCard'
 import { useStore } from '../lib/store'
+import RetryDayButton from '../components/RetryDayButton'
 
 const SECTION_ORDER = ['choice', 'fill', 'short', 'calc'] as const
 const SECTION_LABEL: Record<string, string> = {
@@ -15,7 +16,7 @@ export default function PredictionPage() {
   const [params, setParams] = useSearchParams()
   const paper = (params.get('paper') ?? 'A') as 'A' | 'B'
   const { data: p } = useAsync(() => loadPrediction(paper), [paper])
-  const { progress } = useStore()
+  const { progress, retryStarted } = useStore()
 
   const groups = useMemo(() => {
     if (!p) return []
@@ -28,8 +29,9 @@ export default function PredictionPage() {
 
   if (!p) return <div className="loading">装载预测卷…</div>
 
-  const done = p.questions.filter((q) => progress[q.id]).length
-  const earned = p.questions.reduce((a, q) => a + (progress[q.id]?.selfScore ?? (progress[q.id]?.status === 'correct' ? q.score : 0)), 0)
+  const done = p.questions.filter((q) => progress[q.id] && progress[q.id].ts > (retryStarted[q.id] ?? 0)).length
+  const earned = p.questions.reduce((a, q) => a + (progress[q.id]?.ts > (retryStarted[q.id] ?? 0)
+    ? (progress[q.id]?.selfScore ?? (progress[q.id]?.status === 'correct' ? q.score : 0)) : 0), 0)
 
   return (
     <div className="page">
@@ -50,6 +52,7 @@ export default function PredictionPage() {
       <div className="exam-bar">
         <span className="exam-stat mono">满分 {p.meta.total} · 已核对 {done}/{p.questions.length} · 自评累计 {Math.round(earned * 10) / 10} 分</span>
       </div>
+      <RetryDayButton ids={p.questions.map((q) => q.id)} />
 
       {groups.map((g) => (
         <section key={g.sec} className="paper-section">
@@ -62,6 +65,7 @@ export default function PredictionPage() {
           </div>
         </section>
       ))}
+      <RetryDayButton ids={p.questions.map((q) => q.id)} />
     </div>
   )
 }

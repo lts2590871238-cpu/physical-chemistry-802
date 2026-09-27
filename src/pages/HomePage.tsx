@@ -37,11 +37,11 @@ export default function HomePage() {
   return (
     <div className="home">
       <section className="hero">
-        <div className="hero-kicker mono">南京工业大学 · 802 物理化学 · 考研冲刺</div>
-        <h2 className="hero-title">20 天，把 761 道真题<br />练成 120 分</h2>
+        <div className="hero-kicker mono">🌿 南京工业大学 · 802 物理化学 · 考研冲刺</div>
+        <h2 className="hero-title">20 天，练会真题<br /><span>冲向 120 分</span></h2>
         <p className="hero-sub">
           三阶段推进：03–11 年按知识点精练，12–20 年打散成套，21–23 年掐时自测；
-          最后两天两套预测卷收官。全部题目配详细解析、数值核对点与采分点自评。
+          最后两天两套预测卷收官。知识卡带着读题、选公式、核答案；错题留在本机，随时回来再练。
         </p>
         <div className="hero-stats">
           <div className="hstat"><b className="mono">{done}</b><span>/ {drillable.length} 已练</span></div>
@@ -53,22 +53,22 @@ export default function HomePage() {
 
       <section className="stage-cards">
         <Link to="/stage1" className="scard stage-s1">
-          <div className="scard-no mono">01</div>
+          <div className="scard-no mono">🌱 01 · 打基础</div>
           <h4>模块精练</h4>
           <p>2003–2011 · 284 题按知识点聚类，先学讲解再做题，从概念到运用</p>
         </Link>
         <Link to="/stage2" className="scard stage-s2">
-          <div className="scard-no mono">02</div>
+          <div className="scard-no mono">🧩 02 · 会组合</div>
           <h4>混库成套</h4>
           <p>2012–2020 · 269 题按难度拆成 6 套：基础扫描 → 中档选择 → 计算攻坚</p>
         </Link>
         <Link to="/stage3" className="scard stage-s3">
-          <div className="scard-no mono">03</div>
+          <div className="scard-no mono">⏱️ 03 · 练速度</div>
           <h4>掐时自测</h4>
           <p>2021–2023 三年整卷，线下 3 小时模拟 + 网页逐题核对打分</p>
         </Link>
         <Link to="/prediction" className="scard stage-p">
-          <div className="scard-no mono">04</div>
+          <div className="scard-no mono">✨ 04 · 做整卷</div>
           <h4>预测卷 A / B</h4>
           <p>侯文华习题集精编 64 题：A 卷持平最新难度，B 卷上调 30–50%</p>
         </Link>

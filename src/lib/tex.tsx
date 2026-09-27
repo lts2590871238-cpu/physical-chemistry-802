@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components -- Tex and its choice parser share the same source-format rules. */
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
 import 'katex/contrib/mhchem/mhchem.js'
@@ -28,6 +29,7 @@ function convertSI(v: string, u: string): string {
 }
 
 const SI_RE = /\\SI\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}/g
+const SI_LOWER_RE = /\\si\{([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}/g
 
 /** 数学段内预处理：\SI 直接展开（不包 $） */
 function preProcessMath(s: string): string {
@@ -37,11 +39,12 @@ function preProcessMath(s: string): string {
     prev = out
     out = out.replace(SI_RE, (_m, v, u) => convertSI(v, u))
   }
+  out = out.replace(SI_LOWER_RE, (_m, unit) => convertSI('', unit).replace(/^~/, ''))
   out = out.replace(/\\celsius\b/g, '{}^{\\circ}\\mathrm{C}')
   return out
 }
 
-/** 文本段内预处理：\SI 包装成行内公式 */
+/** 文本段内预处理：把未加数学定界符的化学式和单位也送进 KaTeX。 */
 function preProcessText(s: string): string {
   let prev = ''
   let out = s
@@ -49,6 +52,8 @@ function preProcessText(s: string): string {
     prev = out
     out = out.replace(SI_RE, (_m, v, u) => `$${convertSI(v, u)}$`)
   }
+  out = out.replace(/\\ce\{((?:[^{}]|\{[^{}]*\})*)\}/g, (_m, formula) => `$\\ce{${formula}}$`)
+  out = out.replace(SI_LOWER_RE, (_m, unit) => `$${convertSI('', unit).replace(/^~/, '')}$`)
   out = out.replace(/\\celsius\b/g, '℃')
   return out
 }
@@ -136,6 +141,8 @@ function stripEnvArgs(s: string): string {
 
 /** 先识别外层排版环境，再拆分其中的行内公式；否则 $...$ 会截断 tabular。 */
 function renderRich(body: string, keyPrefix: string): React.ReactNode[] {
+  // 题库保留过原 LaTeX 的注释及计数器，浏览器中不应显示这些排版指令。
+  body = body.replace(/^\s*%[^\n]*/gm, '').replace(/\\setcounter\{[^{}]*\}\{[^{}]*\}/g, '')
   const envRe = /\\begin\{(choices|subquestions|center|tabularx?)\}/g
   const nodes: React.ReactNode[] = []
   let last = 0
@@ -235,6 +242,7 @@ function renderPlainText(text: string, key: string): React.ReactNode[] {
   s = s.replace(/\\emph\{([^{}]*)\}/g, '⟨B⟩$1⟨/B⟩')
   s = s.replace(/\\textit\{([^{}]*)\}/g, '$1')
   s = s.replace(/\\underline\{([^{}]*)\}/g, '⟨U⟩$1⟨/U⟩')
+  s = s.replace(/\*\*([^*]+)\*\*/g, '⟨B⟩$1⟨/B⟩')
   s = s.replace(/\\\\\s*\[[^\]]*\]/g, '⟨BR⟩')  // \\[1.2em] 行距
   s = s.replace(/\\\\/g, '⟨BR⟩')
   s = s.replace(/\\quad|\\qquad/g, '　')
@@ -246,7 +254,8 @@ function renderPlainText(text: string, key: string): React.ReactNode[] {
   const out: React.ReactNode[] = []
   paras.forEach((p, i) => {
     // 段内单个换行：中文之间直接去掉，否则视作空格（LaTeX 语义）
-    const joined = p.replace(/([\u4e00-\u9fff，。：；、（）""''⟩])\n([\u4e00-\u9fff⟨])/g, '$1$2').replace(/\n/g, ' ')
+    const joined = p.replace(/\n\s*[-*]\s+/g, '⟨BR⟩• ')
+      .replace(/([\u4e00-\u9fff，。：；、（）""''⟩])\n([\u4e00-\u9fff⟨])/g, '$1$2').replace(/\n/g, ' ')
     const html = escapeHtml(joined)
       .replace(/⟨SCORE:([^⟩]*)⟩/g, '<span class="tex-score">（$1 分）</span>')
       .replace(/⟨BLANK⟩/g, '<span class="tex-blank"></span>')

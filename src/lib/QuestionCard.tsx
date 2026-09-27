@@ -1,8 +1,9 @@
+/* eslint-disable react-refresh/only-export-components -- This module also exports question-to-UI converters used by every training page. */
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { PredQuestion, Question } from './types'
 import { normDifficulty, TYPE_LABEL } from './types'
 import { extractChoices, Tex } from './tex'
-import { useQuestionRecord } from './store'
+import { store, useQuestionRecord, useStore } from './store'
 
 /** 统一真题与预测题为一棵渲染树 */
 export interface UIQuestion {
@@ -25,13 +26,10 @@ export interface UIQuestion {
   difficulty: 'easy' | 'medium' | 'hard'
   hasFig?: boolean
   figSrc?: string
+  answerFigSrc?: string
 }
 
-const REDRAWN_PHASE_IDS = new Set([
-  '2003-Q26', '2004-Q11', '2005-Q29', '2009-Q11', '2010-Q30',
-  '2011-Q35', '2016-Q27', '2017-Q17', '2021-Q32', '2023-Q10',
-  '2024-Q32', '2026-Q08', '2026-Q36',
-])
+const ANSWER_FIG_IDS = new Set(['2004-Q11', '2007-Q22', '2008-Q33', '2009-Q31', '2013-Q27', '2021-Q32'])
 
 export function toUI(q: Question): UIQuestion {
   const s = q.sol
@@ -40,9 +38,9 @@ export function toUI(q: Question): UIQuestion {
   return {
     id: q.id, year: q.year, type: q.type, raw: q.raw, module: q.module, kp: q.kp,
     hasFig: q.has_fig,
-    figSrc: REDRAWN_PHASE_IDS.has(q.id)
-      ? 'redrawn-diagrams/' + q.id + '-phase.svg'
-      : q.figs?.find((fig) => /\.(?:png|jpe?g|webp|svg)$/i.test(fig)),
+    // 题图默认展示原卷裁图，保留印刷点位与连线，避免示意重绘改变题意。
+    figSrc: q.figs?.find((fig) => /\.(?:png|jpe?g|webp|svg)$/i.test(fig)),
+    answerFigSrc: ANSWER_FIG_IDS.has(q.id) ? `answer-diagrams/${q.id}-answer.svg` : undefined,
     source: q.source?.verified && q.source.kind === 'NJTech_802_past_exam'
       ? `${q.year} 南京工业大学802 · 第${q.source.printed_no ?? q.no}题（原卷 PDF 第${q.source.page}页）`
       : undefined,
@@ -69,28 +67,35 @@ const DIFF_LABEL = { easy: '基础', medium: '中档', hard: '攻坚' } as const
 
 export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
   const [rec, setRec] = useQuestionRecord(q.id)
+  const { savedIds, retryStarted } = useStore()
   const [open, setOpen] = useState(false)
   const [picked, setPicked] = useState<string | null>(null)
   const [cpVals, setCpVals] = useState<string[]>(() => q.checkpoints.map(() => ''))
   const [marks, setMarks] = useState<boolean[]>(() => q.markingScheme.map(() => false))
   const [zoomed, setZoomed] = useState(false)
+  const [answerZoomed, setAnswerZoomed] = useState(false)
   const figureTrigger = useRef<HTMLButtonElement>(null)
+  const answerFigureTrigger = useRef<HTMLButtonElement>(null)
+  const retryAt = retryStarted[q.id] ?? 0
+  const retrying = !!rec && rec.ts <= retryAt
 
   useEffect(() => {
-    if (!zoomed) return
+    if (!zoomed && !answerZoomed) return
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setZoomed(false)
-        requestAnimationFrame(() => figureTrigger.current?.focus({ preventScroll: true }))
+        const focusTarget = answerZoomed ? answerFigureTrigger.current : figureTrigger.current
+        setZoomed(false); setAnswerZoomed(false)
+        requestAnimationFrame(() => focusTarget?.focus({ preventScroll: true }))
       }
     }
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
-  }, [zoomed])
+  }, [zoomed, answerZoomed])
 
   function closeFigure() {
-    setZoomed(false)
-    requestAnimationFrame(() => figureTrigger.current?.focus({ preventScroll: true }))
+    const focusTarget = answerZoomed ? answerFigureTrigger.current : figureTrigger.current
+    setZoomed(false); setAnswerZoomed(false)
+    requestAnimationFrame(() => focusTarget?.focus({ preventScroll: true }))
   }
 
   const { stem, options } = useMemo(() => {
@@ -104,14 +109,14 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
     return { stem: q.raw, options: [] }
   }, [q])
 
-  const revealed = open || !!rec
+  const revealed = open || (!!rec && !retrying)
   const choiceUndetermined = q.type === 'choice' && !/^[A-E]$/.test(q.answer.correct ?? '')
   const fullScore = q.score ?? (q.markingScheme.reduce((a, b) => a + b.score, 0) || undefined)
   const markTotal = q.markingScheme.reduce((a, b) => a + b.score, 0)
   const selfTotal = q.markingScheme.reduce((a, b, i) => a + (marks[i] ? b.score : 0), 0)
 
   function grade(status: 'correct' | 'wrong') {
-    setRec({ status, ts: Date.now(), fullScore })
+    setRec({ status, ts: Math.max(Date.now(), retryAt + 1), fullScore })
     setOpen(true)
   }
 
@@ -132,7 +137,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
   function submitSelfGrade() {
     setRec({
       status: selfTotal >= markTotal * 0.6 ? 'correct' : 'wrong',
-      selfScore: selfTotal, fullScore: markTotal || fullScore, ts: Date.now(),
+      selfScore: selfTotal, fullScore: markTotal || fullScore, ts: Math.max(Date.now(), retryAt + 1),
     })
   }
 
@@ -143,8 +148,9 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
     return Math.abs(v - cp.value) <= cp.tol ? 'ok' : 'bad'
   }
 
-  const statusCls = rec?.status === 'correct' ? 'q-correct' : rec?.status === 'wrong' ? 'q-wrong' : ''
+  const statusCls = retrying ? '' : rec?.status === 'correct' ? 'q-correct' : rec?.status === 'wrong' ? 'q-wrong' : ''
   const figureUrl = q.figSrc ? import.meta.env.BASE_URL + q.figSrc.replace(/^\/+/, '') : ''
+  const answerFigureUrl = q.answerFigSrc ? import.meta.env.BASE_URL + q.answerFigSrc : ''
 
   return (
     <article className={`qcard ${statusCls}`} id={`q-${q.id}`}>
@@ -156,13 +162,19 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
           <span className="tag">{TYPE_LABEL[q.type]}</span>
           <span className={`tag diff-${q.difficulty}`}>{DIFF_LABEL[q.difficulty]}</span>
           {fullScore != null && fullScore > 0 && <span className="tag tag-score">{fullScore} 分</span>}
-          {rec && (
+          {retrying && <span className="tag tag-retry">↻ 重刷中</span>}
+          {rec && !retrying && (
             <span className={`tag ${rec.status === 'correct' ? 'tag-ok' : rec.status === 'wrong' ? 'tag-bad' : ''}`}>
               {rec.status === 'correct' ? '✓ 已掌握' : rec.status === 'wrong' ? '✗ 错题' : rec.status === 'reviewed' ? '已读审校说明' : '已自评'}
               {rec.selfScore != null && rec.fullScore ? ` ${rec.selfScore}/${rec.fullScore}` : ''}
             </span>
           )}
         </span>
+        <button type="button" className={`q-save ${savedIds[q.id] ? 'q-saved' : ''}`}
+          onClick={() => store.setSaved(q.id, !savedIds[q.id])}
+          aria-pressed={!!savedIds[q.id]} title={savedIds[q.id] ? '从收藏夹移除' : '收藏这道题'}>
+          {savedIds[q.id] ? '★ 已收藏' : '☆ 收藏'}
+        </button>
       </header>
 
       <div className="q-stem">
@@ -172,7 +184,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
             {q.figSrc ? (
               <button ref={figureTrigger} type="button" className="q-fig-trigger" onClick={() => setZoomed(true)} title="点击放大题图">
                 <img src={figureUrl} alt={q.id + ' 题图'} loading="lazy" />
-                <span>点击放大题图</span>
+                <span>🔎 原卷题图 · 点击放大核对</span>
               </button>
             ) : (
               <span>本题原图待核验接入，请先查看原卷。</span>
@@ -180,14 +192,16 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
           </div>
         )}
       </div>
-      {zoomed && q.figSrc && (
+      {(zoomed || answerZoomed) && (q.figSrc || q.answerFigSrc) && (
         <div className="q-lightbox" onMouseDown={(event) => { if (event.target === event.currentTarget) closeFigure() }}>
-          <div className="q-lightbox-panel" role="dialog" aria-modal="true" aria-label={q.id + ' 题图大图'}>
+          <div className="q-lightbox-panel" role="dialog" aria-modal="true" aria-label={q.id + (answerZoomed ? ' 答案作图大图' : ' 题图大图')}>
             <div className="q-lightbox-bar">
               <button type="button" onClick={closeFigure}>← 返回题目</button>
               <span className="mono">{q.id}</span>
             </div>
-            <div className="q-lightbox-scroll"><img src={figureUrl} alt={q.id + ' 放大题图'} /></div>
+            <div className={`q-lightbox-scroll ${answerZoomed ? 'q-lightbox-answer' : ''}`}>
+              <img src={answerZoomed ? answerFigureUrl : figureUrl} alt={q.id + (answerZoomed ? ' 放大作图参考' : ' 放大题图')} />
+            </div>
           </div>
         </div>
       )}
@@ -217,7 +231,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
       )}
       {choiceUndetermined && !revealed && (
         <div className="q-actions"><button className="btn btn-primary" onClick={() => {
-          setRec({ status: 'reviewed', ts: Date.now() }); setOpen(true)
+          setRec({ status: 'reviewed', ts: Math.max(Date.now(), retryAt + 1) }); setOpen(true)
         }}>查看原题审校说明</button></div>
       )}
 
@@ -260,7 +274,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
                   <li key={i}><span className="mono">空{i + 1}</span> <Tex text={b} /></li>
                 ))}
               </ol>
-              {!rec && (
+              {(!rec || retrying) && (
                 <div className="q-actions">
                   <button className="btn btn-ok" onClick={() => grade('correct')}>我填对了</button>
                   <button className="btn btn-bad" onClick={() => grade('wrong')}>填错了，记入错题</button>
@@ -322,7 +336,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
                   </label>
                 ))}
               </div>
-              {!rec && (
+              {(!rec || retrying) && (
                 <div className="q-actions">
                   <button className="btn btn-primary" onClick={submitSelfGrade}>
                     提交自评（{selfTotal}/{markTotal} 分）
@@ -346,6 +360,18 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
             </div>
           )}
 
+          {q.answerFigSrc && (
+            <div className="sol-block sol-drawing">
+              <h5>作图参考 · 对照题给相图和解析逐步核对</h5>
+              <button ref={answerFigureTrigger} type="button" className="sol-drawing-trigger" onClick={() => setAnswerZoomed(true)}
+                title="点击放大作图参考">
+                <img src={answerFigureUrl} alt={`${q.id} 解答相图示意，标有特征点、相界和相区`} loading="lazy" />
+                <span>🔎 点击放大作图参考</span>
+              </button>
+              <p>教学示意图：只标原题能够确定的特征与相变顺序；未给出的曲线形状、温度和时长不作定量读取。</p>
+            </div>
+          )}
+
           {q.method && (
             <div className="sol-block">
               <h5>做题方法</h5>
@@ -363,7 +389,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
           {q.source && <div className="q-source mono">题源：{q.source}</div>}
 
           <div className="q-actions q-foot">
-            {rec ? (
+            {rec && !retrying ? (
               <>
                 {rec.status === 'wrong' ? (
                   <button className="btn btn-ok" onClick={() => grade('correct')}>重做对 → 移出错题本</button>

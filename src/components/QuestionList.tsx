@@ -13,28 +13,30 @@ const FILTERS: { key: Filter; label: string }[] = [
 ]
 
 export default function QuestionList({ questions, title, beforeQuestion }: { questions: Question[]; title?: string; beforeQuestion?: (q: Question) => ReactNode }) {
-  const { progress } = useStore()
+  const { progress, retryStarted } = useStore()
   const [filter, setFilter] = useState<Filter>('all')
   const [collapsed, setCollapsed] = useState(false)
 
   const stats = useMemo(() => {
     let done = 0, correct = 0, graded = 0
     for (const q of questions) {
-      const r = progress[q.id]
+      const old = progress[q.id]
+      const r = old && old.ts > (retryStarted[q.id] ?? 0) ? old : undefined
       if (r) { done++; if (r.status === 'correct' || r.status === 'wrong') graded++; if (r.status === 'correct') correct++ }
     }
     return { done, correct, graded, total: questions.length }
-  }, [questions, progress])
+  }, [questions, progress, retryStarted])
 
   const shown = useMemo(() => {
     if (filter === 'all') return questions
     return questions.filter((q) => {
-      const r = progress[q.id]
+      const old = progress[q.id]
+      const r = old && old.ts > (retryStarted[q.id] ?? 0) ? old : undefined
       if (filter === 'todo') return !r
       if (filter === 'wrong') return r?.status === 'wrong'
       return r?.status === 'correct'
     })
-  }, [questions, progress, filter])
+  }, [questions, progress, retryStarted, filter])
 
   const pct = stats.total ? Math.round((stats.done / stats.total) * 100) : 0
   const acc = stats.graded ? Math.round((stats.correct / stats.graded) * 100) : 0

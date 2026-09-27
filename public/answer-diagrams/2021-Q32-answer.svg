@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-labelledby="title desc">
+<title id="title">2021-Q32 沿 a 组成冷却的步冷曲线</title><desc id="desc">沿 a 垂线由上到下穿过液相线、包晶三相线、低共熔三相线，步冷曲线有一个折点和两段平台。</desc>
+<rect width="900" height="600" rx="20" fill="#fffdf8"/><g font-family="Arial,Microsoft YaHei,sans-serif" fill="#244450" font-size="17"><text x="42" y="40" font-size="22" font-weight="bold">2021-Q32 · a 组成的冷却曲线</text>
+<path d="M95 92V485H828" stroke="#344f59" stroke-width="2.5" fill="none"/>
+<path d="M130 115L245 205L355 278H500L590 370H735L804 455" stroke="#23818b" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g stroke="#da7958" stroke-width="2" stroke-dasharray="5 5"><path d="M95 278H790 M95 370H790"/></g>
+<g fill="#ca6349"><circle cx="245" cy="205" r="5"/><circle cx="355" cy="278" r="5"/><circle cx="590" cy="370" r="5"/></g>
+<text x="270" y="182">液相线：折点</text><text x="367" y="264">包晶平台</text><text x="610" y="356">低共熔平台</text>
+<text x="116" y="258">上三相线</text><text x="116" y="350">EF 三相线</text><text x="100" y="512">时间 →</text><text x="63" y="113">T</text>
+<text x="58" y="553" font-size="15">沿原卷虚线 a：L → L+C₂ →（L+C₂→C₁）→ L+C₁ →（L→α+C₁）→ α+C₁。</text>
+<text x="58" y="580" font-size="15">只数“穿过液相线”和“两条水平三相线”；原卷无温度刻度，不写具体温度。</text></g></svg>

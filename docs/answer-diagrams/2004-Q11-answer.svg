@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 610" role="img" aria-labelledby="title desc">
+<title id="title">2004-Q11 a、b 两个组成的步冷曲线</title><desc id="desc">a 先在液相线出现折点，后于左低共熔温度出现平台；b 位于相合熔化的 C 化合物组成，在其熔点只有一段凝固平台。</desc>
+<rect width="900" height="610" rx="20" fill="#fffdf8"/><g font-family="Arial,Microsoft YaHei,sans-serif" fill="#244450" font-size="17"><text x="42" y="40" font-size="22" font-weight="bold">2004-Q11 · 沿原图 a、b 垂线画步冷曲线</text>
+<g stroke="#344f59" stroke-width="2.5" fill="none"><path d="M65 115V485H430 M485 115V485H850"/></g>
+<g fill="#ca6349" font-size="24" font-weight="bold"><text x="85" y="95">a：先析 Mg 侧固相，再到低共熔</text><text x="520" y="95">b：纯化合物 C 凝固</text></g>
+<path d="M92 138L195 248L280 340H365L420 445" stroke="#23818b" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M513 138L620 260H764L830 442" stroke="#23818b" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g stroke="#da7958" stroke-width="2" stroke-dasharray="5 5"><path d="M65 340H430 M485 260H850"/></g>
+<text x="205" y="209">液相线折点</text><text x="276" y="330">共熔平台</text><text x="585" y="246">C 的相合熔点平台</text>
+<text x="72" y="513">时间 →</text><text x="490" y="513">时间 →</text><text x="30" y="127">T</text><text x="453" y="127">T</text>
+<text x="64" y="559" font-size="15">核对：a 有“折点＋平台”；b 与原图 C 的组成竖线重合，只有一个平台。</text><text x="64" y="584" font-size="15">原卷未给数值温度，平台高度仅表示先后关系。</text></g></svg>

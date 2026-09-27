@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" role="img" aria-labelledby="title desc">
+<title id="title">2009-Q31 B 盐与水生成相合熔融二水合物的相图</title><desc id="desc">两个低共熔点的组成分别为百分之三十一和百分之八十四，二水合物组成百分之七十四点一，熔点六十五摄氏度；右侧低共熔温度四十八摄氏度，纯盐熔点一百七十三摄氏度。</desc>
+<rect width="900" height="620" rx="20" fill="#fffdf8"/><g font-family="Arial,Microsoft YaHei,sans-serif" fill="#244450" font-size="17"><text x="42" y="38" font-size="22" font-weight="bold">B–H₂O：相合熔融的 B·2H₂O</text>
+<g stroke="#304b55" stroke-width="2.5" fill="none"><path d="M80 65V500H850"/><path d="M640 255V500"/></g>
+<path d="M80 270 Q208 316 314 435 Q467 260 640 255 Q689 295 710 360 Q780 300 850 90" stroke="#23818b" stroke-width="4" fill="none"/>
+<g stroke="#da7958" stroke-width="2.5"><path d="M80 435H640 M640 360H850"/></g><g stroke="#adc2c5" stroke-dasharray="5 5"><path d="M314 435V500 M710 360V500"/></g>
+<g fill="#ca6349"><circle cx="314" cy="435" r="6"/><circle cx="640" cy="255" r="6"/><circle cx="710" cy="360" r="6"/></g>
+<text x="285" y="422">E₁</text><text x="635" y="242">C</text><text x="717" y="355">E₂</text><text x="247" y="155">L</text><text x="115" y="348">冰 + L</text><text x="425" y="402">水合物 + L</text><text x="750" y="270">B(s) + L</text><text x="122" y="473">冰 + 水合物</text><text x="663" y="465">水合物 + B(s)</text>
+<text x="35" y="80">t/℃</text><text x="695" y="532">w(B)/% →</text><text x="75" y="527">0</text><text x="285" y="527">31</text><text x="609" y="527">74.1</text><text x="683" y="527">84</text><text x="817" y="527">100</text>
+<text x="650" y="280" font-size="14">65 ℃</text><text x="716" y="383" font-size="14">48 ℃</text><text x="800" y="82" font-size="14">173 ℃</text><text x="60" y="572" font-size="14">E₁ 温度未给，不能臆填；C 位置由 103/(103+2×18)=74.1% 求出。</text><text x="60" y="594" font-size="14">两条三相线，六个两相区（左右两侧的“水合物+L”按区域分别计）。</text></g></svg>
