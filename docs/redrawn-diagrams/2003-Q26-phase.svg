@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 720" role="img" aria-labelledby="title desc">
+  <title id="title">2003 年第 26 题原题相图的清晰重绘</title>
+  <desc id="desc">纵轴温度，横轴质量分数。保留原卷的 E、F、G、H、A、B、C 和六个相区，以及 M1、M2 两点。</desc>
+  <rect width="940" height="720" fill="#fff"/>
+  <g fill="none" stroke="#171b1c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M155 57 V540 H836 V57"/>
+    <path d="M155 242 C214 273 271 328 309 415"/>
+    <path d="M309 415 C338 365 386 313 450 300"/>
+    <path d="M450 300 C486 248 526 158 598 127 C667 88 756 62 836 61"/>
+    <path d="M155 415 H595 V540 M450 300 H836 M595 300 V415"/>
+  </g>
+  <g fill="#171b1c" font-family="Georgia, 'Times New Roman', 'Noto Serif CJK SC', serif" font-size="42" font-style="italic">
+    <text x="30" y="72">t/°C</text><text x="254" y="120">P=C</text>
+    <text x="393" y="295">G</text><text x="76" y="428">E</text>
+    <text x="604" y="429">F</text><text x="858" y="319">H</text>
+    <text x="141" y="594">A</text><text x="580" y="594">C</text><text x="821" y="594">B</text>
+    <text x="425" y="145">M₁</text><text x="503" y="76">M₂</text>
+  </g>
+  <g fill="#171b1c"><circle cx="509" cy="126" r="5"/><circle cx="585" cy="50" r="5"/></g>
+  <g fill="#171b1c" font-family="'Noto Sans CJK SC', 'Microsoft YaHei', Arial, sans-serif" font-size="45" text-anchor="middle">
+    <text x="290" y="239">①</text><text x="201" y="380">②</text>
+    <text x="478" y="401">③</text><text x="355" y="512">④</text>
+    <text x="717" y="239">⑤</text><text x="778" y="458">⑥</text>
+  </g>
+  <text x="480" y="673" fill="#171b1c" text-anchor="middle" font-family="'Noto Serif CJK SC', 'Microsoft YaHei', serif" font-size="42">质量分数</text>
+</svg>

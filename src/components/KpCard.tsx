@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Tex } from '../lib/tex'
 import { store, useStore } from '../lib/store'
 import type { Question } from '../lib/types'
+import { questionFigure, isRedrawnFigure } from '../lib/figureAssets'
 
 export interface KpGuide {
   module: string
@@ -80,8 +81,9 @@ export default function KpCard({ name, guide, count, workedQuestion, guided, jud
             </button>
             {showWorked && <div className="kp-worked-body">
               <h6>原题</h6><Tex text={workedQuestion.raw} block />
-              {workedQuestion.has_fig && workedQuestion.figs?.[0] && <img className="kp-worked-figure"
-                src={import.meta.env.BASE_URL + workedQuestion.figs[0]} alt={`${workedQuestion.id} 原卷题图`} loading="lazy" />}
+              {workedQuestion.has_fig && questionFigure(workedQuestion) && <img className="kp-worked-figure"
+                src={import.meta.env.BASE_URL + questionFigure(workedQuestion)}
+                alt={`${workedQuestion.id} ${isRedrawnFigure(workedQuestion.id) ? '清晰重绘题图' : '原卷题图'}`} loading="lazy" />}
               {workedQuestion.sol.method && <><h6>先怎么想</h6><Tex text={workedQuestion.sol.method} block /></>}
               {workedQuestion.sol.solution && <><h6>逐步核对</h6><Tex text={workedQuestion.sol.solution} block /></>}
               {workedQuestion.sol.answer.final && <><h6>落笔答案</h6><Tex text={workedQuestion.sol.answer.final} block /></>}

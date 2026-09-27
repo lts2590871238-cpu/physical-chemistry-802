@@ -250,10 +250,15 @@ body {
 .kp-judge-item b { display: block; color: #465e7d; margin-bottom: 4px; }
 .method-index { margin: 14px 0 22px; padding: 14px 18px; border: 1px solid #cfe4d9; border-radius: 12px; background: #edf7f1; font-size: 13px; }
 .method-index strong { display: block; color: #226b61; font-size: 15px; }
-.method-index span { color: var(--muted); }
-.method-index div { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
-.method-index a { padding: 3px 10px; border-radius: 999px; background: white; color: #226b61; text-decoration: none; border: 1px solid #cfe4d9; }
-.method-index a:hover { border-color: #226b61; }
+.method-index > span { color: var(--muted); }
+.method-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.method-tabs button { padding: 5px 11px; border-radius: 999px; background: white; color: #226b61; border: 1px solid #cfe4d9; cursor: pointer; font: inherit; }
+.method-tabs button:hover, .method-tabs button[aria-pressed="true"] { border-color: #226b61; background: #dff1e9; }
+.method-detail { margin-top: 16px; padding: 16px 20px; border: 1px solid #cfe4d9; border-radius: 10px; background: #fff; line-height: 1.75; }
+.method-detail h4 { margin: 0 0 9px; color: #226b61; font-size: 17px; }
+.method-detail-label { margin: 0; color: #526a66; font-weight: 600; }
+.method-detail ol { padding-left: 23px; }
+.method-detail li { margin: 7px 0; }
 .kp-sec h6 { font-size: 11px; letter-spacing: 0.16em; color: var(--accent); margin: 14px 0 4px; font-family: var(--mono); font-weight: 600; }
 .kp-sec p, .kp-sec .tex { font-size: 13.5px; }
 .kp-example { background: var(--surface); border-radius: 8px; padding: 2px 14px 10px; margin-top: 10px; }

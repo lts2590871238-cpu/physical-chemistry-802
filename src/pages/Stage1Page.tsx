@@ -9,6 +9,7 @@ import QuestionList from '../components/QuestionList'
 import KpCard, { type KpGuide } from '../components/KpCard'
 import RetryDayButton from '../components/RetryDayButton'
 import { guidedLessons } from '../lib/guidedLessons'
+import { Tex } from '../lib/tex'
 
 interface KpGuideMap { [kp: string]: KpGuide & { search_terms?: string[] } }
 const WORKED_QUESTION_OVERRIDE: Record<string, string> = {
@@ -20,6 +21,7 @@ const WORKED_QUESTION_OVERRIDE: Record<string, string> = {
 export default function Stage1Page() {
   const [params, setParams] = useSearchParams()
   const [search, setSearch] = useState('')
+  const [selectedMethod, setSelectedMethod] = useState('')
   const { progress, cardsDone } = useStore()
   const mod = params.get('mod') ?? 'M1'
   const { data: plan, error: e1 } = useAsync(loadPlan, [])
@@ -75,6 +77,9 @@ export default function Stage1Page() {
       return { ...s, module, qs }
     }).filter((s) => !needle || `${s.kp} ${kpGuide[s.kp]?.explain ?? ''} ${kpGuide[s.kp]?.search_terms?.join(' ') ?? ''}`.toLocaleLowerCase().includes(needle))
   })
+  const methodNames = sections.filter((s) => guidedLessons[s.kp]).map((s) => s.kp)
+  const activeMethod = methodNames.includes(selectedMethod) ? selectedMethod : methodNames[0]
+  const activeLesson = activeMethod ? guidedLessons[activeMethod] : undefined
 
   return (
     <div className="page">
@@ -101,11 +106,19 @@ export default function Stage1Page() {
       {!needle && plan.stage1.moduleGuide?.[mod] && <p className="page-sub">{plan.stage1.moduleGuide[mod]}</p>}
       {!needle && <RetryDayButton ids={plan.stage1.byModule[mod] ?? []} />}
 
-      {!needle && sections.some((s) => guidedLessons[s.kp]) && <div className="method-index">
+      {!needle && activeLesson && <div className="method-index">
         <strong>🧭 本模块的题型方法卡</strong>
         <span>从题眼到落笔，边看边算</span>
-        <div>{sections.filter((s) => guidedLessons[s.kp]).map((s) =>
-          <a href={`#kp-${s.kp}`} key={s.kp}>{s.kp} ↗</a>)}</div>
+        <div className="method-tabs">{methodNames.map((name) =>
+          <button type="button" aria-pressed={activeMethod === name} onClick={() => setSelectedMethod(name)} key={name}>{name}</button>)}</div>
+        <section className="method-detail" aria-live="polite">
+          <h4>{activeMethod} · 题型方法卡</h4>
+          <p className="method-detail-label">先看这道题怎么起步</p>
+          <Tex text={activeLesson.problem} block />
+          <ol>{activeLesson.steps.map((step, i) => <li key={i}><Tex text={step} /></li>)}</ol>
+          <p><b>怎么验算：</b><Tex text={activeLesson.check} /></p>
+          <p><b>迁移到真题：</b><Tex text={activeLesson.transfer} /></p>
+        </section>
       </div>}
 
       <input className="kp-search" type="search" value={search} onChange={(e) => setSearch(e.target.value)}

@@ -4,6 +4,7 @@ import type { PredQuestion, Question } from './types'
 import { normDifficulty, TYPE_LABEL } from './types'
 import { extractChoices, Tex } from './tex'
 import { store, useQuestionRecord, useStore } from './store'
+import { isRedrawnFigure, questionFigure } from './figureAssets'
 
 /** 统一真题与预测题为一棵渲染树 */
 export interface UIQuestion {
@@ -38,8 +39,7 @@ export function toUI(q: Question): UIQuestion {
   return {
     id: q.id, year: q.year, type: q.type, raw: q.raw, module: q.module, kp: q.kp,
     hasFig: q.has_fig,
-    // 题图默认展示原卷裁图，保留印刷点位与连线，避免示意重绘改变题意。
-    figSrc: q.figs?.find((fig) => /\.(?:png|jpe?g|webp|svg)$/i.test(fig)),
+    figSrc: questionFigure(q),
     answerFigSrc: ANSWER_FIG_IDS.has(q.id) ? `answer-diagrams/${q.id}-answer.svg` : undefined,
     source: q.source?.verified && q.source.kind === 'NJTech_802_past_exam'
       ? `${q.year} 南京工业大学802 · 第${q.source.printed_no ?? q.no}题（原卷 PDF 第${q.source.page}页）`
@@ -184,7 +184,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
             {q.figSrc ? (
               <button ref={figureTrigger} type="button" className="q-fig-trigger" onClick={() => setZoomed(true)} title="点击放大题图">
                 <img src={figureUrl} alt={q.id + ' 题图'} loading="lazy" />
-                <span>🔎 原卷题图 · 点击放大核对</span>
+                <span>🔎 {isRedrawnFigure(q.id) ? '清晰重绘题图' : '原卷题图'} · 点击放大核对</span>
               </button>
             ) : (
               <span>本题原图待核验接入，请先查看原卷。</span>
