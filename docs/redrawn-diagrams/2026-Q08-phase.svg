@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 350" role="img" aria-labelledby="title">
+  <title id="title">2026-Q08 相图重绘</title>
+  <style>
+    .ink,.dash{fill:none;stroke:#252525;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+    .dash{stroke-dasharray:7 6}
+    text{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;font-size:18px;fill:#202020}
+  </style>
+  <rect width="100%" height="100%" fill="white"/>
+  <rect x="61" y="23" width="228" height="272" class="ink"/>
+  <path d="M118 295 C122 194 140 116 166 95 C191 113 205 188 208 295" class="ink"/>
+  <path d="M61 95 L166 95" class="dash"/>
+  <text x="43" y="25" text-anchor="middle" font-weight="normal" font-size="19">T/K</text>
+  <text x="43" y="102" text-anchor="middle" font-weight="normal" font-size="19">T₀</text>
+  <text x="166" y="89" text-anchor="middle" font-weight="normal" font-size="20">C</text>
+  <text x="61" y="323" text-anchor="middle" font-weight="normal" font-size="23">水</text>
+  <text x="174" y="324" text-anchor="middle" font-weight="normal" font-size="23">W%</text>
+  <text x="284" y="324" text-anchor="middle" font-weight="normal" font-size="23">苯胺</text>
+</svg>

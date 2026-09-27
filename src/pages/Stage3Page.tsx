@@ -6,6 +6,7 @@ import type { Question, Solution } from '../lib/types'
 import { QuestionCard, toUI } from '../lib/QuestionCard'
 import { useStore } from '../lib/store'
 import RetryDayButton from '../components/RetryDayButton'
+import StudyPhoto from '../components/StudyPhoto'
 
 /** 阶段三：21-23 整卷掐时自测 */
 export default function Stage3Page() {
@@ -40,7 +41,9 @@ export default function Stage3Page() {
   const ss = String(elapsed % 60).padStart(2, '0')
 
   return (
-    <div className="page">
+    <div className="page study-layout">
+      <StudyPhoto file="stage3.jpg" alt="戴黄色帽子的玩偶" caption="掐好时间，独立做完再核对。" />
+      <div className="study-main">
       <header className="page-head">
         <h2 className="page-title">阶段三 · 掐时自测 <span className="mono page-years">2021–2023 整卷</span></h2>
         <p className="page-sub">建议流程：开启计时 → 在纸上完整作答（按 150 分钟掐）→ 逐题核对并自评。错题自动进入错题本，第 18 天统一重练。</p>
@@ -71,6 +74,7 @@ export default function Stage3Page() {
         {qs.map((q, i) => <QuestionCard key={q.id} q={toUI(q)} index={i} />)}
       </div>
       <RetryDayButton ids={qs.map((q) => q.id)} />
+      </div>
     </div>
   )
 }

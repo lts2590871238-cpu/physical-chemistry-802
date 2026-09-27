@@ -37,6 +37,7 @@ export default function HomePage() {
   return (
     <div className="home">
       <section className="hero">
+        <img className="hero-photo-image" src={`${import.meta.env.BASE_URL}decor/home-hero.jpg`} alt="" aria-hidden="true" />
         <div className="hero-kicker mono">🌿 南京工业大学 · 802 物理化学 · 考研冲刺</div>
         <h2 className="hero-title">20 天，练会真题<br /><span>冲向 120 分</span></h2>
         <p className="hero-sub">

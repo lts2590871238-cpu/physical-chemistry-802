@@ -30,7 +30,10 @@ export interface UIQuestion {
   answerFigSrc?: string
 }
 
-const ANSWER_FIG_IDS = new Set(['2004-Q11', '2007-Q22', '2008-Q33', '2009-Q31', '2013-Q27', '2021-Q32'])
+const ANSWER_FIG_IDS = new Set([
+  '2003-Q26', '2004-Q11', '2007-Q22', '2008-Q33', '2009-Q31',
+  '2010-Q30', '2011-Q35', '2013-Q27', '2016-Q27', '2021-Q32', 'A-T04',
+])
 
 export function toUI(q: Question): UIQuestion {
   const s = q.sol
@@ -56,6 +59,7 @@ export function predToUI(q: PredQuestion): UIQuestion {
   const kp = Array.isArray(q.kp) ? q.kp : [q.kp as unknown as string]
   return {
     id: q.id, type: q.type, raw: q.raw, module: q.module, kp, score: q.score,
+    answerFigSrc: ANSWER_FIG_IDS.has(q.id) ? `answer-diagrams/${q.id}-answer.svg` : undefined,
     options: q.options, source: q.source,
     answer: q.answer, solution: q.solution, method: q.method, pitfalls: q.pitfalls,
     recall: q.recall, checkpoints: q.checkpoints ?? [], markingScheme: q.markingScheme ?? [],
@@ -74,6 +78,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
   const [marks, setMarks] = useState<boolean[]>(() => q.markingScheme.map(() => false))
   const [zoomed, setZoomed] = useState(false)
   const [answerZoomed, setAnswerZoomed] = useState(false)
+  const [lightboxDetail, setLightboxDetail] = useState(false)
   const figureTrigger = useRef<HTMLButtonElement>(null)
   const answerFigureTrigger = useRef<HTMLButtonElement>(null)
   const retryAt = retryStarted[q.id] ?? 0
@@ -84,7 +89,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         const focusTarget = answerZoomed ? answerFigureTrigger.current : figureTrigger.current
-        setZoomed(false); setAnswerZoomed(false)
+        setZoomed(false); setAnswerZoomed(false); setLightboxDetail(false)
         requestAnimationFrame(() => focusTarget?.focus({ preventScroll: true }))
       }
     }
@@ -94,7 +99,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
 
   function closeFigure() {
     const focusTarget = answerZoomed ? answerFigureTrigger.current : figureTrigger.current
-    setZoomed(false); setAnswerZoomed(false)
+    setZoomed(false); setAnswerZoomed(false); setLightboxDetail(false)
     requestAnimationFrame(() => focusTarget?.focus({ preventScroll: true }))
   }
 
@@ -198,8 +203,11 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
             <div className="q-lightbox-bar">
               <button type="button" onClick={closeFigure}>← 返回题目</button>
               <span className="mono">{q.id}</span>
+              <button type="button" aria-pressed={lightboxDetail} onClick={() => setLightboxDetail(!lightboxDetail)}>
+                {lightboxDetail ? '适合屏幕' : '放大细节'}
+              </button>
             </div>
-            <div className={`q-lightbox-scroll ${answerZoomed ? 'q-lightbox-answer' : ''}`}>
+            <div className={`q-lightbox-scroll ${answerZoomed ? 'q-lightbox-answer' : ''} ${lightboxDetail ? 'q-lightbox-zoom' : ''}`}>
               <img src={answerZoomed ? answerFigureUrl : figureUrl} alt={q.id + (answerZoomed ? ' 放大作图参考' : ' 放大题图')} />
             </div>
           </div>
@@ -365,7 +373,7 @@ export function QuestionCard({ q, index }: { q: UIQuestion; index?: number }) {
               <h5>作图参考 · 对照题给相图和解析逐步核对</h5>
               <button ref={answerFigureTrigger} type="button" className="sol-drawing-trigger" onClick={() => setAnswerZoomed(true)}
                 title="点击放大作图参考">
-                <img src={answerFigureUrl} alt={`${q.id} 解答相图示意，标有特征点、相界和相区`} loading="lazy" />
+                <img src={answerFigureUrl} alt={`${q.id} 答案作图`} loading="lazy" />
                 <span>🔎 点击放大作图参考</span>
               </button>
               <p>教学示意图：只标原题能够确定的特征与相变顺序；未给出的曲线形状、温度和时长不作定量读取。</p>

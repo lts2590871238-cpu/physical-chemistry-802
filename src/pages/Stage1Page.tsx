@@ -10,6 +10,7 @@ import KpCard, { type KpGuide } from '../components/KpCard'
 import RetryDayButton from '../components/RetryDayButton'
 import { guidedLessons } from '../lib/guidedLessons'
 import { Tex } from '../lib/tex'
+import StudyPhoto from '../components/StudyPhoto'
 
 interface KpGuideMap { [kp: string]: KpGuide & { search_terms?: string[] } }
 const WORKED_QUESTION_OVERRIDE: Record<string, string> = {
@@ -82,7 +83,9 @@ export default function Stage1Page() {
   const activeLesson = activeMethod ? guidedLessons[activeMethod] : undefined
 
   return (
-    <div className="page">
+    <div className="page study-layout">
+      <StudyPhoto file="stage1.jpg" alt="两只玩偶站在一起" caption="先把概念弄懂，再一道一道练熟。" />
+      <div className="study-main">
       <header className="page-head">
         <h2 className="page-title">阶段一 · 按知识点精练 <span className="mono page-years">2003–2011 · 284 题</span></h2>
         <p className="page-sub">先学概念和公式的使用条件，再跟做一题，最后练本节真题。先看“为什么”，再看“怎么算”。</p>
@@ -154,6 +157,7 @@ export default function Stage1Page() {
         <p>高频错误知识点：{topWeak.length ? topWeak.map(([name, n]) => `${name} ${n}题`).join('、') : '暂无记录'}。</p>
       </section>}
       {!needle && <RetryDayButton ids={plan.stage1.byModule[mod] ?? []} />}
+      </div>
     </div>
   )
 }

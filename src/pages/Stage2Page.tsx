@@ -5,6 +5,7 @@ import type { Question, Solution } from '../lib/types'
 import QuestionList from '../components/QuestionList'
 import KpCard, { type KpGuide } from '../components/KpCard'
 import RetryDayButton from '../components/RetryDayButton'
+import StudyPhoto from '../components/StudyPhoto'
 
 const LEVEL_LABEL: Record<string, string> = { easy: '基础', medium: '中档', hard: '攻坚' }
 
@@ -26,7 +27,9 @@ export default function Stage2Page() {
     .map((q) => ({ ...q, sol: (sols as Record<string, Solution>)[q.id] }))
 
   return (
-    <div className="page">
+    <div className="page study-layout">
+      <StudyPhoto file="stage2.jpg" alt="几只玩偶一起练习" caption="把分散知识接起来，再做成套题。" />
+      <div className="study-main">
       <header className="page-head">
         <h2 className="page-title">阶段二 · 打散混库成套 <span className="mono page-years">2012–2020 · 269 题</span></h2>
         <p className="page-sub">不再按年份也不按章节——随机混编、按难度分层。基础套以判断概念题为主快速过脑，中档套全是选择填空练速算，攻坚套全是计算简答练过程分。</p>
@@ -56,6 +59,7 @@ export default function Stage2Page() {
         ))
       } />
       <RetryDayButton ids={current.ids} />
+      </div>
     </div>
   )
 }

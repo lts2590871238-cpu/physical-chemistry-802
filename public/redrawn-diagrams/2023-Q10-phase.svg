@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 586 570" role="img" aria-labelledby="title">
+  <title id="title">2023-Q10 相图重绘</title>
+  <style>
+    .ink,.dash{fill:none;stroke:#252525;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+    .dash{stroke-dasharray:7 6}
+    text{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;font-size:25px;fill:#202020}
+  </style>
+  <rect width="100%" height="100%" fill="white"/>
+  <rect x="39" y="24" width="514" height="436" class="ink"/>
+  <path d="M39 189 C184 192 259 219 359 292 C440 311 506 342 553 369" class="ink"/>
+  <path d="M39 189 C83 261 122 283 166 292" class="ink"/>
+  <path d="M64 460 C78 386 117 333 166 292" class="ink"/>
+  <path d="M294 292 C322 340 343 396 361 460" class="ink"/>
+  <path d="M294 292 C353 345 462 381 553 369" class="ink"/>
+  <path d="M166 292 L294 292" class="ink"/>
+  <text x="7" y="45" text-anchor="middle" font-weight="normal" font-size="30">T</text>
+  <text x="498" y="60" text-anchor="middle" font-weight="normal" font-size="26">P=C</text>
+  <text x="77" y="334" text-anchor="middle" font-weight="normal" font-size="26">C</text>
+  <text x="188" y="252" text-anchor="middle" font-weight="normal" font-size="26">D</text>
+  <text x="199" y="371" text-anchor="middle" font-weight="normal" font-size="26">E</text>
+  <text x="385" y="399" text-anchor="middle" font-weight="normal" font-size="26">F</text>
+  <text x="413" y="341" text-anchor="middle" font-weight="normal" font-size="26">G</text>
+  <text x="39" y="499" text-anchor="middle" font-weight="normal" font-size="29">A</text>
+  <text x="553" y="499" text-anchor="middle" font-weight="normal" font-size="29">B</text>
+  <path d="M182 494 L358 494" class="ink"/><path d="M348 489 L358 494 L348 499" class="ink"/>
+  <text x="271" y="537" text-anchor="middle" font-weight="normal" font-size="29">x_B</text>
+</svg>

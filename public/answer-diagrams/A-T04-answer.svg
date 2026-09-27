@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 920" role="img" aria-labelledby="title desc">
+<title id="title">A-T04 Zn–Mg 相图及三条步冷曲线</title>
+<desc id="desc">上部是由题给五个特征点构成的 Zn–Mg 定压固液相图；下部依次为镁质量分数 0.80、0.49、0.30 的冷却曲线。</desc>
+<rect width="1200" height="920" rx="18" fill="#fffdf9"/>
+<style>text{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#253e43}.axis{fill:none;stroke:#243f44;stroke-width:3;stroke-linecap:round}.curve{fill:none;stroke:#167b84;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.guide{fill:none;stroke:#bb7158;stroke-width:1.8;stroke-dasharray:6 5}</style>
+<text x="48" y="48" font-size="27" font-weight="700">A-T04 · 先定五个特征点，再画液相线与三条步冷曲线</text>
+<g class="axis"><path d="M96 100V550H1082 M96 550l-8-14 M96 550l8-14 M1082 550l-14-8 M1082 550l-14 8"/></g>
+<g class="guide"><path d="M96 405H251 M96 425H1082 M251 100V550 M407 100V550 M579 100V550 M886 100V550"/></g>
+<g class="curve"><path d="M96 367 C153 380 199 401 251 405 C315 326 360 214 407 206 C451 217 526 378 579 425 C702 409 837 248 1082 163"/><path d="M96 405H407 M407 425H1082 M407 206V550" stroke="#243f44" stroke-width="2.7"/></g>
+<g font-size="20"><text x="46" y="115">T/K</text><text x="547" y="605">w(Mg)</text><text x="75" y="373">692</text><text x="207" y="397">641</text><text x="366" y="196">863</text><text x="545" y="417">620</text><text x="1030" y="154">924</text><text x="78" y="579">0 · Zn</text><text x="220" y="579">0.032</text><text x="371" y="579">0.157</text><text x="552" y="579">0.49</text><text x="856" y="579">0.80</text><text x="1018" y="579">1 · Mg</text></g>
+<g font-size="22" font-weight="600"><text x="520" y="143">L</text><text x="289" y="356">L + C(s)</text><text x="476" y="341">L + C(s)</text><text x="830" y="322">L + Mg(s)</text><text x="144" y="495">Zn(s) + C(s)</text><text x="634" y="499">C(s) + Mg(s)</text><text x="344" y="278">C = MgZn₂</text></g>
+<text x="48" y="631" font-size="19">左端液相线下的窄带为 L+Zn(s)；液相线曲率只示意，两条水平线分别为 641 K、620 K 的三相共熔线。</text>
+<g class="axis"><path d="M70 684V847H377 M436 684V847H743 M802 684V847H1109"/></g>
+<g class="guide"><path d="M70 790H377 M436 790H743 M802 790H1109"/></g>
+<g class="curve"><path d="M94 704L164 749L256 790H316L353 829 M460 704L548 790H650L716 830 M826 704L891 745L972 790H1048L1085 830"/></g>
+<g font-size="20"><text x="84" y="673">w = 0.80</text><text x="450" y="673">w = 0.49（共熔组成）</text><text x="816" y="673">w = 0.30</text><text x="88" y="782">620 K</text><text x="454" y="782">620 K</text><text x="820" y="782">620 K</text><text x="109" y="879">先析 Mg → 共熔平台</text><text x="485" y="879">直接进入共熔平台</text><text x="836" y="879">先析 C → 共熔平台</text></g>
+</svg>

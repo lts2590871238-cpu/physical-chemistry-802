@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 660" role="img" aria-labelledby="title">
+  <title id="title">2005-Q29 相图重绘</title>
+  <style>
+    .ink,.dash{fill:none;stroke:#252525;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round}
+    .dash{stroke-dasharray:7 6}
+    text{font-family:"Noto Sans SC","Microsoft YaHei",Arial,sans-serif;font-size:20px;fill:#202020}
+  </style>
+  <rect width="100%" height="100%" fill="white"/>
+  <rect x="35" y="24" width="563" height="546" class="ink"/>
+  <path d="M35 315 C99 321 131 348 166 452" class="ink"/>
+  <path d="M35 315 C53 401 89 426 120 452" class="ink"/>
+  <path d="M35 570 C62 508 91 474 120 452" class="ink"/>
+  <path d="M166 452 C197 387 218 344 255 335 C294 323 314 358 355 380" class="ink"/>
+  <path d="M355 380 C370 271 387 244 394 246 C433 181 494 165 598 149" class="ink"/>
+  <path d="M120 452 L255 452" class="ink"/>
+  <path d="M255 335 L255 570" class="ink"/>
+  <path d="M255 380 L466 380" class="ink"/>
+  <path d="M394 246 L598 246" class="ink"/>
+  <path d="M466 246 L466 570" class="ink"/>
+  <text x="172" y="284" text-anchor="middle" font-weight="normal">1</text>
+  <text x="79" y="494" text-anchor="middle" font-weight="normal">2</text>
+  <text x="96" y="386" text-anchor="middle" font-weight="normal">3</text>
+  <text x="220" y="433" text-anchor="middle" font-weight="normal">4</text>
+  <text x="165" y="543" text-anchor="middle" font-weight="normal">5</text>
+  <text x="306" y="369" text-anchor="middle" font-weight="normal">6</text>
+  <text x="393" y="357" text-anchor="middle" font-weight="normal">7</text>
+  <text x="348" y="530" text-anchor="middle" font-weight="normal">8</text>
+  <text x="554" y="207" text-anchor="middle" font-weight="normal">9</text>
+  <text x="516" y="485" text-anchor="middle" font-weight="normal">10</text>
+  <text x="121" y="477" text-anchor="middle" font-weight="normal" font-size="18">a</text>
+  <text x="166" y="477" text-anchor="middle" font-weight="normal" font-size="18">b</text>
+  <text x="242" y="477" text-anchor="middle" font-weight="normal" font-size="18">c</text>
+  <text x="354" y="407" text-anchor="middle" font-weight="normal" font-size="18">d</text>
+  <text x="265" y="404" text-anchor="middle" font-weight="normal" font-size="18">e</text>
+  <text x="475" y="389" text-anchor="middle" font-weight="normal" font-size="18">f</text>
+  <text x="473" y="280" text-anchor="middle" font-weight="normal" font-size="18">j</text>
+  <text x="373" y="255" text-anchor="middle" font-weight="normal" font-size="18">n</text>
+  <text x="612" y="254" text-anchor="middle" font-weight="normal" font-size="18">m</text>
+  <text x="7" y="46" text-anchor="middle" font-weight="normal" font-size="25">T</text>
+  <text x="35" y="605" text-anchor="middle" font-weight="normal" font-size="25">A</text>
+  <text x="257" y="604" text-anchor="middle" font-weight="normal" font-size="23">C₁</text>
+  <text x="466" y="604" text-anchor="middle" font-weight="normal" font-size="23">C₂</text>
+  <text x="594" y="604" text-anchor="middle" font-weight="normal" font-size="25">B</text>
+  <path d="M214 614 L432 614" class="ink"/><path d="M422 609 L432 614 L422 619" class="ink"/>
+  <text x="323" y="647" text-anchor="middle" font-weight="normal" font-size="24">w_B</text>
+</svg>

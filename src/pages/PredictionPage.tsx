@@ -5,6 +5,7 @@ import { loadPrediction } from '../lib/data'
 import { predToUI, QuestionCard } from '../lib/QuestionCard'
 import { useStore } from '../lib/store'
 import RetryDayButton from '../components/RetryDayButton'
+import StudyPhoto from '../components/StudyPhoto'
 
 const SECTION_ORDER = ['choice', 'fill', 'short', 'calc'] as const
 const SECTION_LABEL: Record<string, string> = {
@@ -34,7 +35,9 @@ export default function PredictionPage() {
     ? (progress[q.id]?.selfScore ?? (progress[q.id]?.status === 'correct' ? q.score : 0)) : 0), 0)
 
   return (
-    <div className="page">
+    <div className="page study-layout">
+      <StudyPhoto file="prediction.jpg" alt="四只玩偶在一起" caption="完整做卷，最后再查漏补缺。" />
+      <div className="study-main">
       <header className="page-head">
         <h2 className="page-title">{p.meta.title}</h2>
         <p className="page-sub">{p.meta.source} 建议 {p.meta.time}，再回网页逐题核对自评。</p>
@@ -66,6 +69,7 @@ export default function PredictionPage() {
         </section>
       ))}
       <RetryDayButton ids={p.questions.map((q) => q.id)} />
+      </div>
     </div>
   )
 }
